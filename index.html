@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krishna Chemudupati | Electrical Engineer & Researcher</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background stars */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            color: #e8d5ff;
+        }
+
+        .hero-content .description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+            color: #f0e6ff;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.9s forwards;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            color: #333;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 20px 0;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #667eea;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-pic {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef, #a8edea, #fed6e3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(45deg, #a8edea, #fed6e3);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #ffecd2, #fcb69f);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-left: 2rem;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -3rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #667eea;
+        }
+
+        .experience-item h3 {
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .company {
+            color: #666;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .date {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .experience-item li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: linear-gradient(45deg, #ffecd2, #fcb69f);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(102, 126, 234, 0.2);
+            color: #333;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: #333;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #a8edea, #fed6e3);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated stars background -->
+    <div class="stars" id="stars"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo">Krishna Chemudupati</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Krishna Chemudupati</h1>
+            <p class="subtitle">Electrical Engineer & Device Physics Researcher</p>
+            <p class="description">
+                Pursuing MSE Electrical Engineering at UPenn | Specializing in semiconductor devices, 
+                autonomous systems, and machine learning applications
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="profile-pic">KC</div>
+                </div>
+                <div class="about-text">
+                    <p>
+                        I'm a passionate electrical engineer and researcher pursuing my MSE at the University of Pennsylvania 
+                        through the Vagelos Integrated Program in Energy Research. Currently working on cutting-edge research 
+                        in device physics and autonomous systems.
+                    </p>
+                    <p>
+                        My work spans from characterizing ferroelectric diodes for next-generation memory applications to 
+                        developing autonomous vehicle systems using ROS2. I'm particularly interested in the intersection 
+                        of hardware and software, bringing together my knowledge in semiconductor physics, machine learning, 
+                        and embedded systems.
+                    </p>
+                    <p>
+                        When I'm not in the lab, you'll find me mentoring students as a TA, working on aerospace projects, 
+                        or exploring new technologies. I'm always excited about projects that push the boundaries of what's possible.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming & Software</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">OCaml</span>
+                        <span class="skill-tag">Verilog</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Hardware & Design Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Altium</span>
+                        <span class="skill-tag">LTspice</span>
+                        <span class="skill-tag">Electric VLSI</span>
+                        <span class="skill-tag">Cadence</span>
+                        <span class="skill-tag">SolidWorks</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Machine Learning & Data</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">OpenCV</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Embedded & Robotics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ROS2</span>
+                        <span class="skill-tag">Arduino</span>
+                        <span class="skill-tag">NVIDIA Jetson</span>
+                        <span class="skill-tag">Raspberry Pi</span>
+                        <span class="skill-tag">CUDA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <h2>Research Experience</h2>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <h3>Device Physics Researcher</h3>
+                    <div class="company">Jariwala Lab - University of Pennsylvania</div>
+                    <div class="date">February 2025 – Present</div>
+                    <ul>
+                        <li>Characterized ferroelectric diode performance across multiple scales for non-volatile memory applications</li>
+                        <li>Co-first-authored manuscript on multilevel AlScN FeDs demonstrating robust behavior in 2KB crossbar configurations</li>
+                        <li>Trained and supervised junior researchers on electrical testing protocols and device handling</li>
+                        <li>Performed statistical analysis and delivered technical presentations to faculty groups</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Autonomous Systems Researcher</h3>
+                    <div class="company">Mangharam Lab - University of Pennsylvania</div>
+                    <div class="date">March 2025 – Present</div>
+                    <ul>
+                        <li>Developed ROS2-based autonomy stack for 1/18th scale self-driving F1 car</li>
+                        <li>Designed custom PCB for power routing, camera input, and sensor integration</li>
+                        <li>Implemented artificial LaserScan generation from RealSense depth camera for SLAM</li>
+                        <li>Optimized OpenCV lane detection pipeline on NVIDIA Jetson Orin Nano</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <h3>Propulsion & Avionics Engineer</h3>
+                    <div class="company">Penn Aerospace Club</div>
+                    <div class="date">September 2023 – Present</div>
+                    <ul>
+                        <li>Designed control surface actuation systems and wireless communication links</li>
+                        <li>Integrated propulsion, avionics, and autonomous flight subsystems</li>
+                        <li>Authored detailed design reports and flight readiness reviews</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Citadel-CorrelationOne Datathon Winner</h3>
+                    <p>1st Place Winner ($10,000) - Analyzed environmental and financial datasets to predict food production and stock performance using gradient boosting models.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Time Series</span>
+                        <span class="tech-tag">Feature Engineering</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>F1 Tyre Degradation Predictor</h3>
+                    <p>Engineered ML model to predict Formula 1 tyre degradation from lap telemetry using XGBoost and LSTM, achieving low RMSE through SHAP analysis.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">LSTM</span>
+                        <span class="tech-tag">SHAP</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Underwater Coral Maintenance ROV</h3>
+                    <p>Led development of remotely operated vehicle for underwater coral reef cleaning with integrated thruster control, sensor feedback, and robotic claws.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">SolidWorks</span>
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">Embedded Systems</span>
+                        <span class="tech-tag">Control Systems</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>64-bit SRAM Cell Design</h3>
+                    <p>Designed and laid out a 64-bit 6T SRAM using Electric VLSI with custom testbenches, achieving reliable bit storage and array scalability.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Electric VLSI</span>
+                        <span class="tech-tag">CMOS Design</span>
+                        <span class="tech-tag">Memory Arrays</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>Bandgap Reference Circuit</h3>
+                    <p>Currently designing BiCMOS bandgap voltage reference from first principles with PTAT/CTAT generators, op-amp control, and output buffer.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">LTSpice</span>
+                        <span class="tech-tag">Analog Design</span>
+                        <span class="tech-tag">BiCMOS</span>
+                        <span class="tech-tag">Git</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3>RISC-V Processor</h3>
+                    <p>Designed 5-stage pipelined RISC-V processor with instruction memory, register file, ALU, and hazard handling for FPGA deployment.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Verilog</span>
+                        <span class="tech-tag">FPGA</span>
+                        <span class="tech-tag">Pipeline Design</span>
+                        <span class="tech-tag">Computer Architecture</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Let's Connect</h2>
+            <div class="contact-content">
+                <p>I'm always interested in discussing new opportunities, research collaborations, or just connecting with fellow engineers and researchers.</p>
+                <div class="contact-links">
+                    <a href="mailto:krishkc@seas.upenn.edu" class="contact-link">
+                        <span>📧</span>
+                        <span>Email</span>
+                    </a>
+                    <a href="tel:+14078087141" class="contact-link">
+                        <span>📱</span>
+                        <span>Phone</span>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <span>💼</span>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="#" class="contact-link">
+                        <span>💻</span>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Generate animated stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const numberOfStars = 100;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialize stars when page loads
+        window.addEventListener('load', createStars);
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
