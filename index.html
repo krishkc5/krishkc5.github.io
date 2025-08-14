@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+/* Contact Section */<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,13 +13,29 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 25%, #2c3e50 50%, #1a252f 75%, #0f1419 100%);
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* Animated background stars */
+        /* Animated background network */
+        .network-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .network-canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Keep some stars for extra sparkle */
         .stars {
             position: fixed;
             top: 0;
@@ -32,11 +48,12 @@
 
         .star {
             position: absolute;
-            width: 2px;
-            height: 2px;
+            width: 1px;
+            height: 1px;
             background: rgba(255, 255, 255, 0.8);
             border-radius: 50%;
-            animation: twinkle 3s infinite;
+            animation: twinkle 4s infinite;
+            box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
         }
 
         @keyframes twinkle {
@@ -52,14 +69,15 @@
 
         /* Header */
         .header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(30, 39, 46, 0.95);
             backdrop-filter: blur(10px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
             padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav {
@@ -71,7 +89,7 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #667eea;
+            color: #a8edea;
         }
 
         .nav-links {
@@ -82,13 +100,13 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: #e8f4f8;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            color: #667eea;
+            color: #a8edea;
         }
 
         /* Hero Section */
@@ -114,7 +132,7 @@
             margin-bottom: 2rem;
             opacity: 0;
             animation: fadeInUp 1s ease 0.3s forwards;
-            color: #e8d5ff;
+            color: #b8e6f0;
         }
 
         .hero-content .description {
@@ -123,7 +141,7 @@
             max-width: 600px;
             opacity: 0;
             animation: fadeInUp 1s ease 0.6s forwards;
-            color: #f0e6ff;
+            color: #d5f2f7;
         }
 
         .cta-buttons {
@@ -184,7 +202,7 @@
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 3rem;
-            color: #667eea;
+            color: #4a6741;
         }
 
         /* About Section */
@@ -362,7 +380,83 @@
             font-size: 0.8rem;
         }
 
-        /* Contact Section */
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-post {
+            background: linear-gradient(45deg, #f8f9ff, #e8f4f8);
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-left: 4px solid transparent;
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            border-left-color: #a8edea;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-post .date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .blog-post h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-size: 1.3rem;
+        }
+
+        .blog-post .excerpt {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-tag {
+            background: rgba(168, 237, 234, 0.3);
+            color: #2c3e50;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .read-more {
+            color: #4a6741;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #a8edea;
+        }
+
+        .read-more::after {
+            content: ' →';
+            transition: transform 0.3s ease;
+        }
+
+        .blog-post:hover .read-more::after {
+            transform: translateX(3px);
+        }
         .contact-content {
             text-align: center;
         }
@@ -418,7 +512,12 @@
     </style>
 </head>
 <body>
-    <!-- Animated stars background -->
+    <!-- Animated network background -->
+    <div class="network-bg">
+        <canvas class="network-canvas" id="networkCanvas"></canvas>
+    </div>
+
+    <!-- Some stars for extra sparkle -->
     <div class="stars" id="stars"></div>
 
     <!-- Header -->
@@ -430,6 +529,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -637,6 +737,110 @@
         </div>
     </section>
 
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <div class="container">
+            <h2>Latest Blog Posts</h2>
+            <div class="blog-grid">
+                <article class="blog-post">
+                    <div class="date">March 15, 2025</div>
+                    <h3>Understanding Ferroelectric Memory: The Future of Non-Volatile Storage</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Memory Technology</span>
+                        <span class="blog-tag">Semiconductors</span>
+                        <span class="blog-tag">Research</span>
+                    </div>
+                    <p class="excerpt">
+                        Diving deep into my research on ferroelectric diodes (FeDs) and how they're revolutionizing 
+                        the landscape of non-volatile memory. From single devices to 2KB crossbar arrays, 
+                        exploring the challenges and breakthroughs in next-generation storage technology.
+                    </p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+
+                <article class="blog-post">
+                    <div class="date">March 8, 2025</div>
+                    <h3>Building Autonomous Systems: ROS2 and the Future of Self-Driving Cars</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Robotics</span>
+                        <span class="blog-tag">ROS2</span>
+                        <span class="blog-tag">Computer Vision</span>
+                    </div>
+                    <p class="excerpt">
+                        A technical walkthrough of developing a full autonomy stack for our 1/18th scale F1 car. 
+                        Covering everything from SLAM implementation to real-time lane detection using OpenCV 
+                        and NVIDIA Jetson optimization techniques.
+                    </p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+
+                <article class="blog-post">
+                    <div class="date">February 28, 2025</div>
+                    <h3>From Idea to Victory: Winning the Citadel Datathon with ML</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Machine Learning</span>
+                        <span class="blog-tag">Data Science</span>
+                        <span class="blog-tag">Competition</span>
+                    </div>
+                    <p class="excerpt">
+                        Breaking down our winning strategy for the Citadel-CorrelationOne Summer Datathon. 
+                        How we used gradient boosting models and environmental feature engineering to predict 
+                        food production and fast food stock performance for the $10,000 prize.
+                    </p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+
+                <article class="blog-post">
+                    <div class="date">February 20, 2025</div>
+                    <h3>VLSI Design Fundamentals: Creating My First 64-bit SRAM</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">VLSI</span>
+                        <span class="blog-tag">Circuit Design</span>
+                        <span class="blog-tag">Tutorial</span>
+                    </div>
+                    <p class="excerpt">
+                        A beginner-friendly guide to VLSI design through my experience creating a 64-bit 6T SRAM 
+                        using Electric VLSI. Covering layout design, simulation techniques, and the importance 
+                        of timing analysis in memory circuits.
+                    </p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+
+                <article class="blog-post">
+                    <div class="date">February 12, 2025</div>
+                    <h3>The Art of Analog Design: Building a Bandgap Reference from Scratch</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Analog Design</span>
+                        <span class="blog-tag">BiCMOS</span>
+                        <span class="blog-tag">Circuit Theory</span>
+                    </div>
+                    <p class="excerpt">
+                        Exploring the fundamental principles behind bandgap voltage references. A deep dive into 
+                        PTAT and CTAT voltage generation, op-amp design considerations, and achieving temperature 
+                        independence in analog circuits.
+                    </p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+
+                <article class="blog-post">
+                    <div class="date">February 5, 2025</div>
+                    <h3>Teaching Programming: Lessons from Being a TA at Penn</h3>
+                    <div class="blog-tags">
+                        <span class="blog-tag">Teaching</span>
+                        <span class="blog-tag">Python</span>
+                        <span class="blog-tag">Education</span>
+                    </div>
+                    <p class="excerpt">
+                        Reflections on my experience as an undergraduate TA for CIS 1100 and ESE 1120. 
+                        Sharing effective strategies for teaching programming concepts, debugging techniques, 
+                        and helping students overcome common learning obstacles.
+                    </p>
+                    <a href="#" class="read-more">Read More</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
@@ -666,18 +870,151 @@
     </section>
 
     <script>
-        // Generate animated stars
+        // Generate fewer, smaller stars for subtle effect
         function createStars() {
             const starsContainer = document.getElementById('stars');
-            const numberOfStars = 100;
+            const numberOfStars = 50; // Reduced from 100
 
             for (let i = 0; i < numberOfStars; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
                 star.style.left = Math.random() * 100 + '%';
                 star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDelay = Math.random() * 4 + 's';
                 starsContainer.appendChild(star);
+            }
+        }
+
+        // Animated network background
+        class NetworkBackground {
+            constructor(canvas) {
+                this.canvas = canvas;
+                this.ctx = canvas.getContext('2d');
+                this.nodes = [];
+                this.connections = [];
+                this.mousePos = { x: 0, y: 0 };
+                
+                this.resize();
+                this.createNodes();
+                this.animate();
+                
+                // Handle resize
+                window.addEventListener('resize', () => this.resize());
+                
+                // Track mouse for interactive effects (make sure it works on the whole page)
+                document.addEventListener('mousemove', (e) => {
+                    this.mousePos.x = e.clientX;
+                    this.mousePos.y = e.clientY;
+                });
+            }
+            
+            resize() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            }
+            
+            createNodes() {
+                const nodeCount = Math.floor((window.innerWidth * window.innerHeight) / 15000); // Responsive node count
+                this.nodes = [];
+                
+                for (let i = 0; i < nodeCount; i++) {
+                    this.nodes.push({
+                        x: Math.random() * this.canvas.width,
+                        y: Math.random() * this.canvas.height,
+                        vx: (Math.random() - 0.5) * 0.5, // Slow movement
+                        vy: (Math.random() - 0.5) * 0.5,
+                        radius: Math.random() * 2 + 1
+                    });
+                }
+            }
+            
+            updateNodes() {
+                this.nodes.forEach(node => {
+                    // Update position
+                    node.x += node.vx;
+                    node.y += node.vy;
+                    
+                    // Bounce off edges
+                    if (node.x < 0 || node.x > this.canvas.width) node.vx *= -1;
+                    if (node.y < 0 || node.y > this.canvas.height) node.vy *= -1;
+                    
+                    // Keep nodes in bounds
+                    node.x = Math.max(0, Math.min(this.canvas.width, node.x));
+                    node.y = Math.max(0, Math.min(this.canvas.height, node.y));
+                });
+            }
+            
+            drawNodes() {
+                this.ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+                this.nodes.forEach(node => {
+                    this.ctx.beginPath();
+                    this.ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+                    this.ctx.fill();
+                    
+                    // Add subtle glow effect
+                    this.ctx.shadowColor = 'rgba(255, 255, 255, 0.5)';
+                    this.ctx.shadowBlur = 3;
+                    this.ctx.fill();
+                    this.ctx.shadowBlur = 0;
+                });
+            }
+            
+            drawConnections() {
+                const maxDistance = 120;
+                this.ctx.lineWidth = 0.5;
+                
+                for (let i = 0; i < this.nodes.length; i++) {
+                    for (let j = i + 1; j < this.nodes.length; j++) {
+                        const dx = this.nodes[i].x - this.nodes[j].x;
+                        const dy = this.nodes[i].y - this.nodes[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        
+                        if (distance < maxDistance) {
+                            const opacity = (1 - distance / maxDistance) * 0.25;
+                            this.ctx.strokeStyle = `rgba(200, 220, 240, ${opacity})`;
+                            this.ctx.beginPath();
+                            this.ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
+                            this.ctx.lineTo(this.nodes[j].x, this.nodes[j].y);
+                            this.ctx.stroke();
+                        }
+                    }
+                }
+            }
+            
+            drawMouseConnections() {
+                const maxDistance = 150;
+                this.ctx.lineWidth = 1;
+                
+                this.nodes.forEach(node => {
+                    const dx = node.x - this.mousePos.x;
+                    const dy = node.y - this.mousePos.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < maxDistance) {
+                        const opacity = (1 - distance / maxDistance) * 0.6;
+                        this.ctx.strokeStyle = `rgba(168, 237, 234, ${opacity})`;
+                        this.ctx.shadowColor = 'rgba(168, 237, 234, 0.3)';
+                        this.ctx.shadowBlur = 2;
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(node.x, node.y);
+                        this.ctx.lineTo(this.mousePos.x, this.mousePos.y);
+                        this.ctx.stroke();
+                        this.ctx.shadowBlur = 0;
+                    }
+                });
+            }
+            
+            animate() {
+                // Clear canvas
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                
+                // Update and draw
+                this.updateNodes();
+                this.drawConnections();
+                this.drawMouseConnections();
+                this.drawNodes();
+                
+                requestAnimationFrame(() => this.animate());
             }
         }
 
@@ -695,16 +1032,22 @@
             });
         });
 
-        // Initialize stars when page loads
-        window.addEventListener('load', createStars);
+        // Initialize stars and network when page loads
+        window.addEventListener('load', () => {
+            createStars();
+            
+            // Initialize network background
+            const canvas = document.getElementById('networkCanvas');
+            new NetworkBackground(canvas);
+        });
 
         // Add scroll effect to header
         window.addEventListener('scroll', function() {
             const header = document.querySelector('.header');
             if (window.scrollY > 50) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.background = 'rgba(20, 29, 36, 0.98)';
             } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.background = 'rgba(30, 39, 46, 0.95)';
             }
         });
     </script>
