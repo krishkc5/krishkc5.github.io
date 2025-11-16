@@ -1,99 +1,84 @@
-# Krishna Chemudupati - Personal Portfolio
+# Krishna's Portfolio Website
 
-A modern, performant personal portfolio website for showcasing research, projects, and blog posts.
+Professional portfolio website with integrated blog system powered by Firebase.
 
-## Features
+## 🌐 Live Site
 
-- **Modern Design**: Clean, professional interface with dark theme
-- **Interactive Background**: Canvas-based particle network animation
+**Portfolio**: [https://krishkc5.github.io](https://krishkc5.github.io)
+
+**Admin Panel**: [https://krishkc5.github.io/admin-firebase.html](https://krishkc5.github.io/admin-firebase.html)
+
+## ✨ Features
+
+- **Clean, Professional Design**: Modern dark theme with Inter font
+- **Animated Background**: Canvas-based particle animation with performance optimization
+- **Firebase Blog**: Real-time blog post management
+- **Secure Admin Panel**: Firebase Authentication
 - **Responsive**: Mobile-first design that works on all devices
-- **Accessibility**: ARIA labels, semantic HTML, keyboard navigation
-- **Performance Optimized**:
-  - Visibility API to pause animations when tab is inactive
-  - Efficient particle system with O(n²) connection algorithm
-  - Modular code split into separate CSS/JS files
-- **Blog Management**: Admin interface for creating and managing blog posts
-- **Security**: Input sanitization and validation throughout
+- **Fast**: Optimized performance, GitHub Pages hosting
+- **Free**: No hosting costs, Firebase free tier
+- **Accessible**: ARIA labels, semantic HTML, keyboard navigation
 
-## Project Structure
+## 🚀 Quick Start
+
+### For Visitors
+Just visit [https://krishkc5.github.io](https://krishkc5.github.io)
+
+### For You (Admin)
+
+**First Time Setup** (~10 minutes):
+1. Follow [FIREBASE_SETUP.md](FIREBASE_SETUP.md) for step-by-step Firebase configuration
+2. Create your admin account in Firebase Console
+3. Update `firebase-config.js` with your Firebase credentials
+
+**Managing Blog Posts**:
+1. Go to [admin-firebase.html](https://krishkc5.github.io/admin-firebase.html)
+2. Login with your Firebase credentials
+3. Create, edit, or delete posts
+4. Posts appear automatically on the homepage
+
+**Quick Reference**: See [FIREBASE_QUICK.md](FIREBASE_QUICK.md)
+
+## 📁 Project Structure
 
 ```
-personal_website/
-├── index.html           # Main portfolio page
-├── admin.html          # Blog admin interface
-├── styles.css          # Main portfolio styles
-├── admin-styles.css    # Admin interface styles
-├── script.js           # Main portfolio JavaScript
-├── admin.js            # Admin interface logic
-└── README.md           # This file
+.
+├── index.html              # Main portfolio page
+├── admin-firebase.html     # Blog admin panel (Firebase)
+├── firebase-config.js      # Firebase configuration
+├── styles.css             # Website styling
+├── script.js              # Canvas background animation
+├── FIREBASE_SETUP.md      # Complete Firebase setup guide
+├── FIREBASE_QUICK.md      # Quick reference
+└── README.md              # This file
 ```
 
-## Getting Started
+## 🔧 Technology Stack
 
-### Viewing the Portfolio
+**Frontend:**
+- HTML5, CSS3 (Grid, Flexbox)
+- Vanilla JavaScript (ES6+)
+- Canvas API for animations
+- Inter font from Google Fonts
 
-Simply open `index.html` in a web browser.
+**Backend:**
+- Firebase Firestore (Database)
+- Firebase Authentication (Login)
 
-### Setting Up Blog Admin
+**Hosting:**
+- GitHub Pages (Free)
 
-1. Open `admin.html` in a web browser
-2. Open the browser console (F12)
-3. Run the following command to set your admin password:
-   ```javascript
-   await setupAdminPassword("your-secure-password-here")
-   ```
-4. Login with:
-   - Username: `admin`
-   - Password: `your-secure-password-here`
+## 💰 Cost
 
-### Creating Blog Posts
+**Total: $0/month**
 
-1. Log into the admin interface
-2. Click "New Post" tab
-3. Fill in the form:
-   - Title (required)
-   - Date (required)
-   - Tags (press Enter to add)
-   - Excerpt (required, max 500 characters)
-   - Content (required)
-4. Click "Preview" to see how it will look
-5. Click "Save Post" to publish
+Firebase free tier includes:
+- 50,000 reads/day
+- 20,000 writes/day
+- 1 GB storage
+- Unlimited authentication
 
-### Managing Posts
-
-1. Click "Manage Posts" tab
-2. View all published posts
-3. Click "Edit" to modify a post
-4. Click "Delete" to remove a post (with confirmation)
-
-## Security Notes
-
-**IMPORTANT**: The current blog admin system uses client-side authentication, which is **NOT SECURE for production use**. This is intended for personal use only.
-
-### Current Limitations:
-
-- Password hash stored in browser localStorage (accessible to anyone)
-- No server-side validation
-- No rate limiting
-- Blog posts stored only in localStorage (can be lost)
-
-### For Production Use:
-
-You should implement a proper backend with:
-- Server-side authentication (JWT, sessions, OAuth)
-- Database storage (PostgreSQL, MongoDB, etc.)
-- API endpoints for CRUD operations
-- HTTPS/TLS encryption
-- CSRF protection
-- Rate limiting
-- Input validation and sanitization on the server
-
-### Recommended Tech Stack:
-
-- **Backend**: Node.js + Express, Python + Flask/FastAPI, or similar
-- **Database**: PostgreSQL, MongoDB, or Firebase
-- **Auth**: Passport.js, Auth0, or Firebase Auth
-- **Hosting**: Vercel, Netlify, Heroku, or AWS
+For a personal portfolio, you'll never exceed these limits.
 
 ## Customization
 
@@ -168,64 +153,70 @@ Requires:
 - Color contrast compliance
 - Responsive text sizing
 
-## Deployment
+## 🚀 Deployment
 
-### GitHub Pages
+### Update Site
+```bash
+# Make changes to files
+git add .
+git commit -m "Update portfolio"
+git push origin main
+```
 
-1. Create a repository named `username.github.io`
-2. Push your code to the `main` branch
-3. Enable GitHub Pages in repository settings
-4. Your site will be live at `https://username.github.io`
+Changes appear in ~1 minute at [https://krishkc5.github.io](https://krishkc5.github.io)
 
-### Netlify
+### Firebase Setup
+See [FIREBASE_SETUP.md](FIREBASE_SETUP.md) for complete instructions.
 
-1. Create account at netlify.com
-2. Drag and drop your project folder
-3. Site will be deployed instantly
+## 🆘 Troubleshooting
 
-### Vercel
+**Posts not showing?**
+- Check that posts are marked as "Published"
+- Verify `firebase-config.js` has correct credentials
+- Check browser console for errors
 
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run `vercel` in project directory
-3. Follow prompts
+**Can't login to admin?**
+- Verify user exists in Firebase Console → Authentication
+- Check Email/Password provider is enabled
+- Try password reset in Firebase Console
 
-## Future Enhancements
+**Firebase errors?**
+- Check Firestore security rules are configured correctly
+- Verify Firebase project is active
+- Check network connectivity
 
-- [ ] Implement proper backend authentication
-- [ ] Add database for blog posts
-- [ ] Create individual blog post pages
-- [ ] Add image upload functionality
-- [ ] Implement markdown support for blog content
-- [ ] Add search functionality
-- [ ] Include analytics integration
-- [ ] Add RSS feed for blog
-- [ ] Implement comments system
-- [ ] Add dark/light theme toggle
+See [FIREBASE_SETUP.md](FIREBASE_SETUP.md) troubleshooting section for more help.
 
-## License
+## 📚 Documentation
 
-© 2025 Krishna Chemudupati. All rights reserved.
+- [FIREBASE_SETUP.md](FIREBASE_SETUP.md) - Complete Firebase setup guide (10 minutes)
+- [FIREBASE_QUICK.md](FIREBASE_QUICK.md) - Quick reference for common tasks
+- [SIMPLE_DEPLOY.md](SIMPLE_DEPLOY.md) - Alternative deployment options
 
-## Contact
+## 🎯 Future Enhancements
 
+Possible additions:
+- [ ] Rich text editor (TinyMCE/Quill) for blog posts
+- [ ] Image upload to Firebase Storage
+- [ ] Blog post comments
+- [ ] Search functionality
+- [ ] RSS feed
+- [ ] Blog post categories/archive
+- [ ] Analytics dashboard
+- [ ] Custom domain
+- [ ] Individual blog post pages with unique URLs
+
+## 📧 Contact
+
+**Krishna Chemudupati**
 - Email: krishkc@seas.upenn.edu
-- Phone: +1 (407) 808-7141
-- LinkedIn: [Add your link]
-- GitHub: [Add your link]
+- Phone: (407) 808-7141
+- GitHub: [krishkc5](https://github.com/krishkc5)
 
-## Changelog
+## 📄 License
 
-### Version 2.0.0 (Current)
-- Complete redesign with modern, authentic styling
-- Modular code structure (separate CSS/JS files)
-- Improved security with input sanitization
-- Enhanced accessibility features
-- Performance optimizations (visibility API, efficient algorithms)
-- Better error handling and validation
-- Comprehensive documentation
+This is a personal portfolio website. Feel free to use the structure as inspiration for your own portfolio.
 
-### Version 1.0.0
-- Initial release with single-file architecture
-- Basic blog functionality
-- Animated background
-- Responsive design
+---
+
+**Built with Firebase, JavaScript, and GitHub Pages**
