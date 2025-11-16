@@ -1,6 +1,6 @@
 ---
 icon: 📱
 label: Phone
-link: tel:+14078087141
+link: tel:+1 4078087141
 order: 2
 ---
