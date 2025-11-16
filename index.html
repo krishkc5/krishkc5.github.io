@@ -173,16 +173,19 @@
                 if (skillItems.length > 0) {
                     skillsContainer.innerHTML = skillItems
                         .sort((a, b) => (a.order || 999) - (b.order || 999))
-                        .map(item => `
+                        .map(item => {
+                            const skillList = item.skills || item.items || [];
+                            return `
                             <div class="skill-card">
                                 <h3>${escapeHtml(item.title || 'Skills')}</h3>
                                 <div class="skill-tags">
-                                    ${item.skills ? item.skills.map(skill =>
+                                    ${Array.isArray(skillList) ? skillList.map(skill =>
                                         `<span class="skill-tag">${escapeHtml(skill)}</span>`
                                     ).join('') : ''}
                                 </div>
                             </div>
-                        `).join('');
+                        `;
+                        }).join('');
                 } else {
                     skillsContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2rem;">Content coming soon...</p>';
                 }

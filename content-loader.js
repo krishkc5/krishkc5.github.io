@@ -8,22 +8,70 @@ class ContentLoader {
     parseMarkdown(md) {
         if (!md) return '';
 
-        let html = md
-            // Headers
-            .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-            .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-            .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+        // Trim the markdown
+        md = md.trim();
+
+        // Split into blocks (paragraphs, lists, etc.)
+        const lines = md.split('\n');
+        let html = '';
+        let inList = false;
+        let currentParagraph = '';
+
+        for (let i = 0; i < lines.length; i++) {
+            const line = lines[i];
+
+            // Handle list items
+            if (line.trim().startsWith('* ') || line.trim().startsWith('- ')) {
+                if (currentParagraph) {
+                    html += `<p>${this.parseInline(currentParagraph)}</p>`;
+                    currentParagraph = '';
+                }
+                if (!inList) {
+                    html += '<ul>';
+                    inList = true;
+                }
+                html += `<li>${this.parseInline(line.trim().substring(2))}</li>`;
+            } else if (line.trim() === '') {
+                // Empty line - end current paragraph
+                if (currentParagraph) {
+                    html += `<p>${this.parseInline(currentParagraph)}</p>`;
+                    currentParagraph = '';
+                }
+                if (inList) {
+                    html += '</ul>';
+                    inList = false;
+                }
+            } else {
+                // Regular text - add to current paragraph
+                if (inList) {
+                    html += '</ul>';
+                    inList = false;
+                }
+                if (currentParagraph) currentParagraph += ' ';
+                currentParagraph += line.trim();
+            }
+        }
+
+        // Close any remaining paragraph or list
+        if (currentParagraph) {
+            html += `<p>${this.parseInline(currentParagraph)}</p>`;
+        }
+        if (inList) {
+            html += '</ul>';
+        }
+
+        return html;
+    }
+
+    // Parse inline markdown (bold, italic, links)
+    parseInline(text) {
+        return text
             // Bold
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-            // Italic
-            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+            // Italic (but not if part of **)
+            .replace(/\*(?!\*)(.*?)\*/g, '<em>$1</em>')
             // Links
-            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
-            // Line breaks
-            .replace(/\n\n/g, '</p><p>')
-            .replace(/\n/g, '<br>');
-
-        return `<p>${html}</p>`;
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
     }
 
     // Parse frontmatter (YAML-like format at top of markdown files)
