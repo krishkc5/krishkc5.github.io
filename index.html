@@ -153,7 +153,7 @@
         document.addEventListener('DOMContentLoaded', async () => {
             // Load About section
             try {
-                const aboutItems = await contentLoader.loadFolder('about');
+                const aboutItems = await contentLoader.loadFolder('content/about');
                 const aboutContainer = document.getElementById('aboutContent');
                 if (aboutItems.length > 0) {
                     aboutContainer.innerHTML = aboutItems
@@ -168,16 +168,16 @@
 
             // Load Skills section
             try {
-                const skillItems = await contentLoader.loadFolder('skills');
+                const skillItems = await contentLoader.loadFolder('content/skills');
                 const skillsContainer = document.getElementById('skillsContent');
                 if (skillItems.length > 0) {
                     skillsContainer.innerHTML = skillItems
-                        .sort((a, b) => (a.metadata.order || 999) - (b.metadata.order || 999))
+                        .sort((a, b) => (a.order || 999) - (b.order || 999))
                         .map(item => `
                             <div class="skill-card">
-                                <h3>${escapeHtml(item.metadata.title || 'Skills')}</h3>
+                                <h3>${escapeHtml(item.title || 'Skills')}</h3>
                                 <div class="skill-tags">
-                                    ${item.metadata.skills ? item.metadata.skills.map(skill =>
+                                    ${item.skills ? item.skills.map(skill =>
                                         `<span class="skill-tag">${escapeHtml(skill)}</span>`
                                     ).join('') : ''}
                                 </div>
@@ -192,16 +192,16 @@
 
             // Load Experience section
             try {
-                const experienceItems = await contentLoader.loadFolder('experience');
+                const experienceItems = await contentLoader.loadFolder('content/experience');
                 const experienceContainer = document.getElementById('experienceContent');
                 if (experienceItems.length > 0) {
                     experienceContainer.innerHTML = experienceItems
-                        .sort((a, b) => (a.metadata.order || 999) - (b.metadata.order || 999))
+                        .sort((a, b) => (a.order || 999) - (b.order || 999))
                         .map(item => `
                             <div class="timeline-item">
-                                <h3>${escapeHtml(item.metadata.title || 'Position')}</h3>
-                                <div class="company">${escapeHtml(item.metadata.company || '')}</div>
-                                <div class="date">${escapeHtml(item.metadata.date || '')}</div>
+                                <h3>${escapeHtml(item.title || 'Position')}</h3>
+                                <div class="company">${escapeHtml(item.company || '')}</div>
+                                <div class="date">${escapeHtml(item.date || '')}</div>
                                 ${item.content}
                             </div>
                         `).join('');
@@ -214,18 +214,18 @@
 
             // Load Projects section
             try {
-                const projectItems = await contentLoader.loadFolder('projects');
+                const projectItems = await contentLoader.loadFolder('content/projects');
                 const projectsContainer = document.getElementById('projectsContent');
                 if (projectItems.length > 0) {
                     projectsContainer.innerHTML = projectItems
-                        .sort((a, b) => (a.metadata.order || 999) - (b.metadata.order || 999))
+                        .sort((a, b) => (a.order || 999) - (b.order || 999))
                         .map(item => `
                             <article class="project-card">
-                                <h3>${escapeHtml(item.metadata.title || 'Project')}</h3>
+                                <h3>${escapeHtml(item.title || 'Project')}</h3>
                                 ${item.content}
-                                ${item.metadata.tags && item.metadata.tags.length > 0 ? `
+                                ${item.tags && item.tags.length > 0 ? `
                                     <div class="tech-tags">
-                                        ${item.metadata.tags.map(tag =>
+                                        ${item.tags.map(tag =>
                                             `<span class="tech-tag">${escapeHtml(tag)}</span>`
                                         ).join('')}
                                     </div>
