@@ -258,45 +258,10 @@
         <div class="container">
             <h2>Recent Writing</h2>
             <div class="blog-grid" id="blogContainer">
-                <!-- Blog posts will be loaded here -->
-                <article class="blog-card">
-                    <div class="date">March 15, 2025</div>
-                    <h3>Ferroelectric Memory: Next-Gen Non-Volatile Storage</h3>
-                    <div class="blog-tags">
-                        <span class="blog-tag">Memory Tech</span>
-                        <span class="blog-tag">Semiconductors</span>
-                    </div>
-                    <p class="excerpt">
-                        Deep dive into ferroelectric diodes and how they're changing the landscape of
-                        non-volatile memory. From single devices to crossbar arrays.
-                    </p>
-                </article>
-
-                <article class="blog-card">
-                    <div class="date">March 8, 2025</div>
-                    <h3>Building Autonomous Systems with ROS2</h3>
-                    <div class="blog-tags">
-                        <span class="blog-tag">Robotics</span>
-                        <span class="blog-tag">ROS2</span>
-                    </div>
-                    <p class="excerpt">
-                        Technical walkthrough of developing a complete autonomy stack for a 1/18th scale F1 car.
-                        SLAM, lane detection, and real-time optimization.
-                    </p>
-                </article>
-
-                <article class="blog-card">
-                    <div class="date">February 28, 2025</div>
-                    <h3>Winning the Citadel Datathon</h3>
-                    <div class="blog-tags">
-                        <span class="blog-tag">ML</span>
-                        <span class="blog-tag">Competition</span>
-                    </div>
-                    <p class="excerpt">
-                        How we used gradient boosting and environmental feature engineering to predict
-                        food production and stock performance for the $10k prize.
-                    </p>
-                </article>
+                <!-- Blog posts will be loaded from Firebase -->
+                <p style="color: var(--text-muted); text-align: center; padding: 2rem;">
+                    Loading posts...
+                </p>
             </div>
         </div>
     </section>
@@ -361,17 +326,21 @@
                                 month: 'long',
                                 day: 'numeric'
                             }) : 'Recent'}</div>
-                            <h3>${escapeHtml(post.title)}</h3>
+                            <h3>${escapeHtml(post.title || 'Untitled')}</h3>
+                            ${post.tags && post.tags.length > 0 ? `
                             <div class="blog-tags">
                                 ${post.tags.map(tag => `<span class="blog-tag">${escapeHtml(tag)}</span>`).join('')}
                             </div>
-                            <p class="excerpt">${escapeHtml(post.excerpt)}</p>
+                            ` : ''}
+                            <p class="excerpt">${escapeHtml(post.excerpt || 'No excerpt available')}</p>
                         </article>
                     `).join('');
+                } else {
+                    blogContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2rem;">No blog posts yet. Check back soon!</p>';
                 }
             } catch (error) {
                 console.error('Error loading blog posts:', error);
-                // Keep the default placeholder posts if Firebase fails
+                blogContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2rem;">Unable to load posts. Please try again later.</p>';
             }
         });
 
