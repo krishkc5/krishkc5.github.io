@@ -330,38 +330,57 @@
         </div>
     </section>
 
-    <script src="api-client.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- Firebase Config -->
+    <script src="firebase-config.js"></script>
+
     <script src="script.js"></script>
     <script>
-        // Load blog posts from API when page loads
+        // Load blog posts from Firebase when page loads
         document.addEventListener('DOMContentLoaded', async () => {
             const blogContainer = document.getElementById('blogContainer');
-            const api = new BlogAPI(window.location.origin + '/api');
 
             try {
-                const posts = await api.getPosts();
+                const snapshot = await db.collection('posts')
+                    .where('published', '==', true)
+                    .orderBy('createdAt', 'desc')
+                    .limit(6)
+                    .get();
+
+                const posts = [];
+                snapshot.forEach(doc => posts.push({ id: doc.id, ...doc.data() }));
 
                 if (posts && posts.length > 0) {
-                    blogContainer.innerHTML = posts.slice(0, 6).map(post => `
+                    blogContainer.innerHTML = posts.map(post => `
                         <article class="blog-card">
-                            <div class="date">${new Date(post.date).toLocaleDateString('en-US', {
+                            <div class="date">${post.createdAt ? new Date(post.createdAt.toDate()).toLocaleDateString('en-US', {
                                 year: 'numeric',
                                 month: 'long',
                                 day: 'numeric'
-                            })}</div>
-                            <h3>${post.title}</h3>
+                            }) : 'Recent'}</div>
+                            <h3>${escapeHtml(post.title)}</h3>
                             <div class="blog-tags">
-                                ${post.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
+                                ${post.tags.map(tag => `<span class="blog-tag">${escapeHtml(tag)}</span>`).join('')}
                             </div>
-                            <p class="excerpt">${post.excerpt}</p>
+                            <p class="excerpt">${escapeHtml(post.excerpt)}</p>
                         </article>
                     `).join('');
                 }
             } catch (error) {
                 console.error('Error loading blog posts:', error);
-                // Keep the default placeholder posts if API fails
+                // Keep the default placeholder posts if Firebase fails
             }
         });
+
+        // Helper function to escape HTML
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
     </script>
 </body>
 </html>

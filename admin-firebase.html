@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Admin - Krishna's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0e27;
+            --surface: #1a1f3a;
+            --border: #2d3561;
+            --text-light: #e4e6eb;
+            --text-muted: #9ca3af;
+            --accent-blue: #4a90e2;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .auth-section {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            max-width: 400px;
+            margin: 4rem auto;
+        }
+
+        .admin-section {
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent-blue);
+            color: white;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background: #3a7bc8;
+        }
+
+        .btn-success {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .btn-small {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+
+        .error {
+            color: var(--accent-red);
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .success {
+            color: var(--accent-green);
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .editor-section, .posts-section {
+            background: var(--surface);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .post-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .post-item:last-child {
+            border-bottom: none;
+        }
+
+        .post-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .tag-input {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            min-height: 50px;
+        }
+
+        .tag {
+            background: var(--accent-blue);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .tag button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        #tagInputField {
+            border: none;
+            background: none;
+            color: var(--text-light);
+            outline: none;
+            flex: 1;
+            min-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div class="auth-section" id="authSection">
+        <h1 style="margin-bottom: 1.5rem;">🔐 Blog Admin</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="admin@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <div id="authError" class="error"></div>
+        </form>
+    </div>
+
+    <!-- Admin Interface -->
+    <div class="container admin-section" id="adminSection">
+        <div class="header">
+            <h1>📝 Blog Admin</h1>
+            <div>
+                <span id="userEmail" style="margin-right: 1rem; color: var(--text-muted);"></span>
+                <button class="btn btn-danger btn-small" onclick="logout()">Logout</button>
+            </div>
+        </div>
+
+        <!-- Post Editor -->
+        <div class="editor-section">
+            <h2 style="margin-bottom: 1.5rem;">Create/Edit Post</h2>
+            <form id="postForm">
+                <input type="hidden" id="postId">
+
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" placeholder="Post title" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="excerpt">Excerpt</label>
+                    <textarea id="excerpt" placeholder="Short description of your post" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea id="content" placeholder="Full post content" style="min-height: 300px;"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Tags</label>
+                    <div class="tag-input" id="tagContainer">
+                        <input type="text" id="tagInputField" placeholder="Type and press Enter">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="published" checked style="width: auto; margin-right: 0.5rem;">
+                        Published
+                    </label>
+                </div>
+
+                <div style="display: flex; gap: 1rem;">
+                    <button type="submit" class="btn btn-success">Save Post</button>
+                    <button type="button" class="btn btn-primary" onclick="resetForm()">New Post</button>
+                </div>
+                <div id="formMessage"></div>
+            </form>
+        </div>
+
+        <!-- Posts List -->
+        <div class="posts-section">
+            <h2 style="margin-bottom: 1.5rem;">Your Posts</h2>
+            <div id="postsList"></div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <!-- Firebase Config -->
+    <script src="firebase-config.js"></script>
+
+    <script>
+        let currentTags = [];
+        let currentUser = null;
+
+        // Auth state listener
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                currentUser = user;
+                document.getElementById('authSection').style.display = 'none';
+                document.getElementById('adminSection').style.display = 'block';
+                document.getElementById('userEmail').textContent = user.email;
+                loadPosts();
+            } else {
+                currentUser = null;
+                document.getElementById('authSection').style.display = 'block';
+                document.getElementById('adminSection').style.display = 'none';
+            }
+        });
+
+        // Login
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                await auth.signInWithEmailAndPassword(email, password);
+                document.getElementById('authError').textContent = '';
+            } catch (error) {
+                document.getElementById('authError').textContent = error.message;
+            }
+        });
+
+        // Logout
+        function logout() {
+            auth.signOut();
+        }
+
+        // Tag management
+        document.getElementById('tagInputField').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const tag = e.target.value.trim();
+                if (tag && !currentTags.includes(tag)) {
+                    currentTags.push(tag);
+                    renderTags();
+                    e.target.value = '';
+                }
+            }
+        });
+
+        function renderTags() {
+            const container = document.getElementById('tagContainer');
+            const input = document.getElementById('tagInputField');
+            container.innerHTML = '';
+
+            currentTags.forEach(tag => {
+                const tagEl = document.createElement('div');
+                tagEl.className = 'tag';
+                tagEl.innerHTML = `
+                    ${tag}
+                    <button onclick="removeTag('${tag}')" type="button">&times;</button>
+                `;
+                container.appendChild(tagEl);
+            });
+
+            container.appendChild(input);
+        }
+
+        function removeTag(tag) {
+            currentTags = currentTags.filter(t => t !== tag);
+            renderTags();
+        }
+
+        // Save post
+        document.getElementById('postForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const postId = document.getElementById('postId').value;
+            const postData = {
+                title: document.getElementById('title').value,
+                excerpt: document.getElementById('excerpt').value,
+                content: document.getElementById('content').value,
+                tags: currentTags,
+                published: document.getElementById('published').checked,
+                updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+            };
+
+            try {
+                if (postId) {
+                    // Update existing post
+                    await db.collection('posts').doc(postId).update(postData);
+                    document.getElementById('formMessage').innerHTML = '<p class="success">✅ Post updated!</p>';
+                } else {
+                    // Create new post
+                    postData.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+                    postData.authorId = currentUser.uid;
+                    await db.collection('posts').add(postData);
+                    document.getElementById('formMessage').innerHTML = '<p class="success">✅ Post created!</p>';
+                    resetForm();
+                }
+                loadPosts();
+            } catch (error) {
+                document.getElementById('formMessage').innerHTML = `<p class="error">❌ Error: ${error.message}</p>`;
+            }
+        });
+
+        // Load posts
+        async function loadPosts() {
+            const postsContainer = document.getElementById('postsList');
+            postsContainer.innerHTML = '<p style="color: var(--text-muted);">Loading...</p>';
+
+            try {
+                const snapshot = await db.collection('posts')
+                    .where('authorId', '==', currentUser.uid)
+                    .orderBy('createdAt', 'desc')
+                    .get();
+
+                if (snapshot.empty) {
+                    postsContainer.innerHTML = '<p style="color: var(--text-muted);">No posts yet.</p>';
+                    return;
+                }
+
+                postsContainer.innerHTML = '';
+                snapshot.forEach(doc => {
+                    const post = doc.data();
+                    const postEl = document.createElement('div');
+                    postEl.className = 'post-item';
+                    postEl.innerHTML = `
+                        <div>
+                            <h3 style="font-size: 1.1rem; margin-bottom: 0.25rem;">
+                                ${post.title}
+                                ${!post.published ? '<span style="color: var(--text-muted); font-size: 0.8rem;">(Draft)</span>' : ''}
+                            </h3>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">
+                                ${post.createdAt ? new Date(post.createdAt.toDate()).toLocaleDateString() : 'Just now'}
+                            </p>
+                        </div>
+                        <div class="post-actions">
+                            <button class="btn btn-primary btn-small" onclick="editPost('${doc.id}')">Edit</button>
+                            <button class="btn btn-danger btn-small" onclick="deletePost('${doc.id}')">Delete</button>
+                        </div>
+                    `;
+                    postsContainer.appendChild(postEl);
+                });
+            } catch (error) {
+                postsContainer.innerHTML = `<p class="error">Error loading posts: ${error.message}</p>`;
+            }
+        }
+
+        // Edit post
+        async function editPost(postId) {
+            try {
+                const doc = await db.collection('posts').doc(postId).get();
+                const post = doc.data();
+
+                document.getElementById('postId').value = postId;
+                document.getElementById('title').value = post.title;
+                document.getElementById('excerpt').value = post.excerpt;
+                document.getElementById('content').value = post.content || '';
+                document.getElementById('published').checked = post.published;
+                currentTags = post.tags || [];
+                renderTags();
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } catch (error) {
+                alert('Error loading post: ' + error.message);
+            }
+        }
+
+        // Delete post
+        async function deletePost(postId) {
+            if (!confirm('Delete this post?')) return;
+
+            try {
+                await db.collection('posts').doc(postId).delete();
+                loadPosts();
+            } catch (error) {
+                alert('Error deleting post: ' + error.message);
+            }
+        }
+
+        // Reset form
+        function resetForm() {
+            document.getElementById('postForm').reset();
+            document.getElementById('postId').value = '';
+            currentTags = [];
+            renderTags();
+            document.getElementById('formMessage').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
