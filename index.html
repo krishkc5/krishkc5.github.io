@@ -1,529 +1,20 @@
-/* Contact Section */<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Krishna Chemudupati - Electrical Engineer & Device Physics Researcher at UPenn. Specializing in semiconductor devices, autonomous systems, and machine learning.">
+    <meta name="author" content="Krishna Chemudupati">
     <title>Krishna Chemudupati | Electrical Engineer & Researcher</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 25%, #2c3e50 50%, #1a252f 75%, #0f1419 100%);
-            color: #333;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Animated background network */
-        .network-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .network-canvas {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Keep some stars for extra sparkle */
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .star {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            animation: twinkle 4s infinite;
-            box-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            background: rgba(30, 39, 46, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 1rem 0;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #a8edea;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #e8f4f8;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #a8edea;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .hero-content .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.3s forwards;
-            color: #b8e6f0;
-        }
-
-        .hero-content .description {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.6s forwards;
-            color: #d5f2f7;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.9s forwards;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #ff9a9e, #fecfef);
-            color: #333;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Sections */
-        .section {
-            padding: 80px 0;
-            background: rgba(255, 255, 255, 0.95);
-            margin: 20px 0;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #4a6741;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-image {
-            text-align: center;
-        }
-
-        .profile-pic {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff9a9e, #fecfef, #a8edea, #fed6e3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            margin: 0 auto;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            color: #555;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .skill-category {
-            background: linear-gradient(45deg, #a8edea, #fed6e3);
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-        }
-
-        .skill-category h3 {
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            color: #333;
-        }
-
-        /* Experience Section */
-        .experience-timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 1rem;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, #667eea, #764ba2);
-        }
-
-        .experience-item {
-            position: relative;
-            margin-bottom: 3rem;
-            background: linear-gradient(45deg, #ffecd2, #fcb69f);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-left: 2rem;
-        }
-
-        .experience-item::before {
-            content: '';
-            position: absolute;
-            left: -3rem;
-            top: 2rem;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #667eea;
-        }
-
-        .experience-item h3 {
-            color: #333;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-item .company {
-            color: #666;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-item .date {
-            color: #888;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .experience-item ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .experience-item li {
-            margin-bottom: 0.5rem;
-            padding-left: 1rem;
-            position: relative;
-        }
-
-        .experience-item li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: #667eea;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .project-card {
-            background: linear-gradient(45deg, #ffecd2, #fcb69f);
-            padding: 2rem;
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-card h3 {
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        .tech-tag {
-            background: rgba(102, 126, 234, 0.2);
-            color: #333;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-        }
-
-        /* Blog Section */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
-        }
-
-        .blog-post {
-            background: linear-gradient(45deg, #f8f9ff, #e8f4f8);
-            padding: 2rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border-left: 4px solid transparent;
-        }
-
-        .blog-post:hover {
-            transform: translateY(-5px);
-            border-left-color: #a8edea;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .blog-post .date {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-        }
-
-        .blog-post h3 {
-            margin-bottom: 1rem;
-            color: #2c3e50;
-            font-size: 1.3rem;
-        }
-
-        .blog-post .excerpt {
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-        }
-
-        .blog-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .blog-tag {
-            background: rgba(168, 237, 234, 0.3);
-            color: #2c3e50;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .read-more {
-            color: #4a6741;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .read-more:hover {
-            color: #a8edea;
-        }
-
-        .read-more::after {
-            content: ' →';
-            transition: transform 0.3s ease;
-        }
-
-        .blog-post:hover .read-more::after {
-            transform: translateX(3px);
-        }
-        .contact-content {
-            text-align: center;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: #333;
-            padding: 1rem 2rem;
-            background: linear-gradient(45deg, #a8edea, #fed6e3);
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-link:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Animated network background -->
-    <div class="network-bg">
-        <canvas class="network-canvas" id="networkCanvas"></canvas>
-    </div>
+    <canvas id="bgCanvas"></canvas>
 
-    <!-- Some stars for extra sparkle -->
-    <div class="stars" id="stars"></div>
-
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav container">
-            <div class="logo">Krishna Chemudupati</div>
+    <!-- Navigation -->
+    <header role="banner">
+        <nav aria-label="Main navigation">
+            <div class="logo">KC</div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -537,43 +28,44 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Krishna Chemudupati</h1>
-            <p class="subtitle">Electrical Engineer & Device Physics Researcher</p>
-            <p class="description">
-                Pursuing MSE Electrical Engineering at UPenn | Specializing in semiconductor devices, 
-                autonomous systems, and machine learning applications
-            </p>
-            <div class="cta-buttons">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Krishna Chemudupati</h1>
+                <p class="subtitle">Electrical Engineer & Device Physics Researcher</p>
+                <p>
+                    MSE student at UPenn working on semiconductor memory tech, autonomous systems,
+                    and the intersection of hardware and machine learning.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
+    <section id="about">
         <div class="container">
             <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <div class="profile-pic">KC</div>
-                </div>
+            <div class="about-grid">
+                <div class="profile-img" aria-label="Profile">KC</div>
                 <div class="about-text">
                     <p>
-                        I'm a passionate electrical engineer and researcher pursuing my MSE at the University of Pennsylvania 
-                        through the Vagelos Integrated Program in Energy Research. Currently working on cutting-edge research 
-                        in device physics and autonomous systems.
+                        I'm pursuing an MSE in Electrical Engineering at the University of Pennsylvania
+                        through the Vagelos Integrated Program in Energy Research. My work focuses on
+                        pushing the boundaries of what's possible in semiconductor devices and autonomous systems.
                     </p>
                     <p>
-                        My work spans from characterizing ferroelectric diodes for next-generation memory applications to 
-                        developing autonomous vehicle systems using ROS2. I'm particularly interested in the intersection 
-                        of hardware and software, bringing together my knowledge in semiconductor physics, machine learning, 
-                        and embedded systems.
+                        Currently, I'm researching ferroelectric diodes for next-generation non-volatile memory
+                        at the Jariwala Lab, where I'm co-first-authoring a paper on multilevel AlScN ferroelectric
+                        diodes in crossbar configurations. I also work on autonomous vehicle systems at the
+                        Mangharam Lab, developing ROS2-based control stacks.
                     </p>
                     <p>
-                        When I'm not in the lab, you'll find me mentoring students as a TA, working on aerospace projects, 
-                        or exploring new technologies. I'm always excited about projects that push the boundaries of what's possible.
+                        Beyond research, I'm a TA for programming courses, work on aerospace projects with
+                        Penn Aerospace Club, and won $10k at the Citadel-CorrelationOne Datathon. I love
+                        projects that bridge hardware and software—from VLSI design to ML applications.
                     </p>
                 </div>
             </div>
@@ -581,48 +73,48 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section">
+    <section id="skills">
         <div class="container">
             <h2>Technical Skills</h2>
             <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming & Software</h3>
+                <div class="skill-card">
+                    <h3>Programming</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Java</span>
                         <span class="skill-tag">C++</span>
-                        <span class="skill-tag">OCaml</span>
+                        <span class="skill-tag">Java</span>
                         <span class="skill-tag">Verilog</span>
+                        <span class="skill-tag">OCaml</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Hardware & Design Tools</h3>
+                <div class="skill-card">
+                    <h3>Hardware Tools</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">Altium</span>
                         <span class="skill-tag">LTspice</span>
-                        <span class="skill-tag">Electric VLSI</span>
                         <span class="skill-tag">Cadence</span>
+                        <span class="skill-tag">Electric VLSI</span>
                         <span class="skill-tag">SolidWorks</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Machine Learning & Data</h3>
+                <div class="skill-card">
+                    <h3>ML & Data Science</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">PyTorch</span>
                         <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">XGBoost</span>
                         <span class="skill-tag">Pandas</span>
                         <span class="skill-tag">OpenCV</span>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Embedded & Robotics</h3>
+                <div class="skill-card">
+                    <h3>Robotics & Embedded</h3>
                     <div class="skill-tags">
                         <span class="skill-tag">ROS2</span>
-                        <span class="skill-tag">Arduino</span>
-                        <span class="skill-tag">NVIDIA Jetson</span>
-                        <span class="skill-tag">Raspberry Pi</span>
                         <span class="skill-tag">CUDA</span>
+                        <span class="skill-tag">Arduino</span>
+                        <span class="skill-tag">Jetson</span>
+                        <span class="skill-tag">Raspberry Pi</span>
                     </div>
                 </div>
             </div>
@@ -630,40 +122,42 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="section">
+    <section id="experience">
         <div class="container">
             <h2>Research Experience</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
+            <div class="timeline">
+                <div class="timeline-item">
                     <h3>Device Physics Researcher</h3>
                     <div class="company">Jariwala Lab - University of Pennsylvania</div>
                     <div class="date">February 2025 – Present</div>
                     <ul>
                         <li>Characterized ferroelectric diode performance across multiple scales for non-volatile memory applications</li>
-                        <li>Co-first-authored manuscript on multilevel AlScN FeDs demonstrating robust behavior in 2KB crossbar configurations</li>
-                        <li>Trained and supervised junior researchers on electrical testing protocols and device handling</li>
-                        <li>Performed statistical analysis and delivered technical presentations to faculty groups</li>
+                        <li>Co-first-authored manuscript on multilevel AlScN ferroelectric diodes in 2KB crossbar arrays</li>
+                        <li>Trained and supervised junior researchers on electrical testing protocols</li>
+                        <li>Performed statistical analysis and delivered technical presentations to research groups</li>
                     </ul>
                 </div>
-                <div class="experience-item">
+
+                <div class="timeline-item">
                     <h3>Autonomous Systems Researcher</h3>
                     <div class="company">Mangharam Lab - University of Pennsylvania</div>
                     <div class="date">March 2025 – Present</div>
                     <ul>
                         <li>Developed ROS2-based autonomy stack for 1/18th scale self-driving F1 car</li>
-                        <li>Designed custom PCB for power routing, camera input, and sensor integration</li>
+                        <li>Designed custom PCB for power routing, camera integration, and sensor management</li>
                         <li>Implemented artificial LaserScan generation from RealSense depth camera for SLAM</li>
-                        <li>Optimized OpenCV lane detection pipeline on NVIDIA Jetson Orin Nano</li>
+                        <li>Optimized real-time lane detection pipeline on NVIDIA Jetson Orin Nano</li>
                     </ul>
                 </div>
-                <div class="experience-item">
+
+                <div class="timeline-item">
                     <h3>Propulsion & Avionics Engineer</h3>
                     <div class="company">Penn Aerospace Club</div>
                     <div class="date">September 2023 – Present</div>
                     <ul>
                         <li>Designed control surface actuation systems and wireless communication links</li>
                         <li>Integrated propulsion, avionics, and autonomous flight subsystems</li>
-                        <li>Authored detailed design reports and flight readiness reviews</li>
+                        <li>Authored technical design reports and flight readiness documentation</li>
                     </ul>
                 </div>
             </div>
@@ -671,383 +165,198 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
+    <section id="projects">
         <div class="container">
             <h2>Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Citadel-CorrelationOne Datathon Winner</h3>
-                    <p>1st Place Winner ($10,000) - Analyzed environmental and financial datasets to predict food production and stock performance using gradient boosting models.</p>
-                    <div class="project-tech">
+                <article class="project-card">
+                    <h3>Citadel Datathon Winner 🏆</h3>
+                    <p>
+                        First place ($10,000 prize) - Built gradient boosting models to predict food
+                        production and fast food stock performance from environmental and financial datasets.
+                    </p>
+                    <div class="tech-tags">
                         <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">Time Series</span>
+                        <span class="tech-tag">XGBoost</span>
                         <span class="tech-tag">Feature Engineering</span>
                     </div>
-                </div>
-                <div class="project-card">
+                </article>
+
+                <article class="project-card">
                     <h3>F1 Tyre Degradation Predictor</h3>
-                    <p>Engineered ML model to predict Formula 1 tyre degradation from lap telemetry using XGBoost and LSTM, achieving low RMSE through SHAP analysis.</p>
-                    <div class="project-tech">
+                    <p>
+                        ML model predicting F1 tyre degradation from lap telemetry using XGBoost and LSTM
+                        networks. Achieved low RMSE through SHAP-based feature importance analysis.
+                    </p>
+                    <div class="tech-tags">
                         <span class="tech-tag">Python</span>
-                        <span class="tech-tag">XGBoost</span>
                         <span class="tech-tag">LSTM</span>
-                        <span class="tech-tag">SHAP</span>
+                        <span class="tech-tag">Time Series</span>
                     </div>
-                </div>
-                <div class="project-card">
-                    <h3>Underwater Coral Maintenance ROV</h3>
-                    <p>Led development of remotely operated vehicle for underwater coral reef cleaning with integrated thruster control, sensor feedback, and robotic claws.</p>
-                    <div class="project-tech">
+                </article>
+
+                <article class="project-card">
+                    <h3>Underwater ROV</h3>
+                    <p>
+                        Remotely operated vehicle for coral reef maintenance. Integrated thruster control,
+                        sensor feedback systems, and robotic manipulators for underwater operations.
+                    </p>
+                    <div class="tech-tags">
                         <span class="tech-tag">SolidWorks</span>
                         <span class="tech-tag">Arduino</span>
-                        <span class="tech-tag">Embedded Systems</span>
                         <span class="tech-tag">Control Systems</span>
                     </div>
-                </div>
-                <div class="project-card">
-                    <h3>64-bit SRAM Cell Design</h3>
-                    <p>Designed and laid out a 64-bit 6T SRAM using Electric VLSI with custom testbenches, achieving reliable bit storage and array scalability.</p>
-                    <div class="project-tech">
+                </article>
+
+                <article class="project-card">
+                    <h3>64-bit SRAM Design</h3>
+                    <p>
+                        Designed and laid out a 64-bit 6T SRAM cell using Electric VLSI. Implemented
+                        custom testbenches for verification and timing analysis.
+                    </p>
+                    <div class="tech-tags">
                         <span class="tech-tag">Electric VLSI</span>
-                        <span class="tech-tag">CMOS Design</span>
-                        <span class="tech-tag">Memory Arrays</span>
+                        <span class="tech-tag">CMOS</span>
+                        <span class="tech-tag">Memory Design</span>
                     </div>
-                </div>
-                <div class="project-card">
+                </article>
+
+                <article class="project-card">
                     <h3>Bandgap Reference Circuit</h3>
-                    <p>Currently designing BiCMOS bandgap voltage reference from first principles with PTAT/CTAT generators, op-amp control, and output buffer.</p>
-                    <div class="project-tech">
+                    <p>
+                        BiCMOS bandgap voltage reference designed from first principles. Features PTAT/CTAT
+                        generators, op-amp control loop, and temperature-stable output buffer.
+                    </p>
+                    <div class="tech-tags">
                         <span class="tech-tag">LTSpice</span>
                         <span class="tech-tag">Analog Design</span>
                         <span class="tech-tag">BiCMOS</span>
-                        <span class="tech-tag">Git</span>
                     </div>
-                </div>
-                <div class="project-card">
+                </article>
+
+                <article class="project-card">
                     <h3>RISC-V Processor</h3>
-                    <p>Designed 5-stage pipelined RISC-V processor with instruction memory, register file, ALU, and hazard handling for FPGA deployment.</p>
-                    <div class="project-tech">
+                    <p>
+                        5-stage pipelined RISC-V processor with hazard detection and forwarding.
+                        Synthesized and deployed on FPGA with custom instruction memory and register file.
+                    </p>
+                    <div class="tech-tags">
                         <span class="tech-tag">Verilog</span>
                         <span class="tech-tag">FPGA</span>
-                        <span class="tech-tag">Pipeline Design</span>
                         <span class="tech-tag">Computer Architecture</span>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- Blog Section -->
-    <section id="blog" class="section">
+    <section id="blog">
         <div class="container">
-            <h2>Latest Blog Posts</h2>
-            <div class="blog-grid">
-                <article class="blog-post">
+            <h2>Recent Writing</h2>
+            <div class="blog-grid" id="blogContainer">
+                <!-- Blog posts will be loaded here -->
+                <article class="blog-card">
                     <div class="date">March 15, 2025</div>
-                    <h3>Understanding Ferroelectric Memory: The Future of Non-Volatile Storage</h3>
+                    <h3>Ferroelectric Memory: Next-Gen Non-Volatile Storage</h3>
                     <div class="blog-tags">
-                        <span class="blog-tag">Memory Technology</span>
+                        <span class="blog-tag">Memory Tech</span>
                         <span class="blog-tag">Semiconductors</span>
-                        <span class="blog-tag">Research</span>
                     </div>
                     <p class="excerpt">
-                        Diving deep into my research on ferroelectric diodes (FeDs) and how they're revolutionizing 
-                        the landscape of non-volatile memory. From single devices to 2KB crossbar arrays, 
-                        exploring the challenges and breakthroughs in next-generation storage technology.
+                        Deep dive into ferroelectric diodes and how they're changing the landscape of
+                        non-volatile memory. From single devices to crossbar arrays.
                     </p>
-                    <a href="#" class="read-more">Read More</a>
                 </article>
 
-                <article class="blog-post">
+                <article class="blog-card">
                     <div class="date">March 8, 2025</div>
-                    <h3>Building Autonomous Systems: ROS2 and the Future of Self-Driving Cars</h3>
+                    <h3>Building Autonomous Systems with ROS2</h3>
                     <div class="blog-tags">
                         <span class="blog-tag">Robotics</span>
                         <span class="blog-tag">ROS2</span>
-                        <span class="blog-tag">Computer Vision</span>
                     </div>
                     <p class="excerpt">
-                        A technical walkthrough of developing a full autonomy stack for our 1/18th scale F1 car. 
-                        Covering everything from SLAM implementation to real-time lane detection using OpenCV 
-                        and NVIDIA Jetson optimization techniques.
+                        Technical walkthrough of developing a complete autonomy stack for a 1/18th scale F1 car.
+                        SLAM, lane detection, and real-time optimization.
                     </p>
-                    <a href="#" class="read-more">Read More</a>
                 </article>
 
-                <article class="blog-post">
+                <article class="blog-card">
                     <div class="date">February 28, 2025</div>
-                    <h3>From Idea to Victory: Winning the Citadel Datathon with ML</h3>
+                    <h3>Winning the Citadel Datathon</h3>
                     <div class="blog-tags">
-                        <span class="blog-tag">Machine Learning</span>
-                        <span class="blog-tag">Data Science</span>
+                        <span class="blog-tag">ML</span>
                         <span class="blog-tag">Competition</span>
                     </div>
                     <p class="excerpt">
-                        Breaking down our winning strategy for the Citadel-CorrelationOne Summer Datathon. 
-                        How we used gradient boosting models and environmental feature engineering to predict 
-                        food production and fast food stock performance for the $10,000 prize.
+                        How we used gradient boosting and environmental feature engineering to predict
+                        food production and stock performance for the $10k prize.
                     </p>
-                    <a href="#" class="read-more">Read More</a>
-                </article>
-
-                <article class="blog-post">
-                    <div class="date">February 20, 2025</div>
-                    <h3>VLSI Design Fundamentals: Creating My First 64-bit SRAM</h3>
-                    <div class="blog-tags">
-                        <span class="blog-tag">VLSI</span>
-                        <span class="blog-tag">Circuit Design</span>
-                        <span class="blog-tag">Tutorial</span>
-                    </div>
-                    <p class="excerpt">
-                        A beginner-friendly guide to VLSI design through my experience creating a 64-bit 6T SRAM 
-                        using Electric VLSI. Covering layout design, simulation techniques, and the importance 
-                        of timing analysis in memory circuits.
-                    </p>
-                    <a href="#" class="read-more">Read More</a>
-                </article>
-
-                <article class="blog-post">
-                    <div class="date">February 12, 2025</div>
-                    <h3>The Art of Analog Design: Building a Bandgap Reference from Scratch</h3>
-                    <div class="blog-tags">
-                        <span class="blog-tag">Analog Design</span>
-                        <span class="blog-tag">BiCMOS</span>
-                        <span class="blog-tag">Circuit Theory</span>
-                    </div>
-                    <p class="excerpt">
-                        Exploring the fundamental principles behind bandgap voltage references. A deep dive into 
-                        PTAT and CTAT voltage generation, op-amp design considerations, and achieving temperature 
-                        independence in analog circuits.
-                    </p>
-                    <a href="#" class="read-more">Read More</a>
-                </article>
-
-                <article class="blog-post">
-                    <div class="date">February 5, 2025</div>
-                    <h3>Teaching Programming: Lessons from Being a TA at Penn</h3>
-                    <div class="blog-tags">
-                        <span class="blog-tag">Teaching</span>
-                        <span class="blog-tag">Python</span>
-                        <span class="blog-tag">Education</span>
-                    </div>
-                    <p class="excerpt">
-                        Reflections on my experience as an undergraduate TA for CIS 1100 and ESE 1120. 
-                        Sharing effective strategies for teaching programming concepts, debugging techniques, 
-                        and helping students overcome common learning obstacles.
-                    </p>
-                    <a href="#" class="read-more">Read More</a>
                 </article>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact">
         <div class="container">
-            <h2>Let's Connect</h2>
-            <div class="contact-content">
-                <p>I'm always interested in discussing new opportunities, research collaborations, or just connecting with fellow engineers and researchers.</p>
-                <div class="contact-links">
-                    <a href="mailto:krishkc@seas.upenn.edu" class="contact-link">
-                        <span>📧</span>
-                        <span>Email</span>
-                    </a>
-                    <a href="tel:+14078087141" class="contact-link">
-                        <span>📱</span>
-                        <span>Phone</span>
-                    </a>
-                    <a href="#" class="contact-link">
-                        <span>💼</span>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="#" class="contact-link">
-                        <span>💻</span>
-                        <span>GitHub</span>
-                    </a>
-                </div>
+            <h2>Get in Touch</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem; max-width: 600px;">
+                I'm always interested in discussing research opportunities, collaborations, or just
+                chatting about hardware, software, and everything in between.
+            </p>
+            <div class="contact-grid">
+                <a href="mailto:krishkc@seas.upenn.edu" class="contact-link" aria-label="Email Krishna">
+                    <div class="icon">📧</div>
+                    <span>Email</span>
+                </a>
+                <a href="tel:+14078087141" class="contact-link" aria-label="Call Krishna">
+                    <div class="icon">📱</div>
+                    <span>Phone</span>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn Profile">
+                    <div class="icon">💼</div>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="GitHub Profile">
+                    <div class="icon">💻</div>
+                    <span>GitHub</span>
+                </a>
             </div>
         </div>
     </section>
 
+    <script src="api-client.js"></script>
+    <script src="script.js"></script>
     <script>
-        // Generate fewer, smaller stars for subtle effect
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            const numberOfStars = 50; // Reduced from 100
+        // Load blog posts from API when page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            const blogContainer = document.getElementById('blogContainer');
+            const api = new BlogAPI(window.location.origin + '/api');
 
-            for (let i = 0; i < numberOfStars; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 4 + 's';
-                starsContainer.appendChild(star);
-            }
-        }
+            try {
+                const posts = await api.getPosts();
 
-        // Animated network background
-        class NetworkBackground {
-            constructor(canvas) {
-                this.canvas = canvas;
-                this.ctx = canvas.getContext('2d');
-                this.nodes = [];
-                this.connections = [];
-                this.mousePos = { x: 0, y: 0 };
-                
-                this.resize();
-                this.createNodes();
-                this.animate();
-                
-                // Handle resize
-                window.addEventListener('resize', () => this.resize());
-                
-                // Track mouse for interactive effects (make sure it works on the whole page)
-                document.addEventListener('mousemove', (e) => {
-                    this.mousePos.x = e.clientX;
-                    this.mousePos.y = e.clientY;
-                });
-            }
-            
-            resize() {
-                this.canvas.width = window.innerWidth;
-                this.canvas.height = window.innerHeight;
-            }
-            
-            createNodes() {
-                const nodeCount = Math.floor((window.innerWidth * window.innerHeight) / 15000); // Responsive node count
-                this.nodes = [];
-                
-                for (let i = 0; i < nodeCount; i++) {
-                    this.nodes.push({
-                        x: Math.random() * this.canvas.width,
-                        y: Math.random() * this.canvas.height,
-                        vx: (Math.random() - 0.5) * 0.5, // Slow movement
-                        vy: (Math.random() - 0.5) * 0.5,
-                        radius: Math.random() * 2 + 1
-                    });
+                if (posts && posts.length > 0) {
+                    blogContainer.innerHTML = posts.slice(0, 6).map(post => `
+                        <article class="blog-card">
+                            <div class="date">${new Date(post.date).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                            })}</div>
+                            <h3>${post.title}</h3>
+                            <div class="blog-tags">
+                                ${post.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('')}
+                            </div>
+                            <p class="excerpt">${post.excerpt}</p>
+                        </article>
+                    `).join('');
                 }
-            }
-            
-            updateNodes() {
-                this.nodes.forEach(node => {
-                    // Update position
-                    node.x += node.vx;
-                    node.y += node.vy;
-                    
-                    // Bounce off edges
-                    if (node.x < 0 || node.x > this.canvas.width) node.vx *= -1;
-                    if (node.y < 0 || node.y > this.canvas.height) node.vy *= -1;
-                    
-                    // Keep nodes in bounds
-                    node.x = Math.max(0, Math.min(this.canvas.width, node.x));
-                    node.y = Math.max(0, Math.min(this.canvas.height, node.y));
-                });
-            }
-            
-            drawNodes() {
-                this.ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-                this.nodes.forEach(node => {
-                    this.ctx.beginPath();
-                    this.ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
-                    this.ctx.fill();
-                    
-                    // Add subtle glow effect
-                    this.ctx.shadowColor = 'rgba(255, 255, 255, 0.5)';
-                    this.ctx.shadowBlur = 3;
-                    this.ctx.fill();
-                    this.ctx.shadowBlur = 0;
-                });
-            }
-            
-            drawConnections() {
-                const maxDistance = 120;
-                this.ctx.lineWidth = 0.5;
-                
-                for (let i = 0; i < this.nodes.length; i++) {
-                    for (let j = i + 1; j < this.nodes.length; j++) {
-                        const dx = this.nodes[i].x - this.nodes[j].x;
-                        const dy = this.nodes[i].y - this.nodes[j].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        
-                        if (distance < maxDistance) {
-                            const opacity = (1 - distance / maxDistance) * 0.25;
-                            this.ctx.strokeStyle = `rgba(200, 220, 240, ${opacity})`;
-                            this.ctx.beginPath();
-                            this.ctx.moveTo(this.nodes[i].x, this.nodes[i].y);
-                            this.ctx.lineTo(this.nodes[j].x, this.nodes[j].y);
-                            this.ctx.stroke();
-                        }
-                    }
-                }
-            }
-            
-            drawMouseConnections() {
-                const maxDistance = 150;
-                this.ctx.lineWidth = 1;
-                
-                this.nodes.forEach(node => {
-                    const dx = node.x - this.mousePos.x;
-                    const dy = node.y - this.mousePos.y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < maxDistance) {
-                        const opacity = (1 - distance / maxDistance) * 0.6;
-                        this.ctx.strokeStyle = `rgba(168, 237, 234, ${opacity})`;
-                        this.ctx.shadowColor = 'rgba(168, 237, 234, 0.3)';
-                        this.ctx.shadowBlur = 2;
-                        this.ctx.beginPath();
-                        this.ctx.moveTo(node.x, node.y);
-                        this.ctx.lineTo(this.mousePos.x, this.mousePos.y);
-                        this.ctx.stroke();
-                        this.ctx.shadowBlur = 0;
-                    }
-                });
-            }
-            
-            animate() {
-                // Clear canvas
-                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-                
-                // Update and draw
-                this.updateNodes();
-                this.drawConnections();
-                this.drawMouseConnections();
-                this.drawNodes();
-                
-                requestAnimationFrame(() => this.animate());
-            }
-        }
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Initialize stars and network when page loads
-        window.addEventListener('load', () => {
-            createStars();
-            
-            // Initialize network background
-            const canvas = document.getElementById('networkCanvas');
-            new NetworkBackground(canvas);
-        });
-
-        // Add scroll effect to header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(20, 29, 36, 0.98)';
-            } else {
-                header.style.background = 'rgba(30, 39, 46, 0.95)';
+            } catch (error) {
+                console.error('Error loading blog posts:', error);
+                // Keep the default placeholder posts if API fails
             }
         });
     </script>
