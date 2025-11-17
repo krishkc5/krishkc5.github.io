@@ -48,6 +48,28 @@
             border-bottom: 2px solid var(--border);
         }
 
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .back-btn {
+            padding: 0.5rem 1rem;
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            border-radius: 8px;
+            color: #06b6d4;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .back-btn:hover {
+            background: rgba(6, 182, 212, 0.2);
+            border-color: #06b6d4;
+        }
+
         h1 {
             font-size: 2rem;
             font-weight: 700;
@@ -232,7 +254,10 @@
     <!-- Admin Interface -->
     <div class="container admin-section" id="adminSection">
         <div class="header">
-            <h1>📝 Blog Admin</h1>
+            <div class="header-left">
+                <a href="index.html" class="back-btn">← Back to Site</a>
+                <h1>📝 Blog Admin</h1>
+            </div>
             <div>
                 <span id="userEmail" style="margin-right: 1rem; color: var(--text-muted);"></span>
                 <button class="btn btn-danger btn-small" onclick="logout()">Logout</button>
@@ -253,6 +278,11 @@
                 <div class="form-group">
                     <label for="excerpt">Excerpt</label>
                     <textarea id="excerpt" placeholder="Short description of your post" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="postDate">Post Date (optional - defaults to current date/time)</label>
+                    <input type="datetime-local" id="postDate">
                 </div>
 
                 <div class="form-group">
@@ -376,6 +406,8 @@
             e.preventDefault();
 
             const postId = document.getElementById('postId').value;
+            const postDateInput = document.getElementById('postDate').value;
+
             const postData = {
                 title: document.getElementById('title').value,
                 excerpt: document.getElementById('excerpt').value,
@@ -392,7 +424,12 @@
                     document.getElementById('formMessage').innerHTML = '<p class="success">✅ Post updated!</p>';
                 } else {
                     // Create new post
-                    postData.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+                    // Use custom date if provided, otherwise use server timestamp
+                    if (postDateInput) {
+                        postData.createdAt = firebase.firestore.Timestamp.fromDate(new Date(postDateInput));
+                    } else {
+                        postData.createdAt = firebase.firestore.FieldValue.serverTimestamp();
+                    }
                     postData.authorId = currentUser.uid;
                     await db.collection('posts').add(postData);
                     document.getElementById('formMessage').innerHTML = '<p class="success">✅ Post created!</p>';

@@ -58,11 +58,19 @@
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
-            <div class="about-grid">
-                <div class="profile-img" aria-label="Profile">KC</div>
-                <div class="about-text" id="aboutContent">
-                    <p style="color: var(--text-muted);">Loading...</p>
-                </div>
+            <div class="glass-tile">
+                <p>
+                    I'm a student at the <strong>University of Pennsylvania</strong> studying Physics and Electrical Engineering,
+                    specializing in circuit design for semiconductor memory technologies and device physics.
+                </p>
+                <p>
+                    My research focuses on ferroelectric diodes for next-generation non-volatile memory, combining fabrication,
+                    electrical characterization, and computational modeling to push the boundaries of memory technologies.
+                </p>
+                <p>
+                    Beyond the lab, I work on autonomous systems, machine learning, and hardware-software integration.
+                    I love playing tennis, and I'm always down to hit!
+                </p>
             </div>
         </div>
     </section>
@@ -71,8 +79,40 @@
     <section id="skills">
         <div class="container">
             <h2>Technical Skills</h2>
-            <div class="skills-grid" id="skillsContent">
-                <p style="color: var(--text-muted); text-align: center; padding: 2rem;">Loading...</p>
+            <div class="skills-grid">
+                <div class="glass-tile">
+                    <h3>Hardware & Devices</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Semiconductor Fabrication</span>
+                        <span class="skill-tag">Device Characterization</span>
+                        <span class="skill-tag">Circuit Design</span>
+                        <span class="skill-tag">VLSI</span>
+                        <span class="skill-tag">PCB Design</span>
+                        <span class="skill-tag">Embedded Systems</span>
+                    </div>
+                </div>
+                <div class="glass-tile">
+                    <h3>Software & ML</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">ROS2</span>
+                        <span class="skill-tag">CUDA</span>
+                    </div>
+                </div>
+                <div class="glass-tile">
+                    <h3>Design Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Cadence</span>
+                        <span class="skill-tag">Altium</span>
+                        <span class="skill-tag">LTspice</span>
+                        <span class="skill-tag">Electric VLSI</span>
+                        <span class="skill-tag">SolidWorks</span>
+                        <span class="skill-tag">Verilog</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -81,8 +121,45 @@
     <section id="experience">
         <div class="container">
             <h2>Research Experience</h2>
-            <div class="timeline" id="experienceContent">
-                <p style="color: var(--text-muted); text-align: center; padding: 2rem;">Loading...</p>
+            <div class="experience-grid">
+                <div class="glass-tile">
+                    <h3>Graduate Research Assistant</h3>
+                    <div class="exp-meta">
+                        <span class="company">University of Pennsylvania</span>
+                        <span class="date">Feb 2025 - Present</span>
+                    </div>
+                    <ul>
+                        <li>Researching ferroelectric diodes for next-generation non-volatile memory under Prof. Deep Jariwala</li>
+                        <li>Designing peripheral circuitry for read, write, and compute-in-memory applications</li>
+                        <li>Fabricating and characterizing devices in cleanroom facilities</li>
+                        <li>Developing computational models for device optimization</li>
+                    </ul>
+                </div>
+                <div class="glass-tile">
+                    <h3>Autonomous Systems Researcher</h3>
+                    <div class="exp-meta">
+                        <span class="company">Mangharam Lab - UPenn</span>
+                        <span class="date">Mar 2025 - Present</span>
+                    </div>
+                    <ul>
+                        <li>Developed ROS2-based autonomy stack for 1/18th scale self-driving F1 car</li>
+                        <li>Designed custom PCB for power routing and sensor management</li>
+                        <li>Implemented SLAM with artificial LaserScan from depth camera</li>
+                        <li>Optimized real-time lane detection on NVIDIA Jetson Orin Nano</li>
+                    </ul>
+                </div>
+                <div class="glass-tile">
+                    <h3>Engineering Intern</h3>
+                    <div class="exp-meta">
+                        <span class="company">Lockheed Martin</span>
+                        <span class="date">Summer 2024</span>
+                    </div>
+                    <ul>
+                        <li>Developed embedded systems for aerospace applications</li>
+                        <li>Worked on sensor integration and data processing pipelines</li>
+                        <li>Collaborated with cross-functional teams on defense projects</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -91,8 +168,61 @@
     <section id="projects">
         <div class="container">
             <h2>Featured Projects</h2>
-            <div class="projects-grid" id="projectsContent">
-                <p style="color: var(--text-muted); text-align: center; padding: 2rem;">Loading...</p>
+            <div class="projects-grid">
+                <div class="glass-tile">
+                    <h3>Autonomous F1 Race Car</h3>
+                    <p>Built a self-driving 1/18th scale F1 car with ROS2, custom PCB, and real-time lane detection on Jetson Orin Nano.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ROS2</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">PCB Design</span>
+                    </div>
+                </div>
+                <div class="glass-tile">
+                    <h3>Underwater ROV</h3>
+                    <p>Remotely operated vehicle for coral reef maintenance with thruster control, sensor feedback, and robotic manipulators.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">SolidWorks</span>
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">Control Systems</span>
+                    </div>
+                </div>
+                <div class="glass-tile">
+                    <h3>64-bit SRAM Design</h3>
+                    <p>Designed and laid out a 64-bit 6T SRAM cell using Electric VLSI with custom testbenches for verification.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Electric VLSI</span>
+                        <span class="tech-tag">CMOS</span>
+                        <span class="tech-tag">Memory Design</span>
+                    </div>
+                </div>
+                <div class="glass-tile">
+                    <h3>RISC-V Processor</h3>
+                    <p>5-stage pipelined RISC-V processor with hazard detection and forwarding, synthesized and deployed on FPGA.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Verilog</span>
+                        <span class="tech-tag">FPGA</span>
+                        <span class="tech-tag">Computer Architecture</span>
+                    </div>
+                </div>
+                <div class="glass-tile">
+                    <h3>Citadel Datathon Winner 🏆</h3>
+                    <p>First place ($10,000 prize) - Built gradient boosting models to predict food production and stock performance.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">Feature Engineering</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+                <div class="glass-tile">
+                    <h3>Bandgap Reference Circuit</h3>
+                    <p>BiCMOS bandgap voltage reference with PTAT/CTAT generators, op-amp control loop, and temperature-stable output.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">LTSpice</span>
+                        <span class="tech-tag">Analog Design</span>
+                        <span class="tech-tag">BiCMOS</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -147,112 +277,10 @@
     <!-- Firebase Config -->
     <script src="firebase-config.js"></script>
 
-    <!-- Content Loader -->
-    <script src="content-loader.js"></script>
-
     <script src="script.js"></script>
     <script>
-        // Initialize content loader
-        const contentLoader = new ContentLoader();
-
-        // Load content from markdown files
-        document.addEventListener('DOMContentLoaded', async () => {
-            // Load About section
-            try {
-                const aboutItems = await contentLoader.loadFolder('content/about');
-                const aboutContainer = document.getElementById('aboutContent');
-                if (aboutItems.length > 0) {
-                    aboutContainer.innerHTML = aboutItems
-                        .map(item => item.content)
-                        .join('');
-                } else {
-                    aboutContainer.innerHTML = '<p>Content coming soon...</p>';
-                }
-            } catch (error) {
-                console.error('Error loading about content:', error);
-            }
-
-            // Load Skills section
-            try {
-                const skillItems = await contentLoader.loadFolder('content/skills');
-                const skillsContainer = document.getElementById('skillsContent');
-                if (skillItems.length > 0) {
-                    skillsContainer.innerHTML = skillItems
-                        .sort((a, b) => (a.order || 999) - (b.order || 999))
-                        .map(item => {
-                            const skillList = item.skills || item.items || [];
-                            return `
-                            <div class="skill-card">
-                                <h3>${escapeHtml(item.title || 'Skills')}</h3>
-                                <div class="skill-tags">
-                                    ${Array.isArray(skillList) ? skillList.map(skill =>
-                                        `<span class="skill-tag">${escapeHtml(skill)}</span>`
-                                    ).join('') : ''}
-                                </div>
-                            </div>
-                        `;
-                        }).join('');
-                } else {
-                    skillsContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2rem;">Content coming soon...</p>';
-                }
-            } catch (error) {
-                console.error('Error loading skills content:', error);
-            }
-
-            // Load Experience section
-            try {
-                const experienceItems = await contentLoader.loadFolder('content/experience');
-                const experienceContainer = document.getElementById('experienceContent');
-                if (experienceItems.length > 0) {
-                    experienceContainer.innerHTML = experienceItems
-                        .sort((a, b) => (a.order || 999) - (b.order || 999))
-                        .map(item => `
-                            <div class="timeline-item">
-                                <h3>${escapeHtml(item.title || 'Position')}</h3>
-                                <div class="company">${escapeHtml(item.company || '')}</div>
-                                <div class="date">${escapeHtml(item.date || '')}</div>
-                                ${item.content}
-                            </div>
-                        `).join('');
-                } else {
-                    experienceContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2rem;">Content coming soon...</p>';
-                }
-            } catch (error) {
-                console.error('Error loading experience content:', error);
-            }
-
-            // Load Projects section
-            try {
-                const projectItems = await contentLoader.loadFolder('content/projects');
-                const projectsContainer = document.getElementById('projectsContent');
-                if (projectItems.length > 0) {
-                    projectsContainer.innerHTML = projectItems
-                        .sort((a, b) => (a.order || 999) - (b.order || 999))
-                        .map(item => `
-                            <article class="project-card">
-                                <h3>${escapeHtml(item.title || 'Project')}</h3>
-                                ${item.content}
-                                ${item.tags && item.tags.length > 0 ? `
-                                    <div class="tech-tags">
-                                        ${item.tags.map(tag =>
-                                            `<span class="tech-tag">${escapeHtml(tag)}</span>`
-                                        ).join('')}
-                                    </div>
-                                ` : ''}
-                            </article>
-                        `).join('');
-                } else {
-                    projectsContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2rem;">Content coming soon...</p>';
-                }
-            } catch (error) {
-                console.error('Error loading projects content:', error);
-            }
-
-            loadBlogPosts();
-        });
-
         // Load blog posts from Firebase
-        async function loadBlogPosts() {
+        document.addEventListener('DOMContentLoaded', async () => {
             const blogContainer = document.getElementById('blogContainer');
 
             // Check if Firebase is loaded
@@ -298,7 +326,7 @@
                 console.error('Error loading blog posts:', error);
                 blogContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2rem;">Unable to load posts. Please try again later.</p>';
             }
-        }
+        });
 
         // Helper function to escape HTML
         function escapeHtml(text) {
