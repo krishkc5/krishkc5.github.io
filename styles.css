@@ -522,23 +522,26 @@ section h2::after {
 .contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
     max-width: 800px;
 }
 
 .contact-link {
-    background: var(--surface);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     padding: 1.5rem;
-    border-radius: 8px;
+    border-radius: 16px;
     text-decoration: none;
     text-align: center;
-    border: 1px solid var(--border);
-    transition: all 0.2s;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-link:hover {
-    border-color: var(--accent);
+    border-color: rgba(6, 182, 212, 0.4);
     transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .contact-link .icon {
@@ -592,15 +595,6 @@ section h2::after {
 }
 
 @media (max-width: 768px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .profile-img {
-        margin: 0 auto;
-    }
-
     .nav-links {
         display: none;
     }
@@ -649,5 +643,10 @@ section h2::after {
     .pill-btn {
         padding: 0.55rem 1.25rem;
         font-size: 0.875rem;
+    }
+
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
     }
 }
