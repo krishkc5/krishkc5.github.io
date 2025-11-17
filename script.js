@@ -67,7 +67,7 @@ class CanvasBackground {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
         // Draw connections
-        this.ctx.lineWidth = 0.5;
+        this.ctx.lineWidth = 0.6;
         const maxDistance = 120;
 
         for (let i = 0; i < this.particles.length; i++) {
@@ -77,8 +77,8 @@ class CanvasBackground {
                 const distance = Math.sqrt(dx * dx + dy * dy);
 
                 if (distance < maxDistance) {
-                    const opacity = (1 - distance / maxDistance) * 0.15;
-                    this.ctx.strokeStyle = `rgba(74, 144, 226, ${opacity})`;
+                    const opacity = (1 - distance / maxDistance) * 0.25;
+                    this.ctx.strokeStyle = `rgba(6, 182, 212, ${opacity})`;
                     this.ctx.beginPath();
                     this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
                     this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
@@ -89,7 +89,7 @@ class CanvasBackground {
 
         // Draw particles
         this.particles.forEach(particle => {
-            this.ctx.fillStyle = 'rgba(228, 230, 235, 0.6)';
+            this.ctx.fillStyle = 'rgba(228, 230, 235, 0.8)';
             this.ctx.beginPath();
             this.ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
             this.ctx.fill();
@@ -103,9 +103,9 @@ class CanvasBackground {
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < mouseDistance) {
-                const opacity = (1 - distance / mouseDistance) * 0.3;
+                const opacity = (1 - distance / mouseDistance) * 0.5;
                 this.ctx.strokeStyle = `rgba(6, 182, 212, ${opacity})`;
-                this.ctx.lineWidth = 1;
+                this.ctx.lineWidth = 1.5;
                 this.ctx.beginPath();
                 this.ctx.moveTo(particle.x, particle.y);
                 this.ctx.lineTo(this.mouse.x, this.mouse.y);
