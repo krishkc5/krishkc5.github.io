@@ -174,11 +174,11 @@ nav {
 }
 
 .typewriter-text {
-    color: var(--accent);
+    color: var(--text-light);
 }
 
 .typewriter-cursor {
-    color: var(--accent);
+    color: var(--text-light);
     animation: blink 1s step-end infinite;
 }
 
