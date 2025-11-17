@@ -31,47 +31,14 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Canvas Layers */
-#bgCanvas,
-#oscilloscopeCanvas,
-#circuitCanvas,
-#cursorTrailCanvas {
+/* Canvas Background */
+#bgCanvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
-}
-
-#bgCanvas {
-    z-index: -5;
-}
-
-#oscilloscopeCanvas {
-    z-index: -4;
-    opacity: 0.4;
-}
-
-#circuitCanvas {
-    z-index: -3;
-    opacity: 0.6;
-}
-
-#cursorTrailCanvas {
-    z-index: -2;
-}
-
-#fermiSurface {
-    position: fixed;
-    top: 50%;
-    right: 5%;
-    transform: translateY(-50%);
-    width: 200px;
-    height: 200px;
     z-index: -1;
-    opacity: 0.3;
-    pointer-events: none;
 }
 
 .container {
@@ -377,32 +344,6 @@ section h2::after {
     transform: translateY(-2px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
     border-color: rgba(6, 182, 212, 0.3);
-}
-
-/* Ripple effect */
-.glass-tile {
-    position: relative;
-}
-
-.ripple {
-    position: absolute;
-    border-radius: 50%;
-    border: 2px solid rgba(6, 182, 212, 0.6);
-    animation: ripple-animation 1.5s ease-out;
-    pointer-events: none;
-}
-
-@keyframes ripple-animation {
-    0% {
-        width: 0;
-        height: 0;
-        opacity: 1;
-    }
-    100% {
-        width: 400px;
-        height: 400px;
-        opacity: 0;
-    }
 }
 
 .glass-tile h3 {
