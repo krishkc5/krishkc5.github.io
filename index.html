@@ -35,7 +35,10 @@
         <div class="hero-grid">
             <div class="hero-card">
                 <h1 class="hero-name">Krishna Chemudupati</h1>
-                <p class="hero-title">Electrical Engineer & Device Physics Researcher</p>
+                <p class="hero-title">
+                    <span class="typewriter-text"></span>
+                    <span class="typewriter-cursor">|</span>
+                </p>
                 <p class="hero-bio">
                     MSE student at UPenn working on semiconductor memory, autonomous systems, and the intersection of hardware and ML.
                 </p>
@@ -279,6 +282,64 @@
 
     <script src="script.js"></script>
     <script>
+        // Typewriter effect
+        class Typewriter {
+            constructor(element, roles, options = {}) {
+                this.element = element;
+                this.roles = roles;
+                this.currentRoleIndex = 0;
+                this.currentText = '';
+                this.isDeleting = false;
+                this.typeSpeed = options.typeSpeed || 100;
+                this.deleteSpeed = options.deleteSpeed || 50;
+                this.pauseDuration = options.pauseDuration || 2000;
+                this.type();
+            }
+
+            type() {
+                const currentRole = this.roles[this.currentRoleIndex];
+
+                if (this.isDeleting) {
+                    this.currentText = currentRole.substring(0, this.currentText.length - 1);
+                } else {
+                    this.currentText = currentRole.substring(0, this.currentText.length + 1);
+                }
+
+                this.element.textContent = this.currentText;
+
+                let speed = this.isDeleting ? this.deleteSpeed : this.typeSpeed;
+
+                if (!this.isDeleting && this.currentText === currentRole) {
+                    speed = this.pauseDuration;
+                    this.isDeleting = true;
+                } else if (this.isDeleting && this.currentText === '') {
+                    this.isDeleting = false;
+                    this.currentRoleIndex = (this.currentRoleIndex + 1) % this.roles.length;
+                    speed = 500;
+                }
+
+                setTimeout(() => this.type(), speed);
+            }
+        }
+
+        // Initialize typewriter on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const typewriterElement = document.querySelector('.typewriter-text');
+            const roles = [
+                'Student',
+                'Researcher',
+                'Engineer',
+                'Hardware Designer',
+                'ML Enthusiast',
+                'Problem Solver'
+            ];
+            new Typewriter(typewriterElement, roles, {
+                typeSpeed: 100,
+                deleteSpeed: 50,
+                pauseDuration: 2000
+            });
+        });
+
         // Load blog posts from Firebase
         document.addEventListener('DOMContentLoaded', async () => {
             const blogContainer = document.getElementById('blogContainer');
