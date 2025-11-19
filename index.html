@@ -33,7 +33,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-grid">
-            <div class="hero-card">
+            <div class="hero-card-center">
                 <h1 class="hero-name">Krishna Chemudupati</h1>
                 <p class="hero-title">
                     <span class="typewriter-text"></span>
@@ -48,10 +48,6 @@
                     <a href="#blog" class="pill-btn">Blog</a>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="images/title_headshot.png" alt="Krishna Chemudupati" class="identity-photo">
-                <p class="hero-tagline">"I opened myself to the gentle indifference of the world - Albert Camus"</p>
-            </div>
         </div>
     </section>
 
@@ -59,10 +55,16 @@
     <section id="about">
         <div class="container">
             <h2>About Me</h2>
-            <div class="glass-tile">
-                <p>
-                    I'm a student researcher specializing in circuit design for semiconductor memory technologies and device physics. My research focuses on ferroelectric diodes for next-generation non-volatile memory, combining fabrication, electrical characterization, and computational modeling to push the boundaries of memory technologies. Beyond the lab, I work on autonomous systems, machine learning, and hardware-software integration. Between Cadence simulations and lab meetings, I enjoy playing tennis and watching YouTube videos when I should really be sleeping :D
-                </p>
+            <div class="about-content">
+                <img src="images/title_headshot.png" alt="Krishna Chemudupati" class="about-photo">
+                <div class="about-text-large">
+                    <p>
+                        I'm a student researcher specializing in circuit design for semiconductor memory technologies and device physics. My research focuses on ferroelectric diodes for next-generation non-volatile memory, combining fabrication, electrical characterization, and computational modeling to push the boundaries of memory technologies.
+                    </p>
+                    <p>
+                        Beyond the lab, I work on autonomous systems, machine learning, and hardware-software integration. Between Cadence simulations and lab meetings, I enjoy playing tennis and watching YouTube videos when I should really be sleeping :D
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -73,36 +75,63 @@
             <h2>Technical Skills</h2>
             <div class="skills-grid">
                 <div class="glass-tile">
-                    <h3>Hardware & Devices</h3>
+                    <h3>EDA & Simulation</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">VLSI</span>
-                        <span class="skill-tag">Device Characterization</span>
-                        <span class="skill-tag">Circuit Design</span>
-                        <span class="skill-tag">Semiconductor Fabrication</span>
-                        <span class="skill-tag">PCB Design</span>
-                        <span class="skill-tag">Embedded Systems</span>
+                        <a href="#projects" class="skill-tag">Cadence Virtuoso</a>
+                        <a href="#projects" class="skill-tag">LTSpice</a>
+                        <a href="#projects" class="skill-tag">Ngspice</a>
+                        <a href="#projects" class="skill-tag">Electric VLSI</a>
+                        <a href="#projects" class="skill-tag">Quartus Prime</a>
+                        <a href="#projects" class="skill-tag">ModelSim</a>
+                        <a href="#projects" class="skill-tag">Sentaurus TCAD</a>
+                        <a href="#projects" class="skill-tag">MATLAB</a>
                     </div>
                 </div>
                 <div class="glass-tile">
-                    <h3>Software & ML</h3>
+                    <h3>Hardware & PCB</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">PyTorch</span>
-                        <span class="skill-tag">TensorFlow</span>
-                        <span class="skill-tag">ROS2</span>
-                        <span class="skill-tag">CUDA</span>
+                        <a href="#projects" class="skill-tag">Altium</a>
+                        <a href="#projects" class="skill-tag">SolidWorks</a>
+                        <a href="#projects" class="skill-tag">Oscilloscope</a>
+                        <a href="#projects" class="skill-tag">Logic Analyzer</a>
+                        <a href="#projects" class="skill-tag">Keithley Parameter Analyzer</a>
+                        <a href="#projects" class="skill-tag">Probe Station</a>
                     </div>
                 </div>
                 <div class="glass-tile">
-                    <h3>Design Tools</h3>
+                    <h3>Programming & ML</h3>
                     <div class="skill-tags">
-                        <span class="skill-tag">Cadence</span>
-                        <span class="skill-tag">Altium</span>
-                        <span class="skill-tag">LTspice</span>
-                        <span class="skill-tag">Electric VLSI</span>
-                        <span class="skill-tag">SolidWorks</span>
-                        <span class="skill-tag">Verilog</span>
+                        <a href="#projects" class="skill-tag">Python</a>
+                        <a href="#projects" class="skill-tag">C</a>
+                        <a href="#projects" class="skill-tag">C++</a>
+                        <a href="#projects" class="skill-tag">Java</a>
+                        <a href="#projects" class="skill-tag">SystemVerilog</a>
+                        <a href="#projects" class="skill-tag">Verilog</a>
+                        <a href="#projects" class="skill-tag">CUDA</a>
+                        <a href="#projects" class="skill-tag">PyTorch</a>
+                        <a href="#projects" class="skill-tag">TensorFlow</a>
+                        <a href="#projects" class="skill-tag">Scikit-learn</a>
+                        <a href="#projects" class="skill-tag">NumPy</a>
+                        <a href="#projects" class="skill-tag">Pandas</a>
+                        <a href="#projects" class="skill-tag">Matplotlib</a>
+                    </div>
+                </div>
+                <div class="glass-tile">
+                    <h3>Embedded & Robotics</h3>
+                    <div class="skill-tags">
+                        <a href="#projects" class="skill-tag">ATMega328PB</a>
+                        <a href="#projects" class="skill-tag">Arduino</a>
+                        <a href="#projects" class="skill-tag">Raspberry Pi</a>
+                        <a href="#projects" class="skill-tag">NVIDIA Jetson Orin Nano</a>
+                        <a href="#projects" class="skill-tag">ROS2</a>
+                        <a href="#projects" class="skill-tag">FreeRTOS</a>
+                        <a href="#projects" class="skill-tag">SPI</a>
+                        <a href="#projects" class="skill-tag">I2C</a>
+                        <a href="#projects" class="skill-tag">UART</a>
+                        <a href="#projects" class="skill-tag">Git</a>
+                        <a href="#projects" class="skill-tag">Bash</a>
+                        <a href="#projects" class="skill-tag">Unix</a>
+                        <a href="#projects" class="skill-tag">Kaggle</a>
                     </div>
                 </div>
             </div>
@@ -112,12 +141,12 @@
     <!-- Experience Section -->
     <section id="experience">
         <div class="container">
-            <h2>Research Experience</h2>
+            <h2>Experience</h2>
             <div class="experience-grid">
                 <div class="glass-tile">
-                    <h3>Graduate Research Assistant</h3>
+                    <h3>Device Physics Researcher</h3>
                     <div class="exp-meta">
-                        <span class="company">University of Pennsylvania</span>
+                        <span class="company">DREL - University of Pennsylvania</span>
                         <span class="date">Feb 2025 - Present</span>
                     </div>
                     <ul>
@@ -128,16 +157,68 @@
                     </ul>
                 </div>
                 <div class="glass-tile">
-                    <h3>Autonomous Systems Researcher</h3>
+                    <h3>Autonomous Vehicle Researcher</h3>
                     <div class="exp-meta">
-                        <span class="company">Mangharam Lab - UPenn</span>
-                        <span class="date">Mar 2025 - Present</span>
+                        <span class="company">xLab - University of Pennsylvania</span>
+                        <span class="date">Mar 2024 - Feb 2025</span>
                     </div>
                     <ul>
                         <li>Developed ROS2-based autonomy stack for 1/18th scale self-driving F1 car</li>
                         <li>Designed custom PCB for power routing and sensor management</li>
                         <li>Implemented SLAM with artificial LaserScan from depth camera</li>
                         <li>Optimized real-time lane detection on NVIDIA Jetson Orin Nano</li>
+                    </ul>
+                </div>
+                <div class="glass-tile">
+                    <h3>Teaching Assistant - CIS 1100</h3>
+                    <div class="exp-meta">
+                        <span class="company">University of Pennsylvania</span>
+                        <span class="date">Aug 2024 - Present</span>
+                    </div>
+                    <ul>
+                        <li>Teaching introduction to computer programming concepts in Python</li>
+                        <li>Leading weekly recitation sections and holding office hours</li>
+                        <li>Grading assignments and providing detailed feedback to students</li>
+                        <li>Mentoring students on debugging techniques and problem-solving strategies</li>
+                    </ul>
+                </div>
+                <div class="glass-tile">
+                    <h3>Teaching Assistant - ESE 1120</h3>
+                    <div class="exp-meta">
+                        <span class="company">University of Pennsylvania</span>
+                        <span class="date">Dec 2024 - Present</span>
+                    </div>
+                    <ul>
+                        <li>Supporting engineering students in embedded systems and digital logic design</li>
+                        <li>Assisting with lab sessions on microcontroller programming and circuit design</li>
+                        <li>Providing guidance on SystemVerilog and FPGA development</li>
+                        <li>Helping students debug hardware and software integration issues</li>
+                    </ul>
+                </div>
+                <div class="glass-tile">
+                    <h3>Resident Advisor</h3>
+                    <div class="exp-meta">
+                        <span class="company">University of Pennsylvania</span>
+                        <span class="date">Aug 2024 - Present</span>
+                    </div>
+                    <ul>
+                        <li>Fostering inclusive community environment for 40+ undergraduate residents</li>
+                        <li>Organizing academic, social, and wellness programs</li>
+                        <li>Serving as first responder for student crises and emergencies</li>
+                        <li>Mediating conflicts and providing peer counseling support</li>
+                    </ul>
+                </div>
+                <div class="glass-tile">
+                    <h3>Propulsion & Avionics Engineer</h3>
+                    <div class="exp-meta">
+                        <span class="company">Penn Aerospace Club</span>
+                        <span class="date">Sep 2023 - Present</span>
+                    </div>
+                    <ul>
+                        <li>Designing and testing solid rocket motors for high-power rocketry</li>
+                        <li>Developing avionics systems for flight data collection and telemetry</li>
+                        <li>Building custom PCBs for sensor integration and data logging</li>
+                        <li>Simulating flight trajectories and optimizing rocket performance</li>
                     </ul>
                 </div>
             </div>
