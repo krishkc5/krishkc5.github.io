@@ -76,20 +76,36 @@ nav {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
     list-style: none;
 }
 
 .nav-links a {
-    color: var(--text-muted);
+    color: var(--text-light);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: color 0.2s;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s;
 }
 
 .nav-links a:hover {
-    color: var(--text-light);
+    color: var(--accent);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links .admin-link {
@@ -195,9 +211,9 @@ nav {
 
 .hero-bio {
     font-size: 1.05rem;
-    color: var(--text-muted);
+    color: var(--text-light);
     line-height: 1.6;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
 }
 
 .hero-buttons {
@@ -328,6 +344,43 @@ section h2::after {
     border-color: rgba(6, 182, 212, 0.3);
 }
 
+/* Clickable cards */
+.experience-grid .glass-tile,
+.projects-grid .glass-tile {
+    cursor: pointer;
+}
+
+.experience-grid .glass-tile:hover,
+.projects-grid .glass-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+    border-color: rgba(6, 182, 212, 0.5);
+}
+
+.experience-grid .glass-tile:hover h3,
+.projects-grid .glass-tile:hover h3 {
+    color: var(--accent);
+}
+
+.experience-grid .glass-tile::after,
+.projects-grid .glass-tile::after {
+    content: '→';
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 1.5rem;
+    color: var(--accent);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s;
+}
+
+.experience-grid .glass-tile:hover::after,
+.projects-grid .glass-tile:hover::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 .glass-tile h3 {
     color: var(--text-light);
     font-size: 1.3rem;
@@ -408,22 +461,35 @@ section h2::after {
     }
 }
 
+.skills-grid .glass-tile {
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+}
+
+.skills-grid .glass-tile h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    align-content: flex-start;
 }
 
 .skill-tag {
     background: rgba(6, 182, 212, 0.1);
     color: var(--accent);
-    padding: 0.45rem 0.9rem;
+    padding: 0.4rem 0.8rem;
     border-radius: 50px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     border: 1px solid rgba(6, 182, 212, 0.2);
     transition: all 0.2s;
     text-decoration: none;
     display: inline-block;
+    white-space: nowrap;
 }
 
 .skill-tag:hover {
