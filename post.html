@@ -173,7 +173,7 @@
                     <div class="error">
                         <h2>Post Not Found</h2>
                         <p>The blog post you're looking for doesn't exist.</p>
-                        <a href="index.html#blog" class="btn btn-primary">Back to Blog</a>
+                        <a href="/#blog" class="btn btn-primary">Back to Blog</a>
                     </div>
                 `;
                 return;
@@ -185,7 +185,7 @@
                     <div class="error">
                         <h2>Error Loading Post</h2>
                         <p>Unable to connect to the database. Please try again later.</p>
-                        <a href="index.html#blog" class="btn btn-primary">Back to Blog</a>
+                        <a href="/#blog" class="btn btn-primary">Back to Blog</a>
                     </div>
                 `;
                 return;
@@ -199,7 +199,7 @@
                         <div class="error">
                             <h2>Post Not Found</h2>
                             <p>This blog post may have been removed or doesn't exist.</p>
-                            <a href="index.html#blog" class="btn btn-primary">Back to Blog</a>
+                            <a href="/#blog" class="btn btn-primary">Back to Blog</a>
                         </div>
                     `;
                     return;
@@ -219,7 +219,7 @@
                     : 'Recent';
 
                 container.innerHTML = `
-                    <a href="index.html#blog" class="back-link">
+                    <a href="/#blog" class="back-link">
                         <span>←</span> Back to Blog
                     </a>
 
@@ -246,7 +246,7 @@
                     <div class="error">
                         <h2>Error Loading Post</h2>
                         <p>Something went wrong while loading this post. Please try again later.</p>
-                        <a href="index.html#blog" class="btn btn-primary">Back to Blog</a>
+                        <a href="/#blog" class="btn btn-primary">Back to Blog</a>
                     </div>
                 `;
             }
