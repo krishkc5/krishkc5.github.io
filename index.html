@@ -165,9 +165,9 @@
                     </ul>
                 </div>
                 <div class="glass-tile">
-                    <h3>Aircraft Engineer - Aircraft Subteam</h3>
+                    <h3>Propulsion & Avionics Engineer</h3>
                     <div class="exp-meta">
-                        <span class="company">Penn Aerospace Club</span>
+                        <span class="company">Penn Aerospace Club - Aircraft Subteam</span>
                         <span class="date">Sep 2023 - Present</span>
                     </div>
                     <ul>
@@ -187,9 +187,9 @@
                     <ul>
                         <li>Teaching Python programming (CIS 1100) and electricity & magnetism (ESE 1120)</li>
                         <li>Leading weekly recitation sections and holding office hours for both courses</li>
-                        <li>Guiding students on circuit analysis, electromagnetic theory, and Maxwell's equations</li>
-                        <li>Assisting with lab sessions on oscilloscopes, multimeters, and experimental circuit design</li>
-                        <li>Mentoring students on debugging techniques and problem-solving strategies</li>
+                        <li>Guiding students on data structures, algorithms, and computational problem-solving in Python</li>
+                        <li>Supporting circuit analysis, electromagnetic theory, and lab work with oscilloscopes</li>
+                        <li>Mentoring students on debugging techniques and exam preparation strategies</li>
                     </ul>
                 </div>
                 <div class="glass-tile">
@@ -213,154 +213,162 @@
     <section id="projects">
         <div class="container">
             <h2>Featured Projects</h2>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="circuit">Circuit Design</button>
+                <button class="filter-btn" data-filter="vlsi">VLSI & Memory</button>
+                <button class="filter-btn" data-filter="robotics">Robotics</button>
+                <button class="filter-btn" data-filter="embedded">Embedded Systems</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+            </div>
             <div class="projects-grid">
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="circuit vlsi">
                     <h3>Wideband 45nm TIA</h3>
-                    <p>Optical receiver TIA in 45nm CMOS with detailed device characterization, analytical design methodology, and full Cadence simulations.</p>
+                    <p>Optical receiver TIA with device characterization and Cadence simulations in 45nm CMOS.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Cadence</span>
                         <span class="tech-tag">Analog Design</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="vlsi">
                     <h3>16x4 DRAM Subsystem</h3>
-                    <p>Dynamic memory architecture with schematics, simulations, and timing analysis in 45nm VLSI process.</p>
+                    <p>Dynamic memory architecture with schematics, simulations, and timing analysis in 45nm.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">VLSI</span>
                         <span class="tech-tag">Memory Design</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="circuit vlsi">
                     <h3>Hierarchical 4x4 Multiplier</h3>
-                    <p>CMOS multiplier in Cadence Virtuoso with optimized full-adder array and automated Spectre testbenches for timing analysis.</p>
+                    <p>CMOS multiplier with optimized full-adder array and Spectre testbenches in Cadence Virtuoso.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Cadence</span>
                         <span class="tech-tag">CMOS</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="circuit vlsi">
                     <h3>8-bit Ripple-Carry Adder</h3>
-                    <p>Circuit-level 8-bit adder in 45nm with baseline and delay-optimized implementations, featuring detailed energy and leakage analysis.</p>
+                    <p>Circuit-level adder in 45nm with delay optimization and detailed energy/leakage analysis.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">CMOS</span>
                         <span class="tech-tag">Optimization</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="circuit vlsi">
                     <h3>16:1 LUT Optimizer</h3>
-                    <p>Lookup table implementation in 45nm CMOS and PTL with schematic design, Cadence simulations, and Elmore delay analysis.</p>
+                    <p>Lookup table in 45nm CMOS and PTL with Cadence simulations and Elmore delay analysis.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Cadence</span>
                         <span class="tech-tag">PTL</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="vlsi">
                     <h3>Ferroelectric Diode Model</h3>
-                    <p>Physics-based computational model analyzing work function characteristics of ferroelectric diodes for memory applications.</p>
+                    <p>Physics-based model analyzing work function characteristics for memory applications.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Device Physics</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="vlsi">
                     <h3>64-bit SRAM Array</h3>
-                    <p>6T SRAM cell design and layout using Electric VLSI with custom testbenches for read/write verification.</p>
+                    <p>6T SRAM cell design in Electric VLSI with custom testbenches for verification.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Electric VLSI</span>
                         <span class="tech-tag">Memory</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="vlsi embedded">
                     <h3>Pipelined RISC-V Core</h3>
-                    <p>5-stage processor with hazard detection, data forwarding, and branch prediction, synthesized and validated on FPGA.</p>
+                    <p>5-stage processor with hazard detection and data forwarding, synthesized on FPGA.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Verilog</span>
                         <span class="tech-tag">FPGA</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="vlsi embedded">
                     <h3>Ring Oscillator TRNG</h3>
-                    <p>Hardware random number generator using ring oscillators and sampling circuits in SystemVerilog with NIST statistical validation.</p>
+                    <p>Hardware RNG using ring oscillators in SystemVerilog with NIST validation.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">SystemVerilog</span>
                         <span class="tech-tag">FPGA</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="robotics ml">
                     <h3>Autonomous F1 Race Car</h3>
-                    <p>Self-driving 1/18th scale vehicle with ROS2 autonomy stack, custom PCB, and real-time lane detection on Jetson Orin Nano.</p>
+                    <p>Self-driving 1/18th scale car with ROS2 and real-time lane detection on Jetson Orin.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">ROS2</span>
                         <span class="tech-tag">Computer Vision</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="embedded">
                     <h3>mmWave Smart Brake Light</h3>
-                    <p>IMU-based bicycle brake light with LCD display and mmWave radar speed detection, programmed in C on ATMega328PB.</p>
+                    <p>IMU-based bicycle brake light with mmWave radar speed detection on ATMega328PB.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">C</span>
                         <span class="tech-tag">Embedded</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="robotics">
                     <h3>Aircraft Telemetry Analyzer</h3>
-                    <p>Python-based flight data analysis extracting 100+ metrics from .ulg files for Penn Aerospace Club aircraft optimization.</p>
+                    <p>Flight data analysis tool extracting 100+ metrics from .ulg files for optimization.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Data Analysis</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="robotics">
                     <h3>Coral Maintenance ROV</h3>
-                    <p>Underwater robot with thruster control, IMU/pressure sensors, and robotic claws for autonomous coral reef cleaning.</p>
+                    <p>Underwater robot with thruster control and robotic claws for coral reef cleaning.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">SolidWorks</span>
                         <span class="tech-tag">Arduino</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="embedded">
                     <h3>Ultrasonic Digital Theremin</h3>
-                    <p>Musical instrument using ultrasonic sensors and ADC for gesture-based pitch control with digital signal processing.</p>
+                    <p>Musical instrument using ultrasonic sensors for gesture-based pitch control.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Arduino</span>
                         <span class="tech-tag">DSP</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="circuit">
                     <h3>Analog Metal Detector</h3>
-                    <p>LC oscillator-based detector with tuned detection stage, fabricated PCB validating ferromagnetic object detection via eddy currents.</p>
+                    <p>LC oscillator-based detector with PCB validating ferromagnetic object detection.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">LTSpice</span>
                         <span class="tech-tag">PCB</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="ml">
                     <h3>Graph-Based Cable Router</h3>
-                    <p>C++ network optimization using Prim's algorithm and priority queues for minimal-cost cable routing across nodes.</p>
+                    <p>Network optimization using Prim's algorithm for minimal-cost cable routing.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">C++</span>
                         <span class="tech-tag">Algorithms</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="embedded">
                     <h3>Stepper Motor Plotter</h3>
-                    <p>2D function plotter with stepper motors and DAC-controlled pen actuator, rendering plots from serial commands.</p>
+                    <p>2D function plotter with stepper motors and DAC-controlled pen actuator.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Arduino</span>
                         <span class="tech-tag">Control Systems</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="ml">
                     <h3>Energy-Aware Transformer</h3>
-                    <p>Quantized transformer model analyzing energy consumption vs accuracy tradeoffs using CUDA for hardware/software co-design.</p>
+                    <p>Quantized transformer analyzing energy vs accuracy tradeoffs using CUDA.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">CUDA</span>
                         <span class="tech-tag">ML</span>
                     </div>
                 </div>
-                <div class="glass-tile">
+                <div class="glass-tile" data-category="ml">
                     <h3>Citadel Datathon Winner 🏆</h3>
-                    <p>First place ($10K prize) - Gradient boosting models predicting food production and stock performance with advanced feature engineering.</p>
+                    <p>First place ($10K) - Gradient boosting models predicting food and stock performance.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">XGBoost</span>
                         <span class="tech-tag">Python</span>
@@ -393,19 +401,12 @@
             </p>
             <div class="contact-grid">
                 <a href="mailto:krishkc@seas.upenn.edu" class="contact-link" aria-label="Email Krishna">
-                    <div class="icon">📧</div>
                     <span>Email</span>
                 </a>
-                <a href="tel:+14078087141" class="contact-link" aria-label="Call Krishna">
-                    <div class="icon">📱</div>
-                    <span>Phone</span>
-                </a>
                 <a href="https://linkedin.com/in/krishna-chemudupati" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn Profile">
-                    <div class="icon">💼</div>
                     <span>LinkedIn</span>
                 </a>
                 <a href="https://github.com/krishkc5" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="GitHub Profile">
-                    <div class="icon">💻</div>
                     <span>GitHub</span>
                 </a>
             </div>
@@ -478,6 +479,33 @@
                 typeSpeed: 100,
                 deleteSpeed: 50,
                 pauseDuration: 2000
+            });
+
+            // Project filtering
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.projects-grid .glass-tile');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    projectCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.classList.remove('hidden');
+                        } else {
+                            const categories = card.getAttribute('data-category') || '';
+                            if (categories.includes(filter)) {
+                                card.classList.remove('hidden');
+                            } else {
+                                card.classList.add('hidden');
+                            }
+                        }
+                    });
+                });
             });
         });
 
