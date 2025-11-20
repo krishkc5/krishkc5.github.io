@@ -451,20 +451,26 @@ section h2::after {
 /* Skills Grid */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 900px) {
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
     }
 }
 
 .skills-grid .glass-tile {
     display: flex;
     flex-direction: column;
-    min-height: 280px;
+    min-height: 320px;
 }
 
 .skills-grid .glass-tile h3 {
@@ -539,7 +545,7 @@ section h2::after {
     border-radius: 50px;
     background: var(--glass-bg);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     color: var(--text-light);
     font-size: 0.9rem;
     font-weight: 500;
