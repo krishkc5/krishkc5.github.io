@@ -54,16 +54,13 @@
                 <img src="images/title_headshot.png" alt="Krishna Chemudupati" class="about-photo">
                 <div class="about-text-large">
                     <p>
-                        Hi, I’m Krishna. I’m a student engineer interested in building tools and systems at the intersection of AI, hardware, and silicon design. My work focuses on combining a deep understanding of physical hardware with modern machine learning to accelerate design, verification, and analysis across the semiconductor stack.
+                        Hi, I'm Krishna. I build tools and systems across hardware and silicon design. My background spans digital and analog circuits, memory architectures, and device physics, from SystemVerilog verification to Cadence simulation to real hardware characterization.
                     </p>
                     <p>
-                        My background spans digital and analog circuits, memory architectures, and device-level physics, with hands-on experience in SystemVerilog and verification-driven design, Cadence-based circuit simulation, and real hardware characterization. Recently, I’ve been building AI-powered workflows that generate, validate, and iterate on hardware designs, with an emphasis on timing, hierarchy, and physical constraints that make silicon fundamentally different from software.
+                        I'm particularly drawn to problems where abstractions break down: memory behavior under variability, verification bottlenecks, and the tradeoffs between accuracy, energy, and latency at the hardware-software boundary. Outside of chip design, I also work on autonomous systems and embedded platforms.
                     </p>
                     <p>
-                        I’m particularly interested in problems where abstractions break down: memory behavior under variability, verification bottlenecks, sensor-to-compute interfaces, and the tradeoffs between accuracy, energy, and latency in AI systems.
-                    </p>
-                    <p>
-                        Outside of chip design, I work on autonomous systems and hardware–software co-design, and I enjoy turning messy, underspecified problems into working systems. When I’m not debugging simulations or in the lab, you’ll usually find me playing tennis or watching far too much YouTube when I should be sleeping :D
+                        When I'm not debugging simulations or in the lab, you'll usually find me playing tennis or watching far too much YouTube when I should be sleeping :D
                     </p>
                 </div>
             </div>
@@ -254,6 +251,7 @@
             </div>
             <div class="modal-tags" id="modalTags"></div>
             <p class="modal-description" id="modalDescription"></p>
+            <div class="modal-media" id="modalMedia"></div>
             <div class="modal-links" id="modalLinks"></div>
         </div>
     </div>
@@ -326,7 +324,8 @@
                 category: "digital",
                 tags: ["SystemVerilog", "Verilator", "cocotb", "FPGA"],
                 description: "5-stage pipelined RISC-V processor implementing the full RV32IM ISA in SystemVerilog. Features MX/WX/WM data forwarding for hazard mitigation, stall logic for load-use hazards, and a 32-bit Carry Lookahead Adder with hierarchical gp1/gp4/gp8 architecture. Includes an 8-stage pipelined divider and passed the Dhrystone benchmark (190k+ instructions), improving from 4.7 MHz single-cycle to 27.5 MHz pipelined on a Lattice iCE40 FPGA. Currently implementing a writeback cache with AXI-Lite interface.",
-                links: [{ type: "github", url: "https://github.com/krishkc5/rv32im-pipelined", label: "GitHub" }]
+                links: [{ type: "github", url: "https://github.com/krishkc5/rv32im-pipelined", label: "GitHub" }],
+                media: []
             },
             {
                 title: "RTL Verification Agent",
@@ -335,7 +334,8 @@
                 category: "digital software",
                 tags: ["Python", "OpenAI API", "Verilator", "SystemVerilog"],
                 description: "GPT-4o powered RTL generator that accepts plain English hardware descriptions and produces synthesizable SystemVerilog modules with self-checking testbenches. Implements closed-loop verification by iteratively compiling with Verilator, parsing error logs, and re-prompting until lint/simulation passes. Includes coverage-driven flow that identifies untested corners and generates targeted stimulus. Supports combinational, sequential, and communication designs including UART TX, SPI controllers, and I2C state machines.",
-                links: [{ type: "github", url: "https://github.com/krishkc5/sv_agent", label: "GitHub" }]
+                links: [{ type: "github", url: "https://github.com/krishkc5/sv_agent", label: "GitHub" }],
+                media: []
             },
             {
                 title: "Ring Oscillator TRNG",
@@ -344,7 +344,8 @@
                 category: "digital",
                 tags: ["SystemVerilog", "Verilator", "Python", "Cryptography"],
                 description: "Hardware entropy source for cryptographic applications using 8 ring oscillators with varied inverter counts (3, 5, 7, 9, 11 inverters) producing different propagation delays (100-170ps) for phase variation. Entropy is extracted via XOR of all oscillator outputs with a sampling divider and synchronization chain. Validated through Shannon entropy measurement approaching 1.0, autocorrelation analysis confirming no detectable patterns, and basic NIST test compatibility.",
-                links: [{ type: "github", url: "https://github.com/krishkc5/trng-ring-oscillator", label: "GitHub" }]
+                links: [{ type: "github", url: "https://github.com/krishkc5/trng-ring-oscillator", label: "GitHub" }],
+                media: [{ type: "pdf", src: "projects/trng_report.pdf", label: "Technical Report" }]
             },
             {
                 title: "64-bit 3T1C DRAM",
@@ -353,7 +354,8 @@
                 category: "vlsi",
                 tags: ["Cadence Virtuoso", "45nm CMOS", "Memory Design", "SPICE"],
                 description: "64-bit DRAM array using 3T1C architecture in 45nm CMOS with separate read/write wordlines for electrically isolated access paths. Features a 4-to-16 row decoder, PMOS-based bitline precharge, inverter-based sense amplifiers, and an autonomous refresh controller cycling all 16 rows within 32ms. Achieved write-high delay of 68.377ns, read-high delay of 0.21ns, and FOM of 6.19e-18 mm2-W-s. Documented in a 55-page technical report.",
-                links: [{ type: "github", url: "https://github.com/krishkc5/dram_vlsi", label: "GitHub" }]
+                links: [{ type: "github", url: "https://github.com/krishkc5/dram_vlsi", label: "GitHub" }],
+                media: [{ type: "pdf", src: "projects/dram_report.pdf", label: "Technical Report" }]
             },
             {
                 title: "64-bit 6T SRAM",
@@ -362,16 +364,18 @@
                 category: "vlsi",
                 tags: ["Electric VLSI", "22nm CMOS", "Memory Design", "SPICE"],
                 description: "64-bit SRAM array using standard 6T cell architecture in 22nm HP CMOS. Includes a two-level row decoder (NAND2 + NOR2), bitline precharge, tristate write drivers, and a cross-coupled differential sense amplifier with clocked positive feedback. Two-phase non-overlapping clock separates precharge and evaluation. Read delay of 121.1ps, write delay of 137.5ps, and power consumption of 35.2uW at 3.57 GHz.",
-                links: [{ type: "github", url: "https://github.com/krishkc5/sram_vlsi", label: "GitHub" }]
+                links: [{ type: "github", url: "https://github.com/krishkc5/sram_vlsi", label: "GitHub" }],
+                media: [{ type: "pdf", src: "projects/sram_report.pdf", label: "Technical Report" }]
             },
             {
-                title: "4x4 Braun Array Multiplier",
+                title: "4x4 Dadda Array Multiplier",
                 card: "Elmore-delay optimized CMOS multiplier achieving 36% faster delay and 2.5x lower energy.",
                 date: "Fall 2025",
                 category: "vlsi circuit",
                 tags: ["Cadence Virtuoso", "45nm CMOS", "Elmore Delay", "SPICE"],
-                description: "4-bit array multiplier using Braun architecture in 45nm CMOS. Optimized critical path using Elmore-delay RC modeling by replacing bag-of-gates full adder with compact complementary static-CMOS design. Exhaustively verified across all 256 input combinations with 5.5M+ raw waveform measurements. Achieved 125ps worst-case delay (36% improvement over baseline) and 50fJ active energy (2.5x reduction).",
-                links: [{ type: "github", url: "https://github.com/krishkc5/multiplier_4x4", label: "GitHub" }]
+                description: "4-bit array multiplier using Dadda architecture in 45nm CMOS. Optimized critical path using Elmore-delay RC modeling by replacing bag-of-gates full adder with compact complementary static-CMOS design. Exhaustively verified across all 256 input combinations with 5.5M+ raw waveform measurements. Achieved 125ps worst-case delay (36% improvement over baseline) and 50fJ active energy (2.5x reduction).",
+                links: [{ type: "github", url: "https://github.com/krishkc5/multiplier_4x4", label: "GitHub" }],
+                media: [{ type: "pdf", src: "projects/multiplier_4x4_report.pdf", label: "Technical Report" }]
             },
             {
                 title: "8-bit Ripple Carry Adder",
@@ -380,7 +384,8 @@
                 category: "vlsi circuit",
                 tags: ["Electric VLSI", "22nm CMOS", "K-map", "Tau Model"],
                 description: "8-bit ripple carry adder in 22nm HP CMOS with both baseline and delay-optimized implementations. Optimization replaced multi-level NAND/NOR/INV XOR2 with a 12-transistor K-map minimized static CMOS implementation and applied tau-model transistor sizing. Optimized design achieved 123ps worst-case delay (43.6% improvement) and 3.56fJ energy. Comprehensive 92-page report with area/delay scaling analysis.",
-                links: [{ type: "github", url: "https://github.com/krishkc5/8bit_cmos_adder", label: "GitHub" }]
+                links: [{ type: "github", url: "https://github.com/krishkc5/8bit_cmos_adder", label: "GitHub" }],
+                media: [{ type: "pdf", src: "projects/adder_report.pdf", label: "Technical Report" }]
             },
             {
                 title: "16:1 LUT for FPGA CLB",
@@ -389,7 +394,8 @@
                 category: "vlsi circuit",
                 tags: ["Cadence Virtuoso", "45nm CMOS", "FPGA Architecture", "PTL"],
                 description: "16:1 Lookup Table for FPGA configurable logic blocks in 45nm CMOS. Implemented hierarchical 2:1 pass-gate MUX network with multi-variable parametric sweeps alternating wmux and wbuf until convergence. Optimal sizing of wmux=208nm, wbuf=120nm with stage-dependent widths. Optimized design: 117ps (68.8% faster), 914 MHz (58.4% higher frequency), and 332.2fJ (46.6% lower energy).",
-                links: [{ type: "github", url: "https://github.com/krishkc5/vlsi_lut_optimizer", label: "GitHub" }]
+                links: [{ type: "github", url: "https://github.com/krishkc5/vlsi_lut_optimizer", label: "GitHub" }],
+                media: [{ type: "pdf", src: "projects/lut_report.pdf", label: "Technical Report" }]
             },
             {
                 title: "Wideband 45nm TIA",
@@ -398,7 +404,8 @@
                 category: "circuit",
                 tags: ["Cadence Virtuoso", "45nm CMOS", "Analog Design", "SPICE"],
                 description: "8-stage wideband transimpedance amplifier for high-speed optical receiver applications. Architecture includes common-gate preamplifier, common-source gain stage, source-follower differential conversion, 4-stage differential amplifier chain, and output buffer. Achieved 406 kOhm trans-impedance (112.27 dBOhm), 300.4 MHz upper -3dB bandwidth, 121.3 nArms integrated noise, and 1.38 mW power consumption. 49-page technical report comparing hand calculations vs. SPICE simulation.",
-                links: [{ type: "github", url: "https://github.com/krishkc5/wideband_tia_45nm", label: "GitHub" }]
+                links: [{ type: "github", url: "https://github.com/krishkc5/wideband_tia_45nm", label: "GitHub" }],
+                media: [{ type: "pdf", src: "projects/TIA_report.pdf", label: "Technical Report" }]
             },
             {
                 title: "MOS Capacitor Simulator",
@@ -407,7 +414,8 @@
                 category: "software",
                 tags: ["Python", "Matplotlib", "Semiconductor Physics"],
                 description: "Interactive MOS capacitor depth profile simulator with real-time slider-based gate voltage control (-2.0V to +2.0V). Visualizes electric field distributions in oxide and semiconductor, electrostatic potential profiles, carrier density with logarithmic scaling, and band diagrams (Ec, Ev, EF, Ei energy levels) across 4 synchronized subplots updating in real-time.",
-                links: []
+                links: [],
+                media: []
             },
             {
                 title: "CircuitSmith",
@@ -416,7 +424,8 @@
                 category: "software circuit",
                 tags: ["Python", "PyTorch", "OpenAI API", "SciPy"],
                 description: "Comprehensive Python library for analog circuit modeling supporting amplifiers (Common Source, Source Follower, Common Gate), differential circuits, OpAmps, and filters. Features frequency response analysis with Bode plots, parameter sweeps, Monte Carlo analysis for statistical performance bounds, and transient simulation. Includes LLM-powered design generation that accepts specifications like 'Design a two-stage opamp with 60dB gain' and generates complete circuit blocks.",
-                links: [{ type: "github", url: "https://github.com/krishkc5/CircuitSmith", label: "GitHub" }]
+                links: [{ type: "github", url: "https://github.com/krishkc5/CircuitSmith", label: "GitHub" }],
+                media: []
             },
             {
                 title: "GPU Energy Profiler",
@@ -425,7 +434,8 @@
                 category: "ml",
                 tags: ["Python", "PyTorch", "CUDA", "Transformers"],
                 description: "Production-ready automated benchmarking harness measuring energy consumption of ML models across FP32, FP16 (automatic mixed precision), and INT8 (quantization) modes. Zero-I/O design with all data GPU-resident, asynchronous power logging via nvidia-smi at 100ms sampling, and CUDA synchronization. Computes latency, throughput, power, energy per inference, and energy efficiency. Benchmarked GPT-2 across 2,500+ lines of Python with CSV/JSON output.",
-                links: [{ type: "github", url: "https://github.com/krishkc5/energy_aware_quantization", label: "GitHub" }]
+                links: [{ type: "github", url: "https://github.com/krishkc5/energy_aware_quantization", label: "GitHub" }],
+                media: [{ type: "pdf", src: "projects/eaq_report.pdf", label: "Technical Report" }, { type: "pdf", src: "projects/eaq_presentation.pdf", label: "Presentation" }]
             },
             {
                 title: "F1 Tire Strategy Optimizer",
@@ -434,7 +444,8 @@
                 category: "ml",
                 tags: ["Python", "XGBoost", "Monte Carlo", "FastF1 API"],
                 description: "Tire strategy optimization system for Formula 1 racing that proved Charles Leclerc would have won the 2022 Hungarian GP with optimal strategy (actual P6). Built a data pipeline using FastF1 API with LOWESS regression for degradation curves. Monte Carlo simulation (5,000 runs) with CRN variance reduction showed the optimal 2-stop strategy outperformed the actual 4-stop by 28 seconds with 81.6% win probability. Trained a 600-tree XGBoost model (MAE 0.0405 s/lap, R2 0.74).",
-                links: [{ type: "github", url: "https://github.com/krishkc5/f1_tire_deg", label: "GitHub" }]
+                links: [{ type: "github", url: "https://github.com/krishkc5/f1_tire_deg", label: "GitHub" }],
+                media: [{ type: "image", src: "projects/f1_tire_deg_figures/fig1_tire_degradation.png", label: "Tire Degradation Curves" }, { type: "image", src: "projects/f1_tire_deg_figures/fig2_monte_carlo_distributions.png", label: "Monte Carlo Distributions" }]
             },
             {
                 title: "PX4 Telemetry Analyzer",
@@ -443,7 +454,8 @@
                 category: "software",
                 tags: ["Python", "PX4 Autopilot", "pyulog", "Matplotlib"],
                 description: "Comprehensive analysis toolkit for PX4 autopilot flight data (ULog format) for fixed-wing aircraft. Includes 5 analysis scripts covering text reports, PDF visualization, CSV export, human-readable summaries, and interactive HTML dashboards. Supports 118 telemetry topics with configurable parameters and statistical analysis. First test flight: 43.8s duration, 48.2m distance, 14.1m max altitude, 0.80m GPS accuracy with 13 satellites.",
-                links: [{ type: "github", url: "https://github.com/krishkc5/dbf_flight_data", label: "GitHub" }]
+                links: [{ type: "github", url: "https://github.com/krishkc5/dbf_flight_data", label: "GitHub" }],
+                media: []
             },
             {
                 title: "Smart Brake Light",
@@ -452,7 +464,8 @@
                 category: "embedded",
                 tags: ["C", "ATmega328PB", "I2C", "PWM"],
                 description: "Intelligent bicycle brake light that automatically brightens during braking and adjusts to ambient lighting. Uses a 3-axis accelerometer (LIS3DH) sampled at 100 Hz with a moving average filter (N=7) reducing false triggers by 94.4%. Deceleration detection (-0.2g for 30ms) triggers LED to 100% within 100ms, with ambient light-based brightness control (10-60% duty cycle) and smooth 500ms fade-out. Custom bare-metal drivers for I2C, ADC, PWM with 3.2 hours battery runtime.",
-                links: [{ type: "website", url: "https://upenn-embedded.github.io/final-project-website-submission-f25-t02-f25-schrodingers_firmware/", label: "Project Site" }]
+                links: [{ type: "website", url: "https://upenn-embedded.github.io/final-project-website-submission-f25-t02-f25-schrodingers_firmware/", label: "Project Site" }],
+                media: [{ type: "image", src: "projects/brake_bright_block_diagram.png", label: "System Block Diagram" }]
             },
             {
                 title: "Ultrasonic Theremin",
@@ -461,7 +474,8 @@
                 category: "embedded",
                 tags: ["C", "ATmega328PB", "PWM", "ADC"],
                 description: "Theremin-like musical instrument using an HC-SR04 ultrasonic sensor for distance-controlled pitch (3-152cm range, 8 notes from C6-C7) and ambient light-controlled volume via photoresistor. Implements linear mapping for frequency generation with separate PWM outputs for frequency (OC0A) and volume (OC0B). Validated 440 Hz square wave with oscilloscope.",
-                links: []
+                links: [],
+                media: [{ type: "pdf", src: "projects/theremin_report.pdf", label: "Technical Report" }]
             },
             {
                 title: "Embedded Pong Game",
@@ -470,7 +484,8 @@
                 category: "embedded",
                 tags: ["C", "ATmega328PB", "SPI", "ESP32"],
                 description: "Complete Pong game on ATmega328PB with ball physics, paddle collision detection, computer AI opponent, and score tracking. Drives an ST7735 TFT LCD (160x128 pixels, RGB565) via SPI with a custom LCD_GFX graphics library. Includes joystick control via ADC, PWM buzzer for audio feedback, RGB LEDs for scoring, and ESP32 for wireless Blynk app control.",
-                links: []
+                links: [],
+                media: [{ type: "pdf", src: "projects/pong_report.pdf", label: "Technical Report" }]
             },
             {
                 title: "Analog Metal Detector",
@@ -479,7 +494,8 @@
                 category: "circuit",
                 tags: ["LTspice", "Altium", "MOSFET", "PCB Design"],
                 description: "Beat-frequency metal detector using two LC oscillators (fixed at 50.9 kHz, variable at 48.5 kHz). Metal proximity shifts the variable inductor, producing a clear 4x frequency shift in the output tone (977 Hz to ~4 kHz). Built with ALD1103 quad-MOSFET array amplifier stages. Validated through hand calculations, LTspice simulations, and hardware measurements. PCB designed within 100mm x 120mm constraints.",
-                links: []
+                links: [],
+                media: [{ type: "pdf", src: "projects/metal_detector_report.pdf", label: "Technical Report" }]
             },
             {
                 title: "Citadel Datathon Winner",
@@ -488,7 +504,8 @@
                 category: "ml",
                 tags: ["Python", "Random Forest", "ARIMA", "PageRank"],
                 description: "Won $10,000 cash prize at the Citadel-CorrelationOne Summer Invitational Datathon analyzing environmental and health impacts of ultra-processed foods. Built a Random Forest model (MSE 213.85, R2 0.80) and applied ARIMA time series forecasting and PageRank graph analysis for supply chain modeling. Found that ultra-processed foods have 2.4x emissions coefficient vs. minimally processed, and states with high dairy/grain consumption show lower CO2 emissions.",
-                links: []
+                links: [],
+                media: []
             },
             {
                 title: "2-Axis Analog Plotter",
@@ -497,7 +514,8 @@
                 category: "embedded circuit",
                 tags: ["Arduino", "DC Motors", "Control Systems", "Analog"],
                 description: "2-axis pen plotter with closed-loop analog feedback control using potentiometer-based position sensing (1 V/cm sensitivity) and differential amplifier error correction. Achieves positional accuracy within 0.1-0.6V deviation across a +/-6V range with natural anti-overshoot behavior. Implements coordinate-based movement with diagonal path interpolation and semicircle algorithm. Demonstrated with square, triangle, and complex fish designs.",
-                links: []
+                links: [],
+                media: [{ type: "pdf", src: "projects/analog_plotter_report.pdf", label: "Technical Report" }]
             },
             {
                 title: "F1/18th Autonomous Racer",
@@ -506,7 +524,8 @@
                 category: "embedded ml",
                 tags: ["Raspberry Pi", "ROS2", "Computer Vision", "CAD"],
                 description: "1/18-scale autonomous racing platform developed as an accessible alternative to the expensive F1TENTH platform. Uses Raspberry Pi 5 with lane detection via thresholding and sliding window algorithm with parabolic trajectory fitting. Integrated ROS2 nodes across computing, perception, and control layers with custom CAD-designed chassis and camera mounts. VIPR Summer Research project with a team of 7, presented at research symposium.",
-                links: []
+                links: [],
+                media: []
             },
             {
                 title: "Network Router Simulator",
@@ -515,7 +534,8 @@
                 category: "software",
                 tags: ["C++", "Graph Algorithms", "Data Structures"],
                 description: "Network router simulation using Dijkstra's shortest path algorithm with O((V+E) log V) complexity. Built custom min-heap priority queue and graph data structures from scratch. Supports directed and undirected topologies with single-source and single-pair routing modes. Passed all 20 test cases.",
-                links: []
+                links: [],
+                media: [{ type: "pdf", src: "projects/network_router_report.pdf", label: "Technical Report" }]
             },
             {
                 title: "Portfolio Website",
@@ -524,7 +544,8 @@
                 category: "software",
                 tags: ["HTML5", "CSS3", "JavaScript", "Firebase"],
                 description: "Modern personal portfolio website with dark theme, animated canvas particle background with mouse interaction, and integrated Firebase Firestore blog system with authentication. Features responsive design, accessibility compliance (ARIA labels, keyboard navigation), and performance optimizations. Hosted on GitHub Pages at $0/month.",
-                links: [{ type: "github", url: "https://github.com/krishkc5/krishkc5.github.io", label: "GitHub" }, { type: "website", url: "https://krishkc5.github.io", label: "Live Site" }]
+                links: [{ type: "github", url: "https://github.com/krishkc5/krishkc5.github.io", label: "GitHub" }, { type: "website", url: "https://krishkc5.github.io", label: "Live Site" }],
+                media: []
             },
             {
                 title: "Coral Monitoring ROV",
@@ -533,7 +554,8 @@
                 category: "embedded",
                 tags: ["Circuit Design", "IoT Sensors", "Embedded Systems", "PCB"],
                 description: "Underwater remotely operated vehicle for coral reef health monitoring with multi-sensor integration for temperature, pH, light, and salinity measurement. Features real-time data logging with an alert system for reef stress conditions, designed for field deployment in marine environments.",
-                links: [{ type: "video", url: "https://www.youtube.com/watch?v=MNaOq-svh-I", label: "Demo Video" }]
+                links: [{ type: "video", url: "https://www.youtube.com/watch?v=MNaOq-svh-I", label: "Demo Video" }],
+                media: [{ type: "pdf", src: "projects/coral_doctor_presentation.pdf", label: "Presentation" }]
             }
         ];
 
@@ -543,10 +565,10 @@
             grid.innerHTML = PROJECTS.map((p, i) => `
                 <div class="glass-tile" data-category="${p.category}" data-index="${i}">
                     <h3>${escapeHtml(p.title)}</h3>
-                    <p>${escapeHtml(p.card)}</p>
                     <div class="tech-tags">
-                        ${p.tags.slice(0, 2).map(t => `<span class="tech-tag">${escapeHtml(t)}</span>`).join('')}
+                        ${p.tags.slice(0, 3).map(t => `<span class="tech-tag">${escapeHtml(t)}</span>`).join('')}
                     </div>
+                    <span class="card-hint">Click to explore</span>
                 </div>
             `).join('');
         }
@@ -560,6 +582,23 @@
                 `<span class="tech-tag">${escapeHtml(t)}</span>`
             ).join('');
             document.getElementById('modalDescription').textContent = p.description;
+
+            // Render media (images inline, PDFs/videos as links)
+            const mediaEl = document.getElementById('modalMedia');
+            if (p.media && p.media.length > 0) {
+                mediaEl.innerHTML = p.media.map(m => {
+                    if (m.type === 'image') {
+                        return `<div class="modal-media-item"><img src="${m.src}" alt="${escapeHtml(m.label)}" class="modal-image"><span class="modal-media-label">${escapeHtml(m.label)}</span></div>`;
+                    } else if (m.type === 'pdf') {
+                        return `<a href="${m.src}" target="_blank" rel="noopener noreferrer" class="modal-link">${ICONS.website || ''}${escapeHtml(m.label)}</a>`;
+                    } else if (m.type === 'video') {
+                        return `<a href="${m.src}" target="_blank" rel="noopener noreferrer" class="modal-link">${ICONS.video || ''}${escapeHtml(m.label)}</a>`;
+                    }
+                    return '';
+                }).join('');
+            } else {
+                mediaEl.innerHTML = '';
+            }
 
             const linksEl = document.getElementById('modalLinks');
             if (p.links && p.links.length > 0) {
