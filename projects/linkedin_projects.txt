@@ -1,0 +1,866 @@
+================================================================================
+LINKEDIN PROJECTS - Krishna Chemudupati
+================================================================================
+
+Instructions:
+- Copy each section into LinkedIn's "Add Project" form
+- Title: Project name (keep under 100 characters)
+- Date: Start Month Year - End Month Year (or "Present")
+- Description: Paste the description text
+- Skills: Add each skill listed (LinkedIn will auto-suggest)
+- Media: Upload suggested files/links
+
+================================================================================
+
+PROJECT 1: 5-Stage Pipelined RV32IM Processor with CLA and Hazard Forwarding
+--------------------------------------------------------------------------------
+Date: Jan 2026 - Present
+
+Description:
+Designed a 5-stage pipelined RISC-V processor implementing the RV32IM instruction set architecture in SystemVerilog. The processor features MX/WX/WM data forwarding for hazard mitigation, stall logic for load-use hazards, and branch prediction support.
+
+Key accomplishments:
+• Built 32-bit Carry Lookahead Adder (CLA) with hierarchical gp1/gp4/gp8 architecture
+• Implemented 8-stage pipelined divider using iterative hardware algorithm
+• Passed Dhrystone benchmark (190k+ instructions) with cycle-accurate tracing
+• Achieved 27.5 MHz on Lattice iCE40 FPGA (up from 4.7 MHz single-cycle baseline)
+• Developed comprehensive cocotb testbench covering pipeline hazards, branch mispredictions, and memory dependencies
+• Currently implementing writeback cache with AXI-Lite interface
+
+Skills:
+SystemVerilog, Verilator, cocotb, Digital Design, RISC-V, FPGA, RTL Design, Hardware Verification
+
+Media to add:
+- GitHub repo link: https://github.com/krishkc5/rv32im-pipelined
+- Block diagram of pipeline architecture
+- Waveform screenshots from Surfer showing hazard handling
+- Dhrystone benchmark results screenshot
+
+================================================================================
+
+PROJECT 2: Closed-Loop RTL Verification Agent with Coverage-Driven Testbench Generation
+--------------------------------------------------------------------------------
+Date: Dec 2025
+
+Description:
+Built an AI-powered RTL design and verification tool that accepts plain English hardware descriptions and generates synthesizable SystemVerilog modules with self-checking testbenches.
+
+Key features:
+• GPT-4o powered code generation with closed-loop verification
+• Iteratively compiles with Verilator, parses error logs, and re-prompts until lint/simulation passes
+• Auto-generates constrained-random testbenches with SystemVerilog assertions
+• Coverage-driven flow identifying untested corners and generating targeted stimulus
+• Detects timing violations, latch inference, and multi-driven nets
+• Opens VCD waveforms in Surfer for visual debugging
+
+Supports diverse designs: adders, multiplexers, decoders, counters, shift registers, FIFOs, FSMs, UART TX, SPI controllers, and I2C state machines.
+
+Skills:
+Python, OpenAI API, SystemVerilog, Verilator, Hardware Verification, RTL Design, Test Automation, LLM Integration
+
+Media to add:
+- GitHub repo link: https://github.com/krishkc5/sv_agent
+- Demo video showing prompt-to-hardware workflow
+- Screenshot of generated testbench output
+- Example VCD waveform visualization
+
+================================================================================
+
+PROJECT 3: Ring Oscillator TRNG with Jitter-Based Entropy Extraction
+--------------------------------------------------------------------------------
+Date: Sep 2025 - Dec 2025
+
+Description:
+Designed a hardware entropy source for cryptographic applications using ring oscillator jitter and metastability. The TRNG uses 8 ring oscillators with varied inverter counts (3, 5, 7, 9, 11 inverters) producing different propagation delays (100-170ps) for phase variation.
+
+Technical implementation:
+• Entropy extraction via XOR of all oscillator outputs
+• Sampling divider for controlled output rate
+• Synchronization chain to handle metastability
+• Python-driven Verilator simulation with configurable bit generation
+
+Validation:
+• Shannon entropy measurement approaching 1.0
+• Autocorrelation analysis confirming no detectable patterns
+• ~50% ones/zeros distribution
+• Basic NIST test compatibility
+
+Skills:
+SystemVerilog, Verilator, Python, Digital Design, Cryptography, Statistical Analysis, Hardware Security
+
+Media to add:
+- GitHub repo link: https://github.com/krishkc5/trng-ring-oscillator
+- Block diagram of TRNG architecture
+- Entropy distribution histogram
+- Autocorrelation analysis plots
+- Simulation waveforms
+
+================================================================================
+
+PROJECT 4: 64-bit 3T1C DRAM with Autonomous Refresh Controller and Row Decoder Periphery
+--------------------------------------------------------------------------------
+Date: Sep 2025 - Dec 2025
+
+Description:
+Designed a 64-bit DRAM array using 3T1C (3-transistor, 1-capacitor) architecture in 45nm CMOS using Cadence Virtuoso. The design features separate read/write wordlines for electrically isolated access paths.
+
+Technical specifications:
+• 1pF storage capacitor balancing retention time, sensing margin, and area
+• 4-to-16 row decoder with PMOS-based bitline precharge
+• Inverter-based sense amplifiers (switching thresholds: 0.662V high, 0.573V low)
+• Autonomous refresh controller cycling all 16 rows within 32ms
+• Two-phase non-overlapping clock scheme
+
+Performance metrics:
+• Write-high delay: 68.377ns
+• Write-low delay: 6.128ns
+• Read-high delay: 0.21ns
+• Read-low delay: 57ps
+• FOM = 6.19×10⁻¹⁸ mm²·W·s
+
+Documented in comprehensive 55-page technical report with transistor sizing rationale.
+
+Skills:
+Cadence Virtuoso, VLSI Design, Analog Circuit Design, SPICE Simulation, Memory Design, 45nm CMOS
+
+Media to add:
+- GitHub repo link: https://github.com/krishkc5/dram_vlsi
+- Schematic screenshot from Cadence
+- Timing diagram showing read/write operations
+- PDF of technical report (or key pages)
+
+================================================================================
+
+PROJECT 5: 64-bit 6T SRAM with Differential Sense Amplifier and Two-Level Row Decoder
+--------------------------------------------------------------------------------
+Date: Jan 2025 - May 2025
+
+Description:
+Designed a 64-bit SRAM array using standard 6T cell architecture in 22nm HP CMOS using Electric VLSI. Implemented complete memory system with all peripheral circuits.
+
+Architecture:
+• 6T SRAM cell with cross-coupled inverters
+• 16-row column slice with shared bitline infrastructure
+• Two-level row decoder (NAND2 + NOR2) optimizing transistor count
+• Bitline precharge with NAND2-gated enable
+• Tristate write drivers
+• Cross-coupled differential sense amplifier with clocked positive feedback
+
+Performance metrics:
+• Read delay: 121.1ps (fall), 118.9ps (rise)
+• Write delay: 45.2ps (fall), 137.5ps (rise)
+• Power consumption: 35.2μW at 3.57 GHz
+• FOM = 1.16×10⁻³⁷
+
+Two-phase non-overlapping clock (clka, clkb) separating precharge and evaluation phases.
+
+Skills:
+Electric VLSI, VLSI Design, Memory Design, Digital Circuit Design, SPICE Simulation, 22nm CMOS
+
+Media to add:
+- GitHub repo link: https://github.com/krishkc5/sram_vlsi
+- 6T cell schematic
+- Full array layout view
+- Timing waveforms from simulation
+
+================================================================================
+
+PROJECT 6: 4-bit Braun Array Multiplier with Elmore-Delay Optimized Carry Propagation
+--------------------------------------------------------------------------------
+Date: Sep 2025 - Nov 2025
+
+Description:
+Designed and optimized a 4-bit array multiplier using Braun architecture in 45nm CMOS with Cadence Virtuoso. Implemented both baseline and delay-optimized versions with comprehensive performance characterization.
+
+Architecture:
+• Partial-product AND gates with diagonal carry propagation
+• Half/full adder rows for accumulation
+• Baseline: minimum-sized static CMOS gates
+• Optimized: Elmore-delay RC modeling with analytically sized gates
+
+Optimization approach:
+• Replaced bag-of-gates full adder with compact complementary static-CMOS design
+• Reduced internal logic depth along diagonal carry-propagation staircase
+• Exhaustive verification across all 256 input combinations
+
+Results:
+• Baseline: 196.6ps worst-case delay
+• Optimized: 125ps (36% improvement)
+• Active energy: 50fJ (2.5× reduction)
+• 5.5M+ raw waveform measurements captured
+
+Skills:
+Cadence Virtuoso, VLSI Design, Digital Circuit Design, Elmore Delay Analysis, SPICE Simulation, Circuit Optimization
+
+Media to add:
+- GitHub repo link: https://github.com/krishkc5/multiplier_4x4
+- Array multiplier schematic
+- Delay comparison chart (baseline vs optimized)
+- Waveform showing worst-case path
+
+================================================================================
+
+PROJECT 7: 8-bit RCA with K-Map Minimized XOR2 and Tau-Model Transistor Sizing
+--------------------------------------------------------------------------------
+Date: Jan 2025 - Mar 2025
+
+Description:
+Designed an 8-bit ripple carry adder in 22nm HP CMOS using Electric VLSI, with both baseline and delay-optimized implementations. Created comprehensive 92-page technical report.
+
+Baseline design:
+• Cascaded full-adder bit-slices with carry chain
+• Minimum-sized transistors (W=L=22nm) at 0.8V supply
+• Multi-level NAND/NOR/INV XOR2 implementation
+
+Delay optimization:
+• K-map minimized 12-transistor static CMOS XOR2
+• Tau-model transistor sizing (W=1.22×min)
+• 1V supply voltage
+
+Performance:
+• Baseline: 218ps worst-case delay
+• Optimized: 123ps (43.6% improvement)
+• Energy: 3.56fJ
+
+Report includes area/delay scaling analysis for 1/2/4/8-bit adder configurations.
+
+Skills:
+Electric VLSI, VLSI Design, Digital Circuit Design, K-map Optimization, Tau Model, Circuit Analysis
+
+Media to add:
+- GitHub repo link: https://github.com/krishkc5/8bit_cmos_adder
+- Full adder schematic (baseline vs optimized XOR2)
+- Delay scaling graph
+- Key pages from 92-page report
+
+================================================================================
+
+PROJECT 8: 16:1 LUT with Hierarchical Pass-Gate MUX and Parametric Buffer Sizing
+--------------------------------------------------------------------------------
+Date: Sep 2025 - Dec 2025
+
+Description:
+Designed and optimized a 16:1 Lookup Table (LUT) for FPGA configurable logic blocks in 45nm CMOS using Cadence Virtuoso. Implemented hierarchical 2:1 pass-gate MUX network with systematic transistor sizing optimization.
+
+Optimization methodology:
+• Multi-variable parametric sweeps alternating wmux and wbuf until convergence
+• Stage-dependent transistor widths (120nm to 10μm across hierarchy)
+• Optimal sizing: wmux=208nm, wbuf=120nm
+
+Validation:
+• All 16 address combinations tested with counter-type input pattern
+• Verified correct data propagation for all states
+
+Performance comparison:
+• Baseline: 374.5ps delay, 577 MHz max freq, 622.1fJ energy
+• Optimized: 117ps (68.8% faster), 914 MHz (58.4% higher), 332.2fJ (46.6% lower)
+
+Skills:
+Cadence Virtuoso, VLSI Design, FPGA Architecture, Parametric Optimization, Pass-Transistor Logic, Circuit Simulation
+
+Media to add:
+- GitHub repo link: https://github.com/krishkc5/vlsi_lut_optimizer
+- MUX hierarchy schematic
+- Parametric sweep convergence plots
+- Performance comparison table/chart
+
+================================================================================
+
+PROJECT 9: 8-Stage Wideband TIA with CG Preamplifier and Differential Output Chain
+--------------------------------------------------------------------------------
+Date: Sep 2025 - Dec 2025
+
+Description:
+Designed an 8-stage wideband transimpedance amplifier for high-speed optical receiver applications in 45nm CMOS using Cadence Virtuoso.
+
+Architecture:
+• Stage 1: Common-gate preamplifier (low input impedance)
+• Stage 2: Common-source gain stage
+• Stages 3-4: Source-follower differential conversion (CD1/CD2)
+• Stages 5-8: Four-stage differential amplifier chain
+• Output buffer for driving loads
+
+Process characterization:
+• ID-VDS curves for NMOS/PMOS
+• Threshold voltage extraction via gm method
+• Cgs/Cgd vs ID modeling
+• Process fT measurement
+
+Performance (simulated):
+• Trans-impedance: 406 kΩ (112.27 dBΩ)
+• Upper -3dB bandwidth: 300.4 MHz
+• Integrated noise: 121.3 nArms
+• Output swing: 0.6 Vpp
+• Power consumption: 1.38 mW
+
+49-page technical report comparing hand calculations vs. SPICE simulation.
+
+Skills:
+Cadence Virtuoso, Analog Circuit Design, SPICE Simulation, Transimpedance Amplifiers, Noise Analysis, Stability Analysis
+
+Media to add:
+- GitHub repo link: https://github.com/krishkc5/wideband_tia_45nm
+- TIA block diagram
+- Bode plot (gain vs frequency)
+- Transient response waveforms
+- Hand calc vs simulation comparison table
+
+================================================================================
+
+PROJECT 10: Real-Time MOS Capacitor Depth Profile Simulator with Band Diagram Visualization
+--------------------------------------------------------------------------------
+Date: Sep 2025 - Dec 2025
+
+Description:
+Built an interactive Python-based MOS capacitor depth profile simulator for semiconductor physics education and analysis.
+
+Features:
+• Real-time slider-based gate voltage control (-2.0V to +2.0V range)
+• Automatic axis scaling
+• Physics-accurate semiconductor modeling including depletion region calculations
+
+Visualizations (4 synchronized subplots):
+• Electric field distributions in oxide and semiconductor
+• Electrostatic potential profiles
+• Carrier density (electrons/holes) with logarithmic scaling
+• Band diagrams (Ec, Ev, EF, Ei energy levels)
+
+Professional matplotlib dashboard updating in real-time as parameters change.
+
+Skills:
+Python, Matplotlib, Semiconductor Physics, Scientific Computing, Data Visualization, Interactive Simulation
+
+Media to add:
+- Screenshot of 4-panel dashboard
+- GIF/video showing real-time slider interaction
+- Band diagram at different bias conditions
+
+================================================================================
+
+PROJECT 11: CircuitSmith - Analog Circuit Modeling Library with Monte Carlo Analysis and LLM-Driven Design
+--------------------------------------------------------------------------------
+Date: 2025
+
+Description:
+Developed a comprehensive Python library for analog circuit modeling and analysis with optional LLM-powered design generation.
+
+Supported circuit blocks:
+• Amplifiers: Common Source, Source Follower, Common Gate
+• Differential circuits: Differential Pair, Current Mirror
+• OpAmps: Two-Stage
+• Filters: RC/RLC Low-Pass, RLC Band-Pass
+
+Analysis capabilities:
+• Frequency response (Bode plots, magnitude/phase)
+• Parameter sweeps for sensitivity analysis
+• Monte Carlo analysis for statistical performance bounds
+• Transient simulation (step, sine, noisy signal response)
+
+LLM Integration:
+• Accepts specifications like "Design a two-stage opamp with 60dB gain"
+• Generates complete circuit blocks with parameters and validation
+
+Includes CLI interface, complete API documentation, and 10 runnable examples with professional visualizations.
+
+Skills:
+Python, PyTorch, OpenAI API, Matplotlib, SciPy, Analog Circuit Design, Software Development
+
+Media to add:
+- GitHub repo link: https://github.com/krishkc5/CircuitSmith
+- Example Bode plot output
+- Monte Carlo analysis histogram
+- Screenshot of CLI interface
+- Code snippet showing LLM integration
+
+================================================================================
+
+PROJECT 12: GPU Energy Profiling Harness for FP32/FP16/INT8 Model Quantization
+--------------------------------------------------------------------------------
+Date: 2025
+
+Description:
+Built a production-ready automated benchmarking harness for measuring energy consumption of machine learning models across different precision modes.
+
+Precision modes tested:
+• FP32 (baseline)
+• FP16 (automatic mixed precision)
+• INT8 (quantization)
+
+Technical implementation:
+• 8-step automated benchmarking pipeline
+• Zero-I/O design with all data GPU-resident
+• Asynchronous power logging via nvidia-smi subprocess (100ms sampling)
+• CUDA synchronization for accurate timing
+
+Metrics computed:
+• Latency (mean/median/std)
+• Throughput (samples/sec)
+• Power consumption (Watts)
+• Energy per inference (mJ)
+• Energy efficiency (inferences/Joule)
+• Accuracy and GPU memory usage
+
+Benchmarked GPT-2 language model; delivered 2,500+ lines of Python across 13+ modules with reproducible results and CSV/JSON output.
+
+Skills:
+Python, PyTorch, CUDA, Transformers, GPU Profiling, Machine Learning, Energy Efficiency, Quantization
+
+Media to add:
+- GitHub repo link: https://github.com/krishkc5/energy_aware_quantization
+- Energy comparison chart across precision modes
+- Power consumption over time graph
+- Architecture diagram of benchmarking pipeline
+- Sample output CSV/JSON
+
+================================================================================
+
+PROJECT 13: F1 Tire Strategy Optimizer with Monte Carlo Simulation and XGBoost Degradation Model
+--------------------------------------------------------------------------------
+Date: 2025
+
+Description:
+Developed a comprehensive tire strategy optimization system for Formula 1 racing, proving that Charles Leclerc would have won the 2022 Hungarian GP with optimal strategy (actual finish: P6).
+
+Data pipeline:
+• FastF1 API for telemetry extraction
+• 107% rule application and fuel mass correction
+• LOWESS regression for degradation curves
+
+Key findings:
+• Soft compound: ~0.20 s/lap degradation
+• Medium compound: ~0.04 s/lap degradation
+• Hard compound: ~0.02 s/lap degradation
+
+Optimization:
+• Monte Carlo simulation (5,000 runs) with CRN variance reduction
+• Optimal 2-stop strategy outperformed actual 4-stop by 28 seconds
+• Win probability: 81.6%
+• Statistical significance: t = 862.14, p < 0.001
+
+Machine learning:
+• 600-tree XGBoost model (MAE 0.0405 s/lap, R² 0.74)
+• Top feature: avg_pace_first3 (38.2% importance)
+
+Generated 7 publication-quality figures at 300 DPI.
+
+Skills:
+Python, XGBoost, LOWESS, Monte Carlo Simulation, FastF1 API, Data Science, Sports Analytics, Statistical Modeling
+
+Media to add:
+- GitHub repo link: https://github.com/krishkc5/f1_tire_deg
+- Tire degradation curves graph
+- Monte Carlo win probability distribution
+- Position prediction chart
+- Feature importance bar chart
+
+================================================================================
+
+PROJECT 14: PX4 ULog Telemetry Parser with Multi-Format Export and Flight Performance Analysis
+--------------------------------------------------------------------------------
+Date: 2025
+
+Description:
+Developed a comprehensive analysis toolkit for PX4 autopilot flight data (ULog format) for fixed-wing aircraft. Created 5 analysis scripts covering different output formats and use cases.
+
+Analysis outputs:
+• Text analysis reports
+• Publication-quality PDF visualization
+• CSV export for external tools
+• Human-readable summary reports
+• Interactive HTML dashboards with color-coded metrics
+
+Capabilities:
+• Supports 118 telemetry topics
+• Configurable parameters
+• Statistical analysis (min/max/mean)
+• Battery performance assessment
+• GPS quality metrics
+
+First test flight results:
+• Duration: 43.8 seconds
+• Distance: 48.2 meters
+• Max speed: 4.9 m/s (17.5 km/h)
+• Max altitude: 14.1m AGL
+• GPS accuracy: 0.80m with 13 satellites
+• IMU: 199.2 Hz, 18,567 samples, no dropouts
+
+Skills:
+Python, PX4 Autopilot, pyulog, Matplotlib, Data Analysis, Aviation, Telemetry, HTML/CSS
+
+Media to add:
+- GitHub repo link: https://github.com/krishkc5/dbf_flight_data
+- Sample PDF report page
+- HTML dashboard screenshot
+- Flight path visualization
+- Telemetry graphs (altitude, speed, etc.)
+
+================================================================================
+
+PROJECT 15: Accelerometer-Based Smart Brake Light with PWM Dimming and Moving Average Filter
+--------------------------------------------------------------------------------
+Date: 2025
+
+Description:
+Designed an intelligent bicycle brake light that automatically brightens when braking is detected and adjusts to ambient lighting conditions. Built with bare-metal C on ATmega328PB.
+
+Hardware:
+• 3-axis accelerometer (LIS3DH, ±2g range)
+• Ambient light sensor (LDR)
+• High-brightness LED strip via MOSFET PWM driver
+
+Software requirements achieved:
+• IMU sampling at 100 Hz
+• Brake state update within 50ms
+• Deceleration detection (-0.2g for 30ms) triggers LED to 100% within 100ms
+• Ambient light-based brightness control (10-60% duty cycle)
+• Moving average filter (N=7) reducing false triggers by 94.4%
+• Smooth 500ms LED fade-out after braking
+
+Custom drivers:
+• LIS3DH IMU driver (I2C)
+• TWI (I2C) communication
+• PWM control with interrupts
+• Real-time UART logging
+
+Performance: 3.2 hours battery runtime, BOM cost $70.50.
+
+Skills:
+C Programming, ATmega328PB, I2C, ADC, PWM, Embedded Systems, Sensor Integration, PCB Design
+
+Media to add:
+- project website: https://upenn-embedded.github.io/final-project-website-submission-f25-t02-f25-schrodingers_firmware/
+- System block diagram
+- Photo of assembled prototype
+- Demo video showing brake detection
+- Waveform showing LED fade-out
+
+================================================================================
+
+PROJECT 16: Ultrasonic Theremin with HC-SR04 Distance-to-Frequency Mapping and PWM Volume Control
+--------------------------------------------------------------------------------
+Date: 2025
+
+Description:
+Built a theremin-like musical instrument using an ATmega328PB microcontroller that generates musical notes based on hand distance and controls volume with ambient light.
+
+Features:
+• Distance-controlled pitch using HC-SR04 ultrasonic sensor (3-152cm range)
+• Ambient light-controlled volume via photoresistor
+• 8 discrete musical notes (C6-C7, 1046-2093 Hz)
+
+Technical implementation:
+• Linear mapping: OCR0A = (16/149) × SENSOR_VALUE + 13.68
+• 10-level volume mapping (5-50% duty cycle)
+• ADC photoresistor reading (range 95-989)
+• Separate PWM outputs: OC0A for frequency, OC0B for volume
+• Timer prescaler 256 (f_timer = 62.5kHz)
+
+Validated 440 Hz (A4) square wave with oscilloscope. Tested Normal, CTC, and PWM timer modes.
+
+Skills:
+C Programming, ATmega328PB, PWM, ADC, Ultrasonic Sensors, Embedded Systems, Audio Generation
+
+Media to add:
+- Circuit diagram
+- Photo of assembled theremin
+- Demo video with sound
+- Oscilloscope screenshot of generated waveform
+
+================================================================================
+
+PROJECT 17: Embedded Pong on ST7735 TFT with SPI Graphics and ESP32 Wireless Control
+--------------------------------------------------------------------------------
+Date: 2025
+
+Description:
+Implemented a complete Pong game on ATmega328PB with TFT LCD display, joystick control, and wireless connectivity via ESP32.
+
+Game features:
+• Ball physics with velocity tracking
+• Paddle collision detection
+• Computer AI opponent
+• Score tracking (winning at 2 points)
+
+Hardware integration:
+• ST7735 TFT LCD (160×128 pixels, RGB565 16-bit color) via SPI
+• Custom LCD_GFX graphics library with drawing primitives
+• Joystick via ADC (channels 4-5, PC4-PC5)
+• PWM-based buzzer for audio feedback
+• RGB LEDs for scoring indication
+• ESP32 for wireless Blynk app control
+
+Technical details:
+• LCD command/data differentiation (D/CX pin control)
+• SPI communication verified with Logic Analyzer
+• Game constants: paddle 4×20 pixels, 3 pixels/frame speed, ball 3-pixel radius
+
+Skills:
+C Programming, ATmega328PB, SPI, LCD Displays, ESP32, Blynk, Game Development, Embedded Systems
+
+Media to add:
+- Photo of game running on LCD
+- Demo video of gameplay
+- Circuit/wiring diagram
+- Logic analyzer screenshot of SPI signals
+
+================================================================================
+
+PROJECT 18: Beat-Frequency Metal Detector with Dual LC Oscillators and MOSFET Mixer
+--------------------------------------------------------------------------------
+Date: 2025
+
+Description:
+Designed a beat-frequency metal detector using discrete MOSFET-based analog circuitry. The system uses two LC oscillators and a mixer to produce an audible tone that changes when metal is detected.
+
+Circuit architecture:
+• Fixed oscillator: 50.9 kHz
+• Variable oscillator: 48.5 kHz (baseline)
+• Baseline beat frequency: 900 Hz
+• Metal detection shifts variable inductor from 9.75 mH to 8.67 mH
+
+Detection performance:
+• No metal: 977 Hz output tone
+• Metal detected: ~4 kHz output tone
+• Clear 4× frequency shift for reliable detection
+
+Amplifier design:
+• Common-source and common-drain stages using ALD1103 quad-MOSFET array
+• Transconductance: 317 μS
+• Output amplifier gain: -3.17 with 10 kΩ drain resistor
+
+Validated through hand calculations, LTspice simulations, and hardware measurements. PCB designed within 100mm × 120mm constraints.
+
+Skills:
+Analog Circuit Design, LTspice, Altium Designer, MOSFET Circuits, Oscillator Design, PCB Design
+
+Media to add:
+- Circuit schematic
+- LTspice simulation waveforms
+- Photo of assembled PCB
+- Demo video showing metal detection
+
+================================================================================
+
+PROJECT 19: Citadel Datathon Winner ($10K): UPF Emissions Analysis with Random Forest and PageRank
+--------------------------------------------------------------------------------
+Date: Jun 2024 - Aug 2024
+
+Description:
+Won $10,000 cash prize at the Citadel-CorrelationOne Summer Invitational Datathon analyzing the environmental and health impacts of ultra-processed foods in the United States.
+
+Project: "Life, Liberty, and the Pursuit of Healthy Living: Unraveling the Hidden Costs of Ultra Processed Foods in the United States"
+
+Team: 4-person collaboration
+
+Technical approach:
+• Random Forest model: MSE 213.85, R² 0.80
+• ARIMA time series forecasting
+• PageRank graph analysis for supply chain modeling
+• Data sources: stock market, USDA agricultural, EIA emissions, food access atlas
+
+Key findings:
+• Ultra-processed foods (UPFs): 2.4× emissions coefficient vs. minimally processed
+• Moderately processed: 1.7× emissions coefficient
+• States with high dairy/grain consumption show lower CO2 emissions and food desert severity
+• Food industry contributes 25% of global greenhouse emissions
+
+Skills:
+Python, Pandas, Random Forest, ARIMA, PageRank, Data Science, Machine Learning, Environmental Analysis
+
+Media to add:
+- Winner announcement/certificate
+- Team photo
+- Key visualization from analysis
+- Correlation heatmap or emissions chart
+
+================================================================================
+
+PROJECT 20: 2-Axis Pen Plotter with Potentiometer Feedback and Differential Error Amplifier
+--------------------------------------------------------------------------------
+Date: 2024
+
+Description:
+Built a 2-axis pen plotter with closed-loop analog feedback control for precise positioning. The system uses potentiometers for position sensing and differential amplifiers for error correction.
+
+Control system:
+• Potentiometer-based position sensing (1 V/cm sensitivity)
+• Differential amplifier error correction
+• Loop gain: 0.00226 (both axes)
+• Difference amplifier gain: K=10
+• Motor: 3.2 RPM/V, leadscrew 1.6mm pitch, 40:1 gearbox
+
+Performance:
+• Positional accuracy: 0.1-0.6V deviation across ±6V range
+• Natural anti-overshoot behavior from closed-loop design
+• Motor speed reduction proportional to decreasing error voltage
+
+Drawing capabilities:
+• Coordinate-based movement with interpolation
+• Diagonal path interpolation (0.5cm increments)
+• Semicircle algorithm using 10-segment arc division
+• Demonstrated: square, triangle, and complex fish design
+
+PWM-to-DC voltage conversion via RC filter. Significant improvement over open-loop baseline.
+
+Skills:
+Arduino, DC Motor Control, Control Systems, Analog Circuits, Feedback Control, Mechanical Design
+
+Media to add:
+- Photo of plotter hardware
+- Video of plotter drawing
+- Control system block diagram
+- Sample plotted designs (square, fish)
+
+================================================================================
+
+PROJECT 21: 1/18-Scale Autonomous Racer with ROS2 Lane Detection and Sliding Window CV
+--------------------------------------------------------------------------------
+Date: Jun 2024 - Aug 2024
+
+Description:
+Developed a 1/18-scale autonomous racing platform as an accessible alternative to the expensive F1TENTH platform. VIPR Summer Research project with a team of 7 researchers.
+
+Platform evaluation:
+• Tested Jetson Orin Nano vs Raspberry Pi 5
+• Selected RPi 5 for superior processing speed and lower cost
+
+Perception:
+• Lane detection using thresholding and sliding window algorithm
+• Parabolic trajectory fitting for path planning
+
+Software:
+• ROS2 nodes for hardware-software integration
+• Computing, perception, and control layer integration
+
+Hardware:
+• Custom chassis and camera mounts (CAD-designed)
+• Motor control with ESC for rear motor drivetrain
+• Rapid prototype iteration enabled by CAD workflow
+
+Demonstrated CV-based autonomous navigation on real hardware. Poster presentation at VIPR research symposium.
+
+Skills:
+Raspberry Pi, ROS2, Computer Vision, Python, CAD, Autonomous Systems, Lane Detection, Embedded Systems
+
+Media to add:
+- Photo of F1/18th platform
+- Demo video of autonomous driving
+- Research poster
+- Lane detection output visualization
+
+================================================================================
+
+PROJECT 22: Network Router Simulator with Min-Heap Dijkstra and Custom Graph ADT
+--------------------------------------------------------------------------------
+Date: 2024
+
+Description:
+Implemented a network router simulation using Dijkstra's shortest path algorithm in C++. Built efficient data structures from scratch for optimal performance.
+
+Algorithm:
+• Dijkstra's algorithm with O((V+E) log V) complexity
+• Efficient adjacency list graph representation
+• Custom min-heap priority queue
+
+Features:
+• Supports directed and undirected graph topologies
+• Single-source routing: paths from source to all vertices
+• Single-pair routing: optimal path between two specific nodes
+
+Custom implementations:
+• graph.cpp/h - Graph operations
+• heap.cpp/h - Min-heap priority queue
+• stack.cpp/h - Stack data structure
+
+Validation: Passed all 20 test cases with correct path calculations.
+
+Skills:
+C++, Data Structures, Graph Algorithms, Dijkstra's Algorithm, Software Engineering
+
+Media to add:
+- Graph visualization example
+- Algorithm flowchart
+- Test case output screenshot
+- Code snippet of Dijkstra implementation
+
+================================================================================
+
+PROJECT 23: Portfolio Site with Canvas Particle Animation and Firebase Firestore Blog
+--------------------------------------------------------------------------------
+Date: 2024
+
+Description:
+Built a modern personal portfolio website with dark theme design, animated background, and integrated blog system.
+
+Frontend:
+• Dark theme with Inter typography
+• Canvas-based animated particle background
+• Performance optimization: visibility API awareness, responsive particle count
+• CSS Grid and Flexbox responsive design
+
+Backend:
+• Firebase Firestore for real-time blog post management
+• Firebase Authentication for secure admin access
+• Admin panel for content management
+
+Accessibility:
+• Semantic HTML5 elements
+• ARIA labels on interactive elements
+• Keyboard navigation support
+• Color contrast compliance
+
+Hosting: GitHub Pages (free tier) with Firebase free tier
+Cost: $0/month operational
+
+Skills:
+HTML5, CSS3, JavaScript, Firebase, GitHub Pages, Web Development, UI/UX Design
+
+Media to add:
+- Screenshot of homepage
+- Mobile responsive view
+- Admin panel screenshot
+- Live site link: https://krishkc5.github.io
+
+================================================================================
+
+PROJECT 24: Underwater ROV for Coral Monitoring with pH/Temp/Salinity Sensor Array
+--------------------------------------------------------------------------------
+Date: Sep 2023 - Dec 2023
+
+Description:
+Developed an Underwater-ROV to enable remote maintenance for corals. Alongside Adithya Selvakumar, designed, built, and tested the robot from start to finish.
+
+System capabilities:
+• Environmental monitoring with multi-sensor integration
+• Temperature, pH, light, and salinity measurement
+• Real-time data logging and analysis
+• Alert system for reef stress conditions
+
+Design features:
+• Designed for field deployment in marine environments
+• Data visualization and interpretation framework
+• Biological validation of stress indicators
+
+Skills:
+Circuit Design, Product Design, Embedded Systems, IoT Sensors, PCB Design
+
+Media to add:
+- video demo: https://www.youtube.com/watch?v=MNaOq-svh-I
+- Photo of ROV prototype
+- System architecture diagram
+- Sensor data visualization
+- Demo video of underwater operation
+
+================================================================================
+
+END OF LINKEDIN PROJECTS
+================================================================================
+
+SUMMARY:
+- 24 projects total (excluding combined VLSI Design Suite)
+- Each entry includes: Title, Date, Description, Skills, and Media suggestions
+- Copy each section directly into LinkedIn's "Add Project" form
+- Add collaborators where applicable
+- Upload suggested media for maximum impact
+
+================================================================================
