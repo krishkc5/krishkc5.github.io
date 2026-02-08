@@ -511,24 +511,31 @@ section h2::after {
     min-height: 320px;
 }
 
-.experience-stack .glass-tile {
+.experience-stack > .glass-tile {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
+    overflow: visible;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                 opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                filter 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: center top;
 }
 
-.experience-stack .glass-tile.stack-0 {
+.experience-stack > .glass-tile:hover {
+    transform: translateY(0) scale(1);
+}
+
+.experience-stack > .glass-tile.stack-0 {
     z-index: 4;
     transform: translateY(0) scale(1);
     opacity: 1;
 }
 
-.experience-stack .glass-tile.stack-1 {
+.experience-stack > .glass-tile.stack-1 {
     z-index: 3;
     transform: translateY(12px) scale(0.97);
     opacity: 0.6;
@@ -536,7 +543,7 @@ section h2::after {
     pointer-events: none;
 }
 
-.experience-stack .glass-tile.stack-2 {
+.experience-stack > .glass-tile.stack-2 {
     z-index: 2;
     transform: translateY(24px) scale(0.94);
     opacity: 0.35;
@@ -544,7 +551,7 @@ section h2::after {
     pointer-events: none;
 }
 
-.experience-stack .glass-tile.stack-hidden {
+.experience-stack > .glass-tile.stack-hidden {
     z-index: 1;
     transform: translateY(32px) scale(0.91);
     opacity: 0;
