@@ -220,11 +220,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="stack-nav">
-                <button class="stack-nav-btn" id="stackPrev" aria-label="Previous experience">&larr;</button>
-                <span class="stack-counter" id="stackCounter">1 / 7</span>
-                <button class="stack-nav-btn" id="stackNext" aria-label="Next experience">&rarr;</button>
-            </div>
+            <div class="stack-dots" id="stackDots"></div>
+            <p class="stack-hint" id="stackHint">Scroll here to browse</p>
             </div>
         </div>
     </section>
@@ -728,10 +725,20 @@
             });
 
             // Experience smart stack
+            const stackWrapper = document.querySelector('.experience-stack-wrapper');
             const stack = document.getElementById('experienceStack');
             const cards = Array.from(stack.querySelectorAll('.glass-tile'));
-            const counter = document.getElementById('stackCounter');
+            const dotsContainer = document.getElementById('stackDots');
+            const stackHint = document.getElementById('stackHint');
             let currentIndex = 0;
+            let scrollAccum = 0;
+            const SCROLL_THRESHOLD = 80;
+
+            // Build dots
+            dotsContainer.innerHTML = cards.map((_, i) =>
+                `<span class="stack-dot${i === 0 ? ' active' : ''}"></span>`
+            ).join('');
+            const dots = dotsContainer.querySelectorAll('.stack-dot');
 
             function updateStack() {
                 cards.forEach((card, i) => {
@@ -742,20 +749,36 @@
                     else if (offset === 2) card.classList.add('stack-2');
                     else card.classList.add('stack-hidden');
                 });
-                counter.textContent = `${currentIndex + 1} / ${cards.length}`;
-                // Adjust container height to active card
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
                 const activeCard = cards[currentIndex];
                 stack.style.minHeight = activeCard.scrollHeight + 40 + 'px';
             }
 
-            document.getElementById('stackNext').addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % cards.length;
-                updateStack();
-            });
+            // Scroll on the stack area cycles cards
+            stackWrapper.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                scrollAccum += e.deltaY;
+                if (Math.abs(scrollAccum) >= SCROLL_THRESHOLD) {
+                    if (scrollAccum > 0 && currentIndex < cards.length - 1) {
+                        currentIndex++;
+                        updateStack();
+                    } else if (scrollAccum < 0 && currentIndex > 0) {
+                        currentIndex--;
+                        updateStack();
+                    }
+                    scrollAccum = 0;
+                }
+                // Hide hint after first interaction
+                stackHint.style.opacity = '0';
+            }, { passive: false });
 
-            document.getElementById('stackPrev').addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-                updateStack();
+            // Dot click
+            dots.forEach((dot, i) => {
+                dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateStack();
+                    stackHint.style.opacity = '0';
+                });
             });
 
             updateStack();

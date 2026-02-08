@@ -558,43 +558,39 @@ section h2::after {
     pointer-events: none;
 }
 
-.stack-nav {
+.stack-dots {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.5rem;
-    margin-top: 2.5rem;
+    gap: 0.5rem;
+    margin-top: 2rem;
 }
 
-.stack-nav-btn {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    color: var(--text-light);
-    width: 40px;
-    height: 40px;
+.stack-dot {
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
     cursor: pointer;
-    transition: all 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: inherit;
 }
 
-.stack-nav-btn:hover {
-    border-color: rgba(6, 182, 212, 0.5);
-    background: rgba(6, 182, 212, 0.1);
-    color: var(--accent);
+.stack-dot:hover {
+    background: rgba(6, 182, 212, 0.5);
 }
 
-.stack-counter {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-weight: 500;
-    min-width: 3rem;
+.stack-dot.active {
+    background: var(--accent);
+    transform: scale(1.3);
+}
+
+.stack-hint {
     text-align: center;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    margin-top: 0.75rem;
+    opacity: 0.6;
+    transition: opacity 0.4s;
 }
 
 .exp-meta {
