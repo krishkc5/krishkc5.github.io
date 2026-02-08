@@ -586,6 +586,79 @@
             ml: '#a78bfa',
             software: '#f472b6'
         };
+        const GRAPH_TITLE_ALIASES = {
+            rv32im: 'Pipelined RISC-V Core',
+            'risc-v': 'Pipelined RISC-V Core',
+            'llm sv agent': 'RTL Verification Agent',
+            'sv llm agent': 'RTL Verification Agent',
+            lut: '16:1 LUT for FPGA CLB',
+            trng: 'Ring Oscillator TRNG',
+            dram: '64-bit 3T1C DRAM',
+            sram: '64-bit 6T SRAM',
+            multiplier: '4x4 Dadda Array Multiplier',
+            rca: '8-bit Ripple Carry Adder',
+            tia: 'Wideband 45nm TIA',
+            circuitsmith: 'CircuitSmith',
+            eaq: 'GPU Energy Profiler',
+            'f1 strat': 'F1 Tire Strategy Optimizer',
+            'f1 tire': 'F1 Tire Strategy Optimizer',
+            'flight telemetry': 'PX4 Telemetry Analyzer',
+            'brakebright': 'Smart Brake Light',
+            'brake bright': 'Smart Brake Light',
+            pong: 'Embedded Pong Game',
+            theremin: 'Ultrasonic Theremin',
+            'metal detector': 'Analog Metal Detector',
+            '1/18th scale': 'F1/18th Autonomous Racer',
+            '1/18 scale car': 'F1/18th Autonomous Racer',
+            '2-axis plotter': '2-Axis Analog Plotter',
+            'analog plotter': '2-Axis Analog Plotter',
+            plotter: '2-Axis Analog Plotter',
+            coraldoctor: 'Coral Monitoring ROV',
+            'coral doctor': 'Coral Monitoring ROV',
+            datathon: 'Citadel Datathon Winner',
+            'citadel datathon': 'Citadel Datathon Winner',
+            'personal site': 'Portfolio Website',
+            'portfolio website': 'Portfolio Website',
+            'mos cap': 'MOS Capacitor Simulator',
+            'mos cap sim': 'MOS Capacitor Simulator',
+            'network router': 'Network Router Simulator'
+        };
+        const CURATED_GRAPH_CONNECTIONS = [
+            ['rv32im', 'llm sv agent'],
+            ['rv32im', 'lut'],
+            ['rv32im', 'trng'],
+            ['dram', 'tia'],
+            ['dram', 'multiplier'],
+            ['dram', 'lut'],
+            ['dram', 'sram'],
+            ['dram', 'rca'],
+            ['tia', 'circuitsmith'],
+            ['tia', 'metal detector'],
+            ['brakebright', 'pong'],
+            ['brakebright', 'theremin'],
+            ['brakebright', 'metal detector'],
+            ['brakebright', '1/18th scale'],
+            ['brakebright', '2-axis plotter'],
+            ['brakebright', 'coraldoctor'],
+            ['circuitsmith', 'eaq'],
+            ['circuitsmith', 'llm sv agent'],
+            ['eaq', 'f1 strat'],
+            ['eaq', 'citadel datathon'],
+            ['personal site', 'mos cap sim'],
+            ['personal site', 'f1 strat'],
+            ['personal site', 'network router'],
+            ['personal site', 'datathon'],
+            ['multiplier', 'eaq'],
+            ['multiplier', 'rca'],
+            ['pong', 'theremin'],
+            ['flight telemetry', 'f1 tire'],
+            ['mos cap', 'network router'],
+            ['f1 tire', 'datathon'],
+            ['sram', 'rca'],
+            ['metal detector', 'analog plotter'],
+            ['1/18 scale car', 'pong'],
+            ['1/18 scale car', 'theremin']
+        ];
         let currentProjectFilter = 'all';
         let currentProjectView = 'grid';
         let projectGraph = null;
@@ -698,23 +771,47 @@
                 });
 
                 this.edges = [];
+                const edgeMap = new Map();
+                const setEdge = (a, b, weight, strength, curated = false) => {
+                    const i = Math.min(a, b);
+                    const j = Math.max(a, b);
+                    const key = `${i}-${j}`;
+                    const existing = edgeMap.get(key);
+                    if (!existing) {
+                        edgeMap.set(key, { a: i, b: j, weight, strength, curated });
+                        return;
+                    }
+                    existing.weight = Math.max(existing.weight, weight);
+                    existing.strength = Math.max(existing.strength, strength);
+                    existing.curated = existing.curated || curated;
+                };
+
+                // Strong shared-tag edges keep the graph grounded in project metadata.
                 for (let i = 0; i < this.nodes.length; i++) {
                     for (let j = i + 1; j < this.nodes.length; j++) {
                         const sharedCount = this.nodes[i].project.tags.filter(tag =>
                             this.nodes[j].project.tags.includes(tag)
                         ).length;
-                        if (sharedCount >= 1) {
+                        if (sharedCount >= 2) {
                             const samePrimaryCategory = this.nodes[i].category === this.nodes[j].category;
                             const strength = sharedCount + (samePrimaryCategory ? 0.35 : 0);
-                            this.edges.push({
-                                a: i,
-                                b: j,
-                                weight: sharedCount,
-                                strength
-                            });
+                            setEdge(i, j, sharedCount, strength, false);
                         }
                     }
                 }
+
+                // Curated links provided by user; aliases map shorthand names to actual project titles.
+                const titleToIndex = new Map(this.projects.map((project, idx) => [project.title, idx]));
+                CURATED_GRAPH_CONNECTIONS.forEach(([leftAlias, rightAlias]) => {
+                    const leftTitle = GRAPH_TITLE_ALIASES[leftAlias.toLowerCase()] || leftAlias;
+                    const rightTitle = GRAPH_TITLE_ALIASES[rightAlias.toLowerCase()] || rightAlias;
+                    const leftIndex = titleToIndex.get(leftTitle);
+                    const rightIndex = titleToIndex.get(rightTitle);
+                    if (leftIndex == null || rightIndex == null || leftIndex === rightIndex) return;
+                    setEdge(leftIndex, rightIndex, 1, 2.6, true);
+                });
+
+                this.edges = Array.from(edgeMap.values());
             }
 
             setFilter(filter) {
@@ -905,9 +1002,11 @@
                     const b = this.nodes[edge.b];
                     if (!a.visible || !b.visible) return;
                     const isHighlight = highlighted && highlighted.has(edge.a) && highlighted.has(edge.b);
-                    const alpha = isHighlight ? 0.62 : Math.min(0.24, 0.08 + edge.strength * 0.03);
-                    this.ctx.strokeStyle = `rgba(6, 182, 212, ${alpha})`;
-                    this.ctx.lineWidth = isHighlight ? 1.8 : Math.min(1.5, 0.7 + edge.strength * 0.18);
+                    const baseAlpha = edge.curated ? 0.14 : 0.08;
+                    const alphaCap = edge.curated ? 0.32 : 0.24;
+                    const alpha = isHighlight ? 0.65 : Math.min(alphaCap, baseAlpha + edge.strength * 0.03);
+                    this.ctx.strokeStyle = edge.curated ? `rgba(147, 197, 253, ${alpha})` : `rgba(6, 182, 212, ${alpha})`;
+                    this.ctx.lineWidth = isHighlight ? 1.8 : Math.min(1.6, 0.7 + edge.strength * 0.18);
                     this.ctx.beginPath();
                     this.ctx.moveTo(a.x, a.y);
                     this.ctx.lineTo(b.x, b.y);
