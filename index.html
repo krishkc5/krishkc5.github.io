@@ -703,11 +703,14 @@
                         const sharedCount = this.nodes[i].project.tags.filter(tag =>
                             this.nodes[j].project.tags.includes(tag)
                         ).length;
-                        if (sharedCount >= 2) {
+                        if (sharedCount >= 1) {
+                            const samePrimaryCategory = this.nodes[i].category === this.nodes[j].category;
+                            const strength = sharedCount + (samePrimaryCategory ? 0.35 : 0);
                             this.edges.push({
                                 a: i,
                                 b: j,
-                                weight: sharedCount
+                                weight: sharedCount,
+                                strength
                             });
                         }
                     }
@@ -853,7 +856,7 @@
                     const dx = b.x - a.x;
                     const dy = b.y - a.y;
                     const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-                    const target = 90 + Math.max(0, 3 - edge.weight) * 20;
+                    const target = 84 + Math.max(0, 3 - edge.strength) * 22;
                     const spring = (dist - target) * 0.005;
                     const fx = (dx / dist) * spring;
                     const fy = (dy / dist) * spring;
@@ -902,9 +905,9 @@
                     const b = this.nodes[edge.b];
                     if (!a.visible || !b.visible) return;
                     const isHighlight = highlighted && highlighted.has(edge.a) && highlighted.has(edge.b);
-                    const alpha = isHighlight ? 0.6 : 0.18;
+                    const alpha = isHighlight ? 0.62 : Math.min(0.24, 0.08 + edge.strength * 0.03);
                     this.ctx.strokeStyle = `rgba(6, 182, 212, ${alpha})`;
-                    this.ctx.lineWidth = isHighlight ? 1.7 : 1;
+                    this.ctx.lineWidth = isHighlight ? 1.8 : Math.min(1.5, 0.7 + edge.strength * 0.18);
                     this.ctx.beginPath();
                     this.ctx.moveTo(a.x, a.y);
                     this.ctx.lineTo(b.x, b.y);
