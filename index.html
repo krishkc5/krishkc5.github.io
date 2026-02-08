@@ -132,7 +132,7 @@
         <div class="container">
             <h2>Experience</h2>
             <div class="carousel-wrapper">
-                <button class="carousel-btn carousel-btn-left" id="carouselPrev" aria-label="Previous">&larr;</button>
+                <div class="carousel-fade">
                 <div class="carousel-track" id="carouselTrack">
                     <div class="glass-tile carousel-card">
                         <h3>Ferroelectric Compute-in-Memory Researcher</h3>
@@ -221,7 +221,11 @@
                         </ul>
                     </div>
                 </div>
-                <button class="carousel-btn carousel-btn-right" id="carouselNext" aria-label="Next">&rarr;</button>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" id="carouselPrev" aria-label="Previous">&larr;</button>
+                    <button class="carousel-btn" id="carouselNext" aria-label="Next">&rarr;</button>
+                </div>
             </div>
         </div>
     </section>
@@ -726,7 +730,7 @@
 
             // Experience carousel
             const track = document.getElementById('carouselTrack');
-            const cardWidth = () => track.querySelector('.carousel-card').offsetWidth + 24; // card + gap
+            const cardWidth = () => track.querySelector('.carousel-card').offsetWidth + 24;
 
             document.getElementById('carouselNext').addEventListener('click', () => {
                 track.scrollBy({ left: cardWidth(), behavior: 'smooth' });

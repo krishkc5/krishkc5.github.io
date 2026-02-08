@@ -503,9 +503,13 @@ section h2::after {
 /* Experience Carousel */
 .carousel-wrapper {
     position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+}
+
+.carousel-fade {
+    position: relative;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 .carousel-track {
@@ -516,7 +520,7 @@ section h2::after {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding: 0.5rem 0;
+    padding: 0.5rem calc(50% - min(325px, 42.5vw));
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -524,8 +528,16 @@ section h2::after {
 }
 
 .carousel-card {
-    flex: 0 0 min(500px, 85vw);
-    scroll-snap-align: start;
+    flex: 0 0 min(650px, 85vw);
+    scroll-snap-align: center;
+}
+
+.carousel-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
 }
 
 .carousel-btn {
@@ -544,7 +556,6 @@ section h2::after {
     align-items: center;
     justify-content: center;
     font-family: inherit;
-    z-index: 2;
 }
 
 .carousel-btn:hover {
@@ -554,8 +565,8 @@ section h2::after {
 }
 
 @media (max-width: 768px) {
-    .carousel-btn {
-        display: none;
+    .carousel-track {
+        padding: 0.5rem calc(50% - 42.5vw);
     }
 }
 
