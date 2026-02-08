@@ -359,22 +359,6 @@ section h2::after {
     color: var(--accent);
 }
 
-.projects-grid .glass-tile::after {
-    content: '→';
-    position: absolute;
-    top: 1.25rem;
-    right: 1.25rem;
-    font-size: 1.25rem;
-    color: var(--accent);
-    opacity: 0;
-    transform: translateX(-10px);
-    transition: all 0.3s;
-}
-
-.projects-grid .glass-tile:hover::after {
-    opacity: 1;
-    transform: translateX(0);
-}
 
 .glass-tile h3 {
     color: var(--text-light);
@@ -627,8 +611,8 @@ section h2::after {
 /* Projects Grid */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
 }
 
 .projects-grid .glass-tile {
@@ -637,12 +621,6 @@ section h2::after {
 
 .projects-grid .glass-tile.hidden {
     display: none;
-}
-
-@media (max-width: 1200px) {
-    .projects-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
 }
 
 @media (max-width: 900px) {
@@ -654,12 +632,9 @@ section h2::after {
 .projects-grid .glass-tile {
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 0.75rem;
-    min-height: 160px;
+    padding: 1.25rem;
+    align-items: flex-start;
+    gap: 0.6rem;
 }
 
 .projects-grid .glass-tile h3 {
@@ -668,18 +643,6 @@ section h2::after {
     line-height: 1.3;
 }
 
-.card-hint {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    opacity: 0;
-    transition: opacity 0.3s, transform 0.3s;
-    transform: translateY(4px);
-}
-
-.projects-grid .glass-tile:hover .card-hint {
-    opacity: 1;
-    transform: translateY(0);
-}
 
 .tech-tags {
     display: flex;
@@ -690,7 +653,6 @@ section h2::after {
 
 .projects-grid .tech-tags {
     margin-top: 0;
-    justify-content: center;
 }
 
 .tech-tag {
