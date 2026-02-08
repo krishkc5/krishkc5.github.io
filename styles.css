@@ -500,10 +500,94 @@ section h2::after {
     box-shadow: 0 4px 12px rgba(6, 182, 212, 0.15);
 }
 
-/* Experience Section */
-.experience-grid {
-    display: grid;
+/* Experience Smart Stack */
+.experience-stack-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.experience-stack {
+    position: relative;
+    min-height: 320px;
+}
+
+.experience-stack .glass-tile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                filter 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center top;
+}
+
+.experience-stack .glass-tile.stack-0 {
+    z-index: 4;
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.experience-stack .glass-tile.stack-1 {
+    z-index: 3;
+    transform: translateY(12px) scale(0.97);
+    opacity: 0.6;
+    filter: brightness(0.85);
+    pointer-events: none;
+}
+
+.experience-stack .glass-tile.stack-2 {
+    z-index: 2;
+    transform: translateY(24px) scale(0.94);
+    opacity: 0.35;
+    filter: brightness(0.7);
+    pointer-events: none;
+}
+
+.experience-stack .glass-tile.stack-hidden {
+    z-index: 1;
+    transform: translateY(32px) scale(0.91);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.stack-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.stack-nav-btn {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    color: var(--text-light);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
+}
+
+.stack-nav-btn:hover {
+    border-color: rgba(6, 182, 212, 0.5);
+    background: rgba(6, 182, 212, 0.1);
+    color: var(--accent);
+}
+
+.stack-counter {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    min-width: 3rem;
+    text-align: center;
 }
 
 .exp-meta {
