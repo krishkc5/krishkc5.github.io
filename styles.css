@@ -4,8 +4,8 @@
     --bg-darker: #050812;
     --text-light: #ffffff;
     --text-muted: #b8bfc9;
-    --accent: #93c5fd;
-    --accent-glow: rgba(147, 197, 253, 0.32);
+    --accent: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.35);
     --surface: #1a1f3a;
     --surface-light: #232946;
     --border: #2d3561;
@@ -773,19 +773,19 @@ section h2::after {
 }
 
 .tech-tag {
-    background: rgba(147, 197, 253, 0.14);
-    color: #dbeafe;
+    background: rgba(56, 189, 248, 0.14);
+    color: #67e8f9;
     padding: 0.35rem 0.75rem;
     border-radius: 50px;
     font-size: 0.75rem;
-    border: 1px solid rgba(147, 197, 253, 0.32);
+    border: 1px solid rgba(56, 189, 248, 0.4);
     transition: all 0.2s;
     white-space: nowrap;
 }
 
 .tech-tag:hover {
-    background: rgba(147, 197, 253, 0.22);
-    border-color: rgba(147, 197, 253, 0.5);
+    background: rgba(56, 189, 248, 0.24);
+    border-color: rgba(56, 189, 248, 0.6);
 }
 
 /* Blog Grid */
@@ -1003,9 +1003,9 @@ section h2::after {
     gap: 0.4rem;
     padding: 0.5rem 1.1rem;
     border-radius: 50px;
-    background: rgba(147, 197, 253, 0.14);
-    border: 1px solid rgba(147, 197, 253, 0.35);
-    color: #dbeafe;
+    background: rgba(56, 189, 248, 0.14);
+    border: 1px solid rgba(56, 189, 248, 0.45);
+    color: #67e8f9;
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 500;
@@ -1013,8 +1013,8 @@ section h2::after {
 }
 
 .modal-link:hover {
-    background: rgba(147, 197, 253, 0.22);
-    border-color: rgba(147, 197, 253, 0.55);
+    background: rgba(56, 189, 248, 0.24);
+    border-color: rgba(56, 189, 248, 0.65);
     transform: translateY(-1px);
 }
 
