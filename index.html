@@ -235,17 +235,27 @@
     <section id="projects">
         <div class="container">
             <h2>Featured Projects</h2>
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="digital">Digital Design</button>
-                <button class="filter-btn" data-filter="vlsi">VLSI & Memory</button>
-                <button class="filter-btn" data-filter="circuit">Analog & Circuit</button>
-                <button class="filter-btn" data-filter="embedded">Embedded Systems</button>
-                <button class="filter-btn" data-filter="ml">ML & Data Science</button>
-                <button class="filter-btn" data-filter="software">Software</button>
+            <div class="projects-controls">
+                <div class="project-filters" id="projectFilters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="digital">Digital Design</button>
+                    <button class="filter-btn" data-filter="vlsi">VLSI & Memory</button>
+                    <button class="filter-btn" data-filter="circuit">Analog & Circuit</button>
+                    <button class="filter-btn" data-filter="embedded">Embedded Systems</button>
+                    <button class="filter-btn" data-filter="ml">ML & Data Science</button>
+                    <button class="filter-btn" data-filter="software">Software</button>
+                </div>
+                <div class="project-view-toggle" id="projectViewToggle" aria-label="Project view toggle">
+                    <button class="view-btn active" data-view="grid">Grid View</button>
+                    <button class="view-btn" data-view="graph">Graph View</button>
+                </div>
             </div>
             <div class="projects-grid" id="projectsGrid">
                 <!-- Projects are rendered by JavaScript -->
+            </div>
+            <div class="projects-graph is-hidden" id="projectsGraphView" aria-hidden="true">
+                <canvas id="projectsGraphCanvas"></canvas>
+                <div class="graph-tooltip" id="projectsGraphTooltip"></div>
             </div>
         </div>
     </section>
@@ -568,17 +578,362 @@
             }
         ];
 
+        const CATEGORY_COLORS = {
+            digital: '#38bdf8',
+            vlsi: '#22d3ee',
+            circuit: '#f59e0b',
+            embedded: '#34d399',
+            ml: '#a78bfa',
+            software: '#f472b6'
+        };
+        let currentProjectFilter = 'all';
+        let currentProjectView = 'grid';
+        let projectGraph = null;
+
+        function getPrimaryCategory(category) {
+            return (category || 'software').split(' ')[0];
+        }
+
+        function matchesFilter(category, filter) {
+            if (filter === 'all') return true;
+            return (category || '').includes(filter);
+        }
+
         // Render project cards
         function renderProjects() {
             const grid = document.getElementById('projectsGrid');
             grid.innerHTML = PROJECTS.map((p, i) => `
                 <div class="glass-tile" data-category="${p.category}" data-index="${i}">
                     <h3>${escapeHtml(p.title)}</h3>
+                    <span class="card-hint">Click to explore</span>
                     <div class="tech-tags">
                         ${p.tags.slice(0, 3).map(t => `<span class="tech-tag">${escapeHtml(t)}</span>`).join('')}
                     </div>
                 </div>
             `).join('');
+        }
+
+        function applyProjectFilter(filter) {
+            currentProjectFilter = filter;
+            document.querySelectorAll('.projects-grid .glass-tile').forEach(card => {
+                const categories = card.getAttribute('data-category') || '';
+                card.classList.toggle('hidden', !matchesFilter(categories, filter));
+            });
+            if (projectGraph) {
+                projectGraph.setFilter(filter);
+            }
+        }
+
+        function setProjectView(view) {
+            const grid = document.getElementById('projectsGrid');
+            const graphView = document.getElementById('projectsGraphView');
+            const viewBtns = document.querySelectorAll('.view-btn');
+            currentProjectView = view;
+
+            viewBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-view') === view);
+            });
+
+            if (view === 'graph') {
+                grid.classList.add('is-hidden');
+                graphView.classList.remove('is-hidden');
+                graphView.setAttribute('aria-hidden', 'false');
+                if (!projectGraph) {
+                    projectGraph = new ProjectGraph(
+                        document.getElementById('projectsGraphCanvas'),
+                        document.getElementById('projectsGraphTooltip'),
+                        PROJECTS,
+                        openModal
+                    );
+                    projectGraph.setFilter(currentProjectFilter);
+                }
+                projectGraph.setActive(true);
+            } else {
+                grid.classList.remove('is-hidden');
+                graphView.classList.add('is-hidden');
+                graphView.setAttribute('aria-hidden', 'true');
+                if (projectGraph) projectGraph.setActive(false);
+            }
+        }
+
+        class ProjectGraph {
+            constructor(canvas, tooltip, projects, onNodeClick) {
+                this.canvas = canvas;
+                this.ctx = canvas.getContext('2d');
+                this.tooltip = tooltip;
+                this.projects = projects;
+                this.onNodeClick = onNodeClick;
+                this.nodes = [];
+                this.edges = [];
+                this.hoveredNode = null;
+                this.draggedNode = null;
+                this.mouse = { x: 0, y: 0 };
+                this.animationFrame = null;
+                this.activeFilter = 'all';
+                this.isActive = false;
+
+                this.initGraph();
+                this.resize();
+                this.setupEvents();
+            }
+
+            initGraph() {
+                const count = this.projects.length;
+                const radius = 180;
+                this.nodes = this.projects.map((project, index) => {
+                    const angle = (Math.PI * 2 * index) / count;
+                    const category = getPrimaryCategory(project.category);
+                    return {
+                        index,
+                        project,
+                        category,
+                        color: CATEGORY_COLORS[category] || '#38bdf8',
+                        x: Math.cos(angle) * radius,
+                        y: Math.sin(angle) * radius,
+                        vx: 0,
+                        vy: 0,
+                        r: 8,
+                        visible: true
+                    };
+                });
+
+                this.edges = [];
+                for (let i = 0; i < this.nodes.length; i++) {
+                    for (let j = i + 1; j < this.nodes.length; j++) {
+                        const sharedCount = this.nodes[i].project.tags.filter(tag =>
+                            this.nodes[j].project.tags.includes(tag)
+                        ).length;
+                        if (sharedCount >= 2) {
+                            this.edges.push({
+                                a: i,
+                                b: j,
+                                weight: sharedCount
+                            });
+                        }
+                    }
+                }
+            }
+
+            setFilter(filter) {
+                this.activeFilter = filter;
+                this.nodes.forEach(node => {
+                    node.visible = matchesFilter(node.project.category, filter);
+                });
+            }
+
+            setActive(active) {
+                this.isActive = active;
+                if (active) {
+                    this.loop();
+                } else {
+                    if (this.animationFrame) cancelAnimationFrame(this.animationFrame);
+                    this.animationFrame = null;
+                    this.hideTooltip();
+                }
+            }
+
+            setupEvents() {
+                window.addEventListener('resize', () => this.resize());
+
+                this.canvas.addEventListener('mousemove', (e) => {
+                    const p = this.toCanvasCoords(e);
+                    this.mouse.x = p.x;
+                    this.mouse.y = p.y;
+                    this.hoveredNode = this.findNodeAt(p.x, p.y);
+                    if (this.hoveredNode) {
+                        this.showTooltip(this.hoveredNode, p.x, p.y);
+                    } else {
+                        this.hideTooltip();
+                    }
+                });
+
+                this.canvas.addEventListener('mousedown', (e) => {
+                    const p = this.toCanvasCoords(e);
+                    this.draggedNode = this.findNodeAt(p.x, p.y);
+                });
+
+                window.addEventListener('mouseup', () => {
+                    this.draggedNode = null;
+                });
+
+                this.canvas.addEventListener('mouseleave', () => {
+                    this.draggedNode = null;
+                    this.hoveredNode = null;
+                    this.hideTooltip();
+                });
+
+                this.canvas.addEventListener('click', (e) => {
+                    const p = this.toCanvasCoords(e);
+                    const node = this.findNodeAt(p.x, p.y);
+                    if (node) this.onNodeClick(node.index);
+                });
+            }
+
+            resize() {
+                const dpr = window.devicePixelRatio || 1;
+                const rect = this.canvas.getBoundingClientRect();
+                this.canvas.width = Math.floor(rect.width * dpr);
+                this.canvas.height = Math.floor(rect.height * dpr);
+                this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                this.centerX = rect.width / 2;
+                this.centerY = rect.height / 2;
+            }
+
+            toCanvasCoords(e) {
+                const rect = this.canvas.getBoundingClientRect();
+                return {
+                    x: e.clientX - rect.left,
+                    y: e.clientY - rect.top
+                };
+            }
+
+            findNodeAt(x, y) {
+                for (let i = this.nodes.length - 1; i >= 0; i--) {
+                    const n = this.nodes[i];
+                    if (!n.visible) continue;
+                    const dx = n.x + this.centerX - x;
+                    const dy = n.y + this.centerY - y;
+                    if (Math.sqrt(dx * dx + dy * dy) <= n.r + 3) return n;
+                }
+                return null;
+            }
+
+            getConnectedSet(index) {
+                const set = new Set([index]);
+                this.edges.forEach(edge => {
+                    if (edge.a === index) set.add(edge.b);
+                    if (edge.b === index) set.add(edge.a);
+                });
+                return set;
+            }
+
+            showTooltip(node, x, y) {
+                this.tooltip.textContent = node.project.title;
+                this.tooltip.style.transform = `translate(${x + 12}px, ${y - 14}px)`;
+            }
+
+            hideTooltip() {
+                this.tooltip.style.transform = 'translate(-9999px, -9999px)';
+            }
+
+            step() {
+                const visibleNodes = this.nodes.filter(n => n.visible);
+                const categoryAnchors = {};
+                const categories = [...new Set(visibleNodes.map(n => n.category))];
+                categories.forEach((cat, i) => {
+                    const angle = (Math.PI * 2 * i) / Math.max(categories.length, 1);
+                    categoryAnchors[cat] = {
+                        x: Math.cos(angle) * 170,
+                        y: Math.sin(angle) * 130
+                    };
+                });
+
+                for (let i = 0; i < visibleNodes.length; i++) {
+                    for (let j = i + 1; j < visibleNodes.length; j++) {
+                        const a = visibleNodes[i];
+                        const b = visibleNodes[j];
+                        const dx = b.x - a.x;
+                        const dy = b.y - a.y;
+                        const distSq = dx * dx + dy * dy + 0.01;
+                        const force = 1800 / distSq;
+                        const dist = Math.sqrt(distSq);
+                        const fx = (dx / dist) * force;
+                        const fy = (dy / dist) * force;
+                        a.vx -= fx;
+                        a.vy -= fy;
+                        b.vx += fx;
+                        b.vy += fy;
+                    }
+                }
+
+                this.edges.forEach(edge => {
+                    const a = this.nodes[edge.a];
+                    const b = this.nodes[edge.b];
+                    if (!a.visible || !b.visible) return;
+                    const dx = b.x - a.x;
+                    const dy = b.y - a.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+                    const target = 90 + Math.max(0, 3 - edge.weight) * 20;
+                    const spring = (dist - target) * 0.005;
+                    const fx = (dx / dist) * spring;
+                    const fy = (dy / dist) * spring;
+                    a.vx += fx;
+                    a.vy += fy;
+                    b.vx -= fx;
+                    b.vy -= fy;
+                });
+
+                visibleNodes.forEach(node => {
+                    if (this.draggedNode === node) {
+                        node.x = this.mouse.x - this.centerX;
+                        node.y = this.mouse.y - this.centerY;
+                        node.vx = 0;
+                        node.vy = 0;
+                        return;
+                    }
+
+                    const anchor = categoryAnchors[node.category];
+                    node.vx += (anchor.x - node.x) * 0.0008;
+                    node.vy += (anchor.y - node.y) * 0.0008;
+
+                    node.vx *= 0.9;
+                    node.vy *= 0.9;
+                    node.x += node.vx;
+                    node.y += node.vy;
+
+                    const maxX = this.centerX - 24;
+                    const maxY = this.centerY - 24;
+                    node.x = Math.max(-maxX, Math.min(maxX, node.x));
+                    node.y = Math.max(-maxY, Math.min(maxY, node.y));
+                });
+            }
+
+            draw() {
+                const w = this.canvas.getBoundingClientRect().width;
+                const h = this.canvas.getBoundingClientRect().height;
+                this.ctx.clearRect(0, 0, w, h);
+                this.ctx.save();
+                this.ctx.translate(this.centerX, this.centerY);
+
+                const highlighted = this.hoveredNode ? this.getConnectedSet(this.hoveredNode.index) : null;
+
+                this.edges.forEach(edge => {
+                    const a = this.nodes[edge.a];
+                    const b = this.nodes[edge.b];
+                    if (!a.visible || !b.visible) return;
+                    const isHighlight = highlighted && highlighted.has(edge.a) && highlighted.has(edge.b);
+                    const alpha = isHighlight ? 0.6 : 0.18;
+                    this.ctx.strokeStyle = `rgba(6, 182, 212, ${alpha})`;
+                    this.ctx.lineWidth = isHighlight ? 1.7 : 1;
+                    this.ctx.beginPath();
+                    this.ctx.moveTo(a.x, a.y);
+                    this.ctx.lineTo(b.x, b.y);
+                    this.ctx.stroke();
+                });
+
+                this.nodes.forEach(node => {
+                    if (!node.visible) return;
+                    const isHighlight = !highlighted || highlighted.has(node.index);
+                    this.ctx.globalAlpha = isHighlight ? 1 : 0.25;
+                    this.ctx.fillStyle = node.color;
+                    this.ctx.beginPath();
+                    this.ctx.arc(node.x, node.y, node.r, 0, Math.PI * 2);
+                    this.ctx.fill();
+                    this.ctx.strokeStyle = 'rgba(228, 230, 235, 0.85)';
+                    this.ctx.lineWidth = 1.25;
+                    this.ctx.stroke();
+                });
+
+                this.ctx.globalAlpha = 1;
+                this.ctx.restore();
+            }
+
+            loop() {
+                if (!this.isActive) return;
+                this.step();
+                this.draw();
+                this.animationFrame = requestAnimationFrame(() => this.loop());
+            }
         }
 
         // Modal logic
@@ -695,20 +1050,21 @@
                     filterBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                     const filter = btn.getAttribute('data-filter');
-                    document.querySelectorAll('.projects-grid .glass-tile').forEach(card => {
-                        if (filter === 'all') {
-                            card.classList.remove('hidden');
-                        } else {
-                            const categories = card.getAttribute('data-category') || '';
-                            if (categories.includes(filter)) {
-                                card.classList.remove('hidden');
-                            } else {
-                                card.classList.add('hidden');
-                            }
-                        }
-                    });
+                    applyProjectFilter(filter);
                 });
             });
+            applyProjectFilter('all');
+
+            // Project view toggle
+            const viewBtns = document.querySelectorAll('.view-btn');
+            viewBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const view = btn.getAttribute('data-view');
+                    if (window.innerWidth <= 768 && view === 'graph') return;
+                    setProjectView(view);
+                });
+            });
+            setProjectView('grid');
 
             // Project card click -> open modal
             document.getElementById('projectsGrid').addEventListener('click', (e) => {
