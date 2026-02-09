@@ -1239,15 +1239,6 @@
                             </article>
                         </a>
                     `).join('');
-
-                    // Add scroll fade indicator if content overflows
-                    const wrapper = document.getElementById('blogScrollWrapper');
-                    const updateFade = () => {
-                        const atBottom = wrapper.scrollHeight - wrapper.scrollTop - wrapper.clientHeight < 10;
-                        wrapper.classList.toggle('has-overflow', wrapper.scrollHeight > wrapper.clientHeight && !atBottom);
-                    };
-                    updateFade();
-                    wrapper.addEventListener('scroll', updateFade);
                 } else {
                     blogContainer.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2rem;">No blog posts yet. Check back soon!</p>';
                 }

@@ -794,9 +794,11 @@ section h2::after {
     max-height: 520px;
     overflow-y: auto;
     overflow-x: hidden;
-    padding-right: 4px;
+    padding: 1.5rem 4px 0;
     scrollbar-width: thin;
-    scrollbar-color: rgba(6, 182, 212, 0.3) transparent;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 40px, black calc(100% - 60px), transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 40px, black calc(100% - 60px), transparent);
 }
 
 .blog-scroll-wrapper::-webkit-scrollbar {
@@ -808,24 +810,12 @@ section h2::after {
 }
 
 .blog-scroll-wrapper::-webkit-scrollbar-thumb {
-    background: rgba(6, 182, 212, 0.3);
+    background: rgba(255, 255, 255, 0.25);
     border-radius: 3px;
 }
 
 .blog-scroll-wrapper::-webkit-scrollbar-thumb:hover {
-    background: rgba(6, 182, 212, 0.5);
-}
-
-.blog-scroll-wrapper.has-overflow::after {
-    content: '';
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    display: block;
-    width: 100%;
-    height: 60px;
-    background: linear-gradient(to bottom, transparent, var(--bg-primary));
-    pointer-events: none;
+    background: rgba(255, 255, 255, 0.4);
 }
 
 .blog-grid {
