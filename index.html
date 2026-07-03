@@ -1057,7 +1057,7 @@
                     const baseAlpha = edge.curated ? 0.14 : 0.08;
                     const alphaCap = edge.curated ? 0.32 : 0.24;
                     const alpha = isHighlight ? 0.65 : Math.min(alphaCap, baseAlpha + edge.strength * 0.03);
-                    this.ctx.strokeStyle = edge.curated ? `rgba(148, 163, 184, ${alpha})` : `rgba(45, 212, 191, ${alpha})`;
+                    this.ctx.strokeStyle = edge.curated ? `rgba(147, 197, 253, ${alpha})` : `rgba(6, 182, 212, ${alpha})`;
                     this.ctx.lineWidth = isHighlight ? 1.8 : Math.min(1.6, 0.7 + edge.strength * 0.18);
                     this.ctx.beginPath();
                     this.ctx.moveTo(a.x, a.y);

@@ -78,7 +78,7 @@ class CanvasBackground {
 
                 if (distance < maxDistance) {
                     const opacity = (1 - distance / maxDistance) * 0.25;
-                    this.ctx.strokeStyle = `rgba(45, 212, 191, ${opacity})`;
+                    this.ctx.strokeStyle = `rgba(6, 182, 212, ${opacity})`;
                     this.ctx.beginPath();
                     this.ctx.moveTo(this.particles[i].x, this.particles[i].y);
                     this.ctx.lineTo(this.particles[j].x, this.particles[j].y);
@@ -104,7 +104,7 @@ class CanvasBackground {
 
             if (distance < mouseDistance) {
                 const opacity = (1 - distance / mouseDistance) * 0.5;
-                this.ctx.strokeStyle = `rgba(45, 212, 191, ${opacity})`;
+                this.ctx.strokeStyle = `rgba(6, 182, 212, ${opacity})`;
                 this.ctx.lineWidth = 1.5;
                 this.ctx.beginPath();
                 this.ctx.moveTo(particle.x, particle.y);
@@ -152,9 +152,9 @@ window.addEventListener('load', () => {
         const currentScroll = window.pageYOffset;
 
         if (currentScroll > 100) {
-            header.style.background = 'rgba(8, 10, 13, 0.95)';
+            header.style.background = 'rgba(10, 14, 39, 0.95)';
         } else {
-            header.style.background = 'rgba(8, 10, 13, 0.86)';
+            header.style.background = 'rgba(10, 14, 39, 0.8)';
         }
 
         lastScroll = currentScroll;
