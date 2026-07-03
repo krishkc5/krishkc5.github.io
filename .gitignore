@@ -33,6 +33,10 @@ yarn.lock
 .env.local
 .env.production
 
+# Personal resumes
+/resume*.pdf
+/master_resume*.pdf
+
 # Database
 server/database/*.db
 server/database/*.db-shm
