@@ -8,7 +8,7 @@
     <title>Krishna Chemudupati | IC Design & Device Physics</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -776,8 +776,7 @@
             grid.innerHTML = displayProjects.map(({ project: p, index: i }) => `
                 <div class="glass-tile" data-category="${p.category}" data-index="${i}">
                     <h3>${escapeHtml(p.title)}</h3>
-                    <p class="project-card-summary">${escapeHtml(p.card)}</p>
-                    <span class="project-card-date">${escapeHtml(p.date)}</span>
+                    <span class="card-hint">Click to explore</span>
                     <div class="tech-tags">
                         ${p.tags.slice(0, 3).map(t => `<span class="tech-tag">${escapeHtml(t)}</span>`).join('')}
                     </div>
