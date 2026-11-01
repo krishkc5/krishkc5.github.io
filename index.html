@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261031-projects">
+    <link rel="stylesheet" href="styles.css?v=20261031-experience">
 </head>
 <body>
     <canvas id="bgCanvas"></canvas>
@@ -20,8 +20,8 @@
             <div class="logo">KC</div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -54,10 +54,10 @@
                 <img src="images/title_headshot.png" alt="Krishna Chemudupati" class="about-photo">
                 <div class="about-text-large">
                     <p>
-                        Hi, I'm Krishna. I build tools and systems across hardware and silicon design. My background spans digital and analog circuits, memory architectures, and device physics, from SystemVerilog verification to Cadence simulation to real hardware characterization.
+                        Hi, I’m Krishna, an electrical engineering and physics student at Penn. I design analog and digital circuits, build embedded systems, and study ferroelectric devices for compute-in-memory.
                     </p>
                     <p>
-                        I'm particularly drawn to problems where abstractions break down: memory behavior under variability, verification bottlenecks, and the tradeoffs between accuracy, energy, and latency at the hardware-software boundary. Outside of chip design, I also work on autonomous systems and embedded platforms, and spent summer 2026 working on camera systems engineering at Qualcomm.
+                        At Qualcomm, I worked on camera synchronization across drivers, middleware and hardware timing. My current work includes AGRASIC, a mixed-signal agricultural sensing chip, analog design for an in-memory compute startup, and device research in the Jariwala Lab.
                     </p>
                     <p>
                         When I'm not debugging simulations or in the lab, you'll usually find me playing tennis or watching far too much YouTube when I should be sleeping :D
@@ -67,203 +67,50 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="glass-tile">
-                    <h3>Analog & Mixed-Signal IC Design</h3>
-                    <div class="skill-tags">
-                        <a href="#projects" class="skill-tag">Cadence Virtuoso</a>
-                        <a href="#projects" class="skill-tag">Xschem</a>
-                        <a href="#projects" class="skill-tag">ngspice</a>
-                        <a href="#projects" class="skill-tag">KLayout</a>
-                        <a href="#projects" class="skill-tag">Magic</a>
-                        <a href="#projects" class="skill-tag">SKY130</a>
-                        <a href="#projects" class="skill-tag">DRC/LVS</a>
-                        <a href="#projects" class="skill-tag">PEX</a>
-                        <a href="#projects" class="skill-tag">Verilog-A</a>
-                        <a href="#projects" class="skill-tag">PLLs</a>
-                        <a href="#projects" class="skill-tag">ADCs/DACs</a>
-                        <a href="#projects" class="skill-tag">LDO/DC-DC</a>
-                        <a href="#projects" class="skill-tag">TIAs</a>
-                    </div>
-                </div>
-                <div class="glass-tile">
-                    <h3>VLSI, Memory & Device Physics</h3>
-                    <div class="skill-tags">
-                        <a href="#projects" class="skill-tag">45nm CMOS</a>
-                        <a href="#projects" class="skill-tag">22nm CMOS</a>
-                        <a href="#projects" class="skill-tag">SRAM</a>
-                        <a href="#projects" class="skill-tag">DRAM</a>
-                        <a href="#projects" class="skill-tag">Sense Amplifiers</a>
-                        <a href="#projects" class="skill-tag">Bitcell Design</a>
-                        <a href="#projects" class="skill-tag">BEOL Peripherals</a>
-                        <a href="#projects" class="skill-tag">FeD/AlScN</a>
-                        <a href="#projects" class="skill-tag">Sentaurus TCAD</a>
-                        <a href="#projects" class="skill-tag">SPICE</a>
-                        <a href="#projects" class="skill-tag">MATLAB</a>
-                        <a href="#projects" class="skill-tag">Keithley Analyzer</a>
-                    </div>
-                </div>
-                <div class="glass-tile">
-                    <h3>Digital, Programming & Lab</h3>
-                    <div class="skill-tags">
-                        <a href="#projects" class="skill-tag">SystemVerilog</a>
-                        <a href="#projects" class="skill-tag">Verilog</a>
-                        <a href="#projects" class="skill-tag">Verilator</a>
-                        <a href="#projects" class="skill-tag">cocotb</a>
-                        <a href="#projects" class="skill-tag">C++</a>
-                        <a href="#projects" class="skill-tag">C</a>
-                        <a href="#projects" class="skill-tag">Python</a>
-                        <a href="#projects" class="skill-tag">Linux</a>
-                        <a href="#projects" class="skill-tag">Git/Gerrit</a>
-                        <a href="#projects" class="skill-tag">Bash/Python Automation</a>
-                        <a href="#projects" class="skill-tag">SPI</a>
-                        <a href="#projects" class="skill-tag">I2C</a>
-                        <a href="#projects" class="skill-tag">UART</a>
-                        <a href="#projects" class="skill-tag">Oscilloscope</a>
-                        <a href="#projects" class="skill-tag">Logic Analyzer</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Experience Section -->
     <section id="experience">
         <div class="container">
-            <h2>Experience</h2>
-            <div class="carousel-wrapper">
-                <div class="carousel-fade">
-                <div class="carousel-track" id="carouselTrack">
-                    <div class="glass-tile carousel-card">
-                        <h3>Analog CMOS Design Engineer Intern / Part-Time Associate</h3>
-                        <div class="exp-meta">
-                            <span class="company">Stealth In-Memory Compute Startup</span>
-                            <span class="date">Jul 2026 - Present</span>
-                        </div>
-                        <ul>
-                            <li>Designing and simulating mixed-signal and power-management CMOS blocks for in-memory compute using the SkyWater 130nm PDK</li>
-                            <li>Working across open-source IC design tools including xschem, ngspice, KLayout, Magic, and DRC/LVS-oriented custom layout flows</li>
-                            <li>Targeting analog blocks such as PLLs, ADCs, DACs, LDOs, DC-DC converters, and SRAM cells with future migration to commercial PDKs and EDA tools in mind</li>
-                            <li>Preparing Verilog-A behavioral models, simulation documentation, and layout-aware design notes for reusable analog/mixed-signal IP</li>
-                        </ul>
-                    </div>
-                    <div class="glass-tile carousel-card">
-                        <h3>Ferroelectric Compute-in-Memory Researcher</h3>
-                        <div class="exp-meta">
-                            <span class="company">Jariwala Lab, University of Pennsylvania</span>
-                            <span class="date">Feb 2025 - Present</span>
-                        </div>
-                        <ul>
-                            <li>Characterizing FeDs in MFM/MIFM structures using AlScN with HfO2 interlayers across varied scandium concentrations, substrates, and electrodes for selector-free compute-in-memory arrays</li>
-                            <li>Supporting CMOS-compatible BEOL peripheral circuitry in 40nm, including pA-level sensing through transimpedance amplifier and comparator design</li>
-                            <li>Developing Python data extraction and regression workflows for device switching behavior, plus Preisach hysteresis and Sentaurus TCAD simulation support</li>
-                            <li>Building PCB probe card instrumentation for automated measurement and characterizing cryogenic FeD behavior for low-temperature memory applications</li>
-                            <li>Co-first author on FeD multilevel arrays and co-author on low-temperature FeDs, both under review</li>
-                        </ul>
-                    </div>
-                    <div class="glass-tile carousel-card">
-                        <h3>Camera Systems Engineering Intern</h3>
-                        <div class="exp-meta">
-                            <span class="company">Qualcomm Technologies, Inc. - Camera IoT Team</span>
-                            <span class="date">May 2026 - Aug 2026</span>
-                        </div>
-                        <ul>
-                            <li>Developed production camera stack features spanning C++ userspace Camera HAL, Linux kernel driver code, and register-level hardware behavior</li>
-                            <li>Enabled hardware SoC timer and GPIO-based LED synchronization on Qualcomm chipsets for frame-line timing requirements in customer camera use cases</li>
-                            <li>Implemented low-level sensor driver features in C by translating opcode and bit-field register encodings from hardware programming guides into driver logic</li>
-                        </ul>
-                    </div>
-                    <div class="glass-tile carousel-card">
-                        <h3>Co-Lead Autonomous Systems Researcher</h3>
-                        <div class="exp-meta">
-                            <span class="company">xLab (Mangharam Lab), University of Pennsylvania</span>
-                            <span class="date">Mar 2024 - Feb 2025</span>
-                        </div>
-                        <ul>
-                            <li>Conducted research on real-time autonomy for embedded systems, focusing on vision-based lane detection and SLAM using ROS2 and OpenCV</li>
-                            <li>Implemented CUDA-optimized OpenCV lane detection in C++ on Jetson Orin Nano, cutting inference latency by 36% through kernel-level parallelization</li>
-                            <li>Integrated custom PCB hardware with NVIDIA Jetson platform for low-latency control; designed power distribution and sensor-routing hardware</li>
-                            <li>Built and validated C sensor interface drivers for LiDAR, IMU, and camera modules over SPI/I2C, debugging data flow with waveform and log analysis</li>
-                        </ul>
-                    </div>
-                    <div class="glass-tile carousel-card">
-                        <h3>Propulsion & Avionics Engineer</h3>
-                        <div class="exp-meta">
-                            <span class="company">Penn Aerospace Club</span>
-                            <span class="date">Sep 2023 - Present</span>
-                        </div>
-                        <ul>
-                            <li>Contributing to propulsion, avionics, and autonomous flight systems for competitive aircraft platform</li>
-                            <li>Designed PCB-based avionics and validated HW/SW integration; ranked 3rd globally in AIAA Design Build Fly</li>
-                            <li>Design and implement control surface actuation, wireless communication, and onboard autonomy</li>
-                            <li>Developed telemetry analysis pipelines for PX4 flight data, enabling post-flight performance review and iterative tuning</li>
-                        </ul>
-                    </div>
-                    <div class="glass-tile carousel-card">
-                        <h3>Teaching Assistant - CIS 1100 & ESE 1120</h3>
-                        <div class="exp-meta">
-                            <span class="company">University of Pennsylvania</span>
-                            <span class="date">Aug 2024 - Present</span>
-                        </div>
-                        <ul>
-                            <li>Deliver weekly recitations for Intro to CS (Python, OOP, pandas) and Intro to EE (circuits, E&M)</li>
-                            <li>Supervise lab sections guiding students through circuit construction, oscilloscopes, and debugging</li>
-                            <li>Support 30+ students per section through hands-on guidance and tailored instruction</li>
-                        </ul>
-                    </div>
-                    <div class="glass-tile carousel-card">
-                        <h3>Project Consultant</h3>
-                        <div class="exp-meta">
-                            <span class="company">Penn Climate Ventures</span>
-                            <span class="date">Sep 2023 - Present</span>
-                        </div>
-                        <ul>
-                            <li>Conduct market and technical research to evaluate climate tech startups across energy, transportation, and sustainable materials</li>
-                            <li>Assess business models, scalability, and environmental impact to support VC funding strategy</li>
-                            <li>Deliver strategic recommendations to early-stage founders on go-to-market and technical feasibility</li>
-                        </ul>
-                    </div>
-                    <div class="glass-tile carousel-card">
-                        <h3>Resident Advisor</h3>
-                        <div class="exp-meta">
-                            <span class="company">Hill College House, University of Pennsylvania</span>
-                            <span class="date">Aug 2024 - Present</span>
-                        </div>
-                        <ul>
-                            <li>Support first-year students through mentorship, community-building, and academic guidance</li>
-                            <li>Facilitate programming and foster supportive residential environment for 40+ residents</li>
-                            <li>Respond to student concerns and connect residents with campus resources</li>
-                        </ul>
-                    </div>
-                    <div class="glass-tile carousel-card">
-                        <h3>Peer Advisor</h3>
-                        <div class="exp-meta">
-                            <span class="company">Penn Engineering & College of Arts and Sciences</span>
-                            <span class="date">Mar 2024 - Present</span>
-                        </div>
-                        <ul>
-                            <li>Advise incoming students on academic planning, campus resources, and community engagement</li>
-                            <li>Facilitate onboarding and conduct one-on-one advising sessions during orientation and throughout the year</li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-                <div class="carousel-nav">
-                    <button class="carousel-btn" id="carouselPrev" aria-label="Previous">&larr;</button>
-                    <button class="carousel-btn" id="carouselNext" aria-label="Next">&rarr;</button>
-                </div>
-            </div>
+            <div class="section-heading"><h2>Experience</h2></div>
+            <div class="experience-group"><h3 class="experience-group-title">Industry</h3><div>
+                <article class="experience-entry"><div class="experience-heading"><div><h4>Camera Systems Engineering Intern</h4><p class="experience-company">Qualcomm Technologies, Inc. - Camera IoT Team</p></div><p class="experience-date">May 2026 – Aug 2026</p></div><ul><li>Built camera-sensor synchronization across Linux kernel drivers, CamX C++ middleware, sensor configuration and the SoC hardware timer.</li><li>Translated application-specified scanlines into CCI hardware queue operations for deterministic per-frame triggering.</li><li>Traced a sub-millisecond start-of-frame race and moved queue arming to end-of-frame; validated 290 consecutive frame-synchronous waveforms on hardware.</li></ul></article>
+
+                <article class="experience-entry"><div class="experience-heading"><div><h4>Analog CMOS Design Engineer Intern / Part-Time Associate</h4><p class="experience-company">Stealth In-Memory Compute Startup</p></div><p class="experience-date">Jul 2026 – Present</p></div><ul><li>Design and simulate analog and mixed-signal blocks for in-memory compute in SKY130, including references, clocking and memory-readout circuits.</li><li>Work from circuit requirements and transistor sizing through simulation, behavioral modeling and layout preparation using xschem, ngspice, Magic and KLayout.</li></ul></article>
+</div></div>
+            <div class="experience-group"><h3 class="experience-group-title">Research</h3><div>
+                <article class="experience-entry"><div class="experience-heading"><div><h4>Ferroelectric Compute-in-Memory Researcher</h4><p class="experience-company">Jariwala Lab, University of Pennsylvania</p></div><p class="experience-date">Feb 2025 – Present</p></div><ul><li>Characterize AlScN ferroelectric devices across material stacks, electrodes and temperatures for compute-in-memory arrays.</li><li>Develop self-consistent Preisach and transport models, Python measurement analysis, and constrained fits to experimental device sweeps.</li><li>Work on low-current readout peripherals, probe-card instrumentation and cryogenic device characterization.</li></ul></article>
+
+                <article class="experience-entry"><div class="experience-heading"><div><h4>Co-Lead Autonomous Systems Researcher</h4><p class="experience-company">xLab (Mangharam Lab), University of Pennsylvania</p></div><p class="experience-date">Mar 2024 – Feb 2025</p></div><ul><li>Developed vision-based lane detection and SLAM workflows with ROS2 and OpenCV on embedded platforms.</li><li>Optimized C++ / CUDA lane detection on Jetson Orin Nano, reducing inference latency by 36%.</li><li>Built sensor interfaces and integrated PCB power distribution, LiDAR, IMU and camera hardware.</li></ul></article>
+</div></div>
+            <div class="experience-group"><h3 class="experience-group-title">Education</h3><div class="education-entry"><div class="experience-heading"><div><h4>University of Pennsylvania</h4><p class="experience-company">Vagelos Integrated Program in Energy Research</p></div><p class="experience-date">Expected May 2027</p></div><p>MSE &amp; BSE, Electrical Engineering<br>BA, Physics</p></div></div>
+            <div class="experience-group"><h3 class="experience-group-title">Other experience</h3><div>
+                <article class="experience-entry experience-compact"><div class="experience-heading"><div><h4>Propulsion & Avionics Engineer</h4><p class="experience-company">Penn Aerospace Club</p></div><p class="experience-date">Sep 2023 – Present</p></div><ul><li>Design avionics, control-surface actuation and hardware/software interfaces for competitive aircraft. The team placed third globally in AIAA Design Build Fly.</li><li>Built PX4 flight-telemetry analysis tools for post-flight review and tuning.</li></ul></article>
+
+                <article class="experience-entry experience-compact"><div class="experience-heading"><div><h4>Teaching Assistant - CIS 1100 & ESE 1120</h4><p class="experience-company">University of Pennsylvania</p></div><p class="experience-date">Aug 2024 – Present</p></div><ul><li>Lead recitations and lab sections in introductory programming and electrical engineering, covering Python, circuits, measurement and debugging.</li></ul></article>
+<details class="additional-experience"><summary>Advising &amp; community roles</summary>
+                <article class="experience-entry experience-compact"><div class="experience-heading"><div><h4>Project Consultant</h4><p class="experience-company">Penn Climate Ventures</p></div><p class="experience-date">Sep 2023 – Present</p></div><ul><li>Research climate-tech startups and assess technical feasibility, business models and environmental impact.</li></ul></article>
+
+                <article class="experience-entry experience-compact"><div class="experience-heading"><div><h4>Resident Advisor</h4><p class="experience-company">Hill College House, University of Pennsylvania</p></div><p class="experience-date">Aug 2024 – Present</p></div><ul><li>Mentor first-year students, organize residential programming and connect residents with campus resources.</li></ul></article>
+
+                <article class="experience-entry experience-compact"><div class="experience-heading"><div><h4>Peer Advisor</h4><p class="experience-company">Penn Engineering & College of Arts and Sciences</p></div><p class="experience-date">Mar 2024 – Present</p></div><ul><li>Advise incoming Engineering and College students on academic planning and their transition to Penn.</li></ul></article>
+</details></div></div>
         </div>
     </section>
+
+    <!-- Skills Section -->
+    <section id="skills"><div class="container"><div class="section-heading"><h2>Technical skills</h2></div><dl class="skills-list">
+                <div class="skills-row"><dt>Analog &amp; mixed-signal</dt><dd><p>SAR ADCs, sample-and-hold, TIAs, comparators, PLLs / VCOs, LNAs, charge pumps, bandgap references, sense amplifiers, LDOs and DC–DC converters.</p><p class="skill-tools">Cadence Virtuoso / Spectre · xschem · ngspice · LTspice · Verilog-A · PVT / Monte Carlo</p></dd></div>
+                <div class="skills-row"><dt>Digital design &amp; verification</dt><dd><p>SystemVerilog / Verilog, RISC-V, pipelining, systolic arrays, AXI-Lite / AXI-Stream, SPI control, scan / ATPG-style fault simulation, JTAG and logic BIST.</p><p class="skill-tools">Verilator · cocotb · pyuvm · assertions · scoreboards · ModelSim · Quartus · Surfer</p></dd></div>
+                <div class="skills-row"><dt>Physical implementation</dt><dd><p>Synthesis, static timing analysis, custom layout, DRC / LVS and parasitic extraction; SKY130, 180 nm mixed-signal, 45 nm and 22 nm CMOS project work.</p><p class="skill-tools">Yosys · OpenROAD · LibreLane · Magic · KLayout · Electric VLSI</p></dd></div>
+                <div class="skills-row"><dt>Embedded &amp; camera systems</dt><dd><p>Linux kernel drivers, Camera HAL / CamX, CCI register programming, hardware-timer synchronization, firmware, RTOS and hardware/software integration.</p><p class="skill-tools">C / C++ · ROS2 · FreeRTOS · ATmega328PB · Raspberry Pi · Jetson Orin Nano · SPI / I2C / UART / JTAG</p></dd></div>
+                <div class="skills-row"><dt>Devices &amp; modeling</dt><dd><p>SRAM / DRAM cells and periphery, AlScN ferroelectrics, compute-in-memory, multidomain Preisach modeling, stack electrostatics and transport fitting.</p><p class="skill-tools">Sentaurus TCAD · SPICE · MATLAB · SciPy · constrained optimization</p></dd></div>
+                <div class="skills-row"><dt>Software &amp; automation</dt><dd><p>Python, C, C++, Java, OCaml, Bash and JavaScript; simulation tooling, data pipelines, reference models and reproducible analysis.</p><p class="skill-tools">Linux · Git / Gerrit · NumPy · pandas · Matplotlib · HTML / CSS</p></dd></div>
+                <div class="skills-row"><dt>Machine learning &amp; vision</dt><dd><p>Model quantization, GPU energy profiling, computer vision, regression and Monte Carlo analysis.</p><p class="skill-tools">PyTorch · TensorFlow · scikit-learn · CUDA · OpenCV · XGBoost</p></dd></div>
+                <div class="skills-row"><dt>Hardware &amp; measurement</dt><dd><p>PCB design, sensor bring-up, timing captures, low-current characterization, automated measurement and flight-telemetry analysis.</p><p class="skill-tools">Altium · oscilloscopes · logic analyzers · Keithley analyzers · SolidWorks · PX4 / ULog</p></dd></div></dl></div></section>
 
     <!-- Projects Section -->
     <section id="projects">
         <div class="container">
-            <div class="section-heading"><div><p class="eyebrow">Design / build / verify</p><h2>Selected work</h2></div><p class="section-intro">Circuits, silicon, and the software around them. Recent work first; explore the connections in graph view.</p></div>
+            <div class="section-heading"><div><h2>Selected work</h2></div><p class="section-intro">Circuit design, digital hardware and software projects. Open a project for details, or explore how they connect in graph view.</p></div>
             <div class="projects-controls">
                 <div class="project-filters" id="projectFilters">
                     <button class="filter-btn active" data-filter="all">All</button>
@@ -1060,16 +907,7 @@
                 }
             });
 
-            // Experience carousel
-            const track = document.getElementById('carouselTrack');
-            const cardWidth = () => track.querySelector('.carousel-card').offsetWidth + 24;
 
-            document.getElementById('carouselNext').addEventListener('click', () => {
-                track.scrollBy({ left: cardWidth(), behavior: 'smooth' });
-            });
-            document.getElementById('carouselPrev').addEventListener('click', () => {
-                track.scrollBy({ left: -cardWidth(), behavior: 'smooth' });
-            });
         });
 
         // Load blog posts from Firebase

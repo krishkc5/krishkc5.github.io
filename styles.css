@@ -1294,3 +1294,58 @@ section h2::after {
 }
 .project-modal .case-section { padding: 0; min-height: 0; }
 .project-modal .case-status { padding-left: 1rem; }
+
+/* Resume and supporting sections */
+body > section:not(.hero) { padding: 5rem 0; scroll-margin-top: 70px; }
+body > section:not(.hero) h2 { font-size: 2rem; font-weight: 500; letter-spacing: -.025em; margin-bottom: 2rem; }
+body > section:not(.hero) h2::after { display: none; }
+#experience .section-heading, #skills .section-heading { margin-bottom: 0; }
+.experience-group { display: grid; grid-template-columns: 155px minmax(0,1fr); gap: 2rem; border-top: 1px solid #3a4359; padding: 2rem 0 .75rem; }
+.experience-group-title { font-size: .8rem; line-height: 1.5; font-weight: 500; color: #a8bacb; padding-top: .2rem; }
+.experience-entry { padding: 0 0 2rem; }
+.experience-entry + .experience-entry { padding-top: 1.5rem; border-top: 1px solid #252e43; }
+.experience-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; }
+.experience-heading h4 { font-size: 1.05rem; line-height: 1.5; font-weight: 500; color: #eff2f6; }
+.experience-company { font-size: .87rem; color: #a8bacb; margin-top: .3rem; }
+.experience-date { font-size: .73rem; line-height: 1.6; color: #aab5c5; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.experience-entry ul { margin: .9rem 0 0; padding-left: 1rem; color: #bcc7d4; font-size: .86rem; line-height: 1.8; }
+.experience-entry li { padding-left: .2rem; }
+.experience-entry li + li { margin-top: .45rem; }
+.experience-entry li::marker { color: #73899f; font-size: .75em; }
+.education-entry > p { color: #bcc7d4; font-size: .9rem; line-height: 1.8; margin: .85rem 0 1.5rem; }
+.experience-compact .experience-heading h4 { font-size: .94rem; }
+.additional-experience { border-top: 1px solid #252e43; padding-top: 1.1rem; margin-bottom: 1rem; }
+.additional-experience summary { color: #a8bacb; cursor: pointer; font-size: .85rem; margin-bottom: 1rem; }
+.additional-experience[open] summary { margin-bottom: 1.7rem; }
+.skills-list { border-top: 1px solid #3a4359; }
+.skills-row { display: grid; grid-template-columns: 210px minmax(0,1fr); gap: 2.5rem; padding: 1.45rem 0; border-bottom: 1px solid #283248; }
+.skills-row dt { font-size: .9rem; font-weight: 500; color: #e0e7ed; }
+.skills-row dd { margin: 0; font-size: .84rem; color: #c0cbd7; line-height: 1.8; }
+.skills-row .skill-tools { margin-top: .55rem; font-size: .78rem; color: #91a8bc; }
+.about-photo { border-radius: 3px; box-shadow: none; }
+.about-text-large p { font-size: 1rem; line-height: 1.85; }
+.blog-grid { display: block; border-top: 1px solid #3a4359; }
+.blog-card { padding: 1.5rem 0; border: 0; border-bottom: 1px solid #283248; background: transparent; border-radius: 0; }
+.blog-card-link:hover .blog-card { background: transparent; transform: none; box-shadow: none; border-color: #61788d; }
+.blog-card h3 { font-size: 1.1rem; font-weight: 500; }
+.blog-card .date { font-size: .75rem; }
+.blog-tag { border: 0; background: transparent; border-radius: 0; padding: 0 .7rem 0 0; color: #93acbf; font-size: .72rem; }
+.blog-card .excerpt { font-size: .85rem; max-width: 760px; }
+.contact-grid { justify-content: flex-start; gap: 2rem; }
+.contact-link { padding: .7rem 0; min-width: 0; border: 0; border-bottom: 1px solid #52667d; border-radius: 0; background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+.contact-link:hover { background: transparent; transform: none; box-shadow: none; border-color: #c1d4e2; }
+.contact-link span { font-size: .9rem; font-weight: 400; }
+#contact > .container > p { text-align: left !important; max-width: 650px; font-size: .95rem; line-height: 1.8; }
+@media(max-width:900px) {
+    .experience-group { grid-template-columns: 110px minmax(0,1fr); gap: 1.4rem; }
+    .experience-heading { flex-direction: column; gap: .45rem; }
+    .skills-row { grid-template-columns: 170px minmax(0,1fr); gap: 1.5rem; }
+}
+@media(max-width:600px) {
+    body > section:not(.hero) { padding: 3.5rem 0; }
+    .experience-group { grid-template-columns: minmax(0,1fr); gap: 1.25rem; padding-top: 1.5rem; }
+    .experience-group-title { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; }
+    .skills-row { grid-template-columns: minmax(0,1fr); gap: .6rem; }
+    .skills-row dd { font-size: .82rem; }
+    .contact-grid { gap: 1.25rem; }
+}
