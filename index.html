@@ -909,7 +909,7 @@
                 `<span class="tech-tag">${escapeHtml(t)}</span>`
             ).join('');
             document.getElementById('modalDescription').textContent = p.description;
-            document.getElementById('modalDetails').innerHTML = (p.contribution ? `<section class="case-section"><h3>My contribution</h3><p>${escapeHtml(p.contribution)}</p></section>` : '') + (p.results ? `<section class="case-section"><h3>Results</h3><ul>${p.results.map(r=>`<li>${escapeHtml(r)}</li>`).join('')}</ul></section>` : '') + (p.next ? `<section class="case-section case-status"><h3>Current status</h3><p>${escapeHtml(p.next)}</p></section>` : '');
+            document.getElementById('modalDetails').innerHTML = (p.contribution ? `<section class="case-section"><h3>My contribution</h3><p>${escapeHtml(p.contribution)}</p></section>` : '') + (p.results ? `<section class="case-section"><h3>Results</h3><ul>${p.results.map(r=>`<li>${escapeHtml(r)}</li>`).join('')}</ul></section>` : '');
             window.projectReturnFocus = document.activeElement;
 
             // Render media (images inline, PDFs/videos as links)
