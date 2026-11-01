@@ -4,3 +4,6 @@ Penn shield: https://commons.wikimedia.org/wiki/File:Shield_of_the_University_of
 Wikimedia Commons public-domain rendition of the University shield.
 Marks identify the organizations associated with the listed roles; no endorsement implied.
 IC, PAC and PCV are plain text abbreviations, not official logos.
+
+Generic Stealth Startup logo: https://www.linkedin.com/company/stealth-startup-community/
+Used as a generic stealth-mode placeholder, not an identification of the actual employer.

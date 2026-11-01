@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261101-compact">
+    <link rel="stylesheet" href="styles.css?v=20261101-left-expand">
 </head>
 <body>
     <canvas id="bgCanvas"></canvas>
@@ -54,10 +54,10 @@
                 <img src="images/title_headshot.png" alt="Krishna Chemudupati" class="about-photo">
                 <div class="about-text-large">
                     <p>
-                        Hi, I’m Krishna, an electrical engineering and physics student at Penn. I design analog and digital circuits, build embedded systems, and study ferroelectric devices for compute-in-memory.
+                        Hi, I’m Krishna, an electrical engineering and physics student at Penn. My focus is circuits and hardware systems, spanning analog and mixed-signal design, digital hardware, memory and emerging semiconductor devices. I’m interested in how these pieces come together in complete systems.
                     </p>
                     <p>
-                        At Qualcomm, I worked on camera synchronization across drivers, middleware and hardware timing. My current work includes AGRASIC, a mixed-signal agricultural sensing chip, analog design for an in-memory compute startup, and device research in the Jariwala Lab.
+                        My work includes sensing ASICs, clock generation, digital accelerators, camera systems at Qualcomm, and ferroelectric device research at Penn. I also work on hardware/software codesign and embedded interfaces, and build software and ML tools for inference, profiling and verification.
                     </p>
                     <p>
                         When I'm not debugging simulations or in the lab, you'll usually find me playing tennis or watching far too much YouTube when I should be sleeping :D
@@ -68,49 +68,28 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience"><div class="container"><div class="section-heading"><h2>Experience</h2></div>
-<div class="work-group"><h3>Industry</h3><div class="work-grid work-featured">
-<article class="work-item"><div class="organization-heading"><div class="organization-logo qualcomm-logo"><img src="images/organizations/qualcomm.svg" alt="Qualcomm" width="120" height="30"></div><div><h4>Qualcomm</h4><p class="work-date">May 2026 – Aug 2026</p></div></div><p class="work-role">Camera Systems Engineering Intern</p><p class="work-summary">Camera synchronization across kernel drivers, CamX and hardware timing.</p><details class="work-details"><summary>Details</summary><ul><li>Built camera-sensor synchronization across Linux kernel drivers, CamX C++ middleware, sensor configuration and the SoC hardware timer.</li><li>Translated application-specified scanlines into CCI hardware queue operations for deterministic per-frame triggering.</li><li>Traced a sub-millisecond start-of-frame race and moved queue arming to end-of-frame; validated 290 consecutive frame-synchronous waveforms on hardware.</li></ul></details></article>
-<article class="work-item"><div class="organization-heading"><div class="organization-monogram" aria-hidden="true">IC</div><div><h4>Stealth startup</h4><p class="work-date">Jul 2026 – Present</p></div></div><p class="work-role">Analog CMOS Design Engineer Intern / Part-Time Associate</p><p class="work-summary">Analog and mixed-signal circuits for in-memory compute.</p><details class="work-details"><summary>Details</summary><ul><li>Design and simulate analog and mixed-signal blocks for in-memory compute in SKY130, including references, clocking and memory-readout circuits.</li><li>Work from circuit requirements and transistor sizing through simulation, behavioral modeling and layout preparation using xschem, ngspice, Magic and KLayout.</li></ul></details></article></div></div>
-<div class="work-group"><h3>Research</h3><div class="work-grid work-featured">
-<article class="work-item"><div class="organization-heading"><div class="organization-logo penn-logo"><img src="images/organizations/penn.svg" alt="University of Pennsylvania" width="30" height="34"></div><div><h4>Jariwala Lab</h4><p class="work-date">Feb 2025 – Present</p></div></div><p class="work-role">Ferroelectric Compute-in-Memory Researcher</p><p class="work-summary">Ferroelectric devices, transport models and compute-in-memory.</p><details class="work-details"><summary>Details</summary><ul><li>Characterize AlScN ferroelectric devices across material stacks, electrodes and temperatures for compute-in-memory arrays.</li><li>Develop self-consistent Preisach and transport models, Python measurement analysis, and constrained fits to experimental device sweeps.</li><li>Work on low-current readout peripherals, probe-card instrumentation and cryogenic device characterization.</li></ul></details></article>
-<article class="work-item"><div class="organization-heading"><div class="organization-logo penn-logo"><img src="images/organizations/penn.svg" alt="University of Pennsylvania" width="30" height="34"></div><div><h4>xLab · Mangharam Lab</h4><p class="work-date">Mar 2024 – Feb 2025</p></div></div><p class="work-role">Co-Lead Autonomous Systems Researcher</p><p class="work-summary">Embedded autonomy, computer vision and sensor integration.</p><details class="work-details"><summary>Details</summary><ul><li>Developed vision-based lane detection and SLAM workflows with ROS2 and OpenCV on embedded platforms.</li><li>Optimized C++ / CUDA lane detection on Jetson Orin Nano, reducing inference latency by 36%.</li><li>Built sensor interfaces and integrated PCB power distribution, LiDAR, IMU and camera hardware.</li></ul></details></article></div></div>
-<div class="work-group"><h3>Engineering, teaching &amp; community</h3><div class="work-grid work-supporting">
-<article class="work-item"><div class="organization-heading"><div class="organization-monogram" aria-hidden="true">PAC</div><div><h4>Penn Aerospace Club</h4><p class="work-date">Sep 2023 – Present</p></div></div><p class="work-role">Propulsion & Avionics Engineer</p><p class="work-summary">Aircraft avionics, control systems and flight telemetry.</p><details class="work-details"><summary>Details</summary><ul><li>Design avionics, control-surface actuation and hardware/software interfaces for competitive aircraft. The team placed third globally in AIAA Design Build Fly.</li><li>Built PX4 flight-telemetry analysis tools for post-flight review and tuning.</li></ul></details></article>
-<article class="work-item"><div class="organization-heading"><div class="organization-logo penn-logo"><img src="images/organizations/penn.svg" alt="University of Pennsylvania" width="30" height="34"></div><div><h4>University of Pennsylvania</h4><p class="work-date">Aug 2024 – Present</p></div></div><p class="work-role">Teaching Assistant - CIS 1100 & ESE 1120</p><p class="work-summary">Teaching programming, circuits and practical debugging.</p><details class="work-details"><summary>Details</summary><ul><li>Lead recitations and lab sections in introductory programming and electrical engineering, covering Python, circuits, measurement and debugging.</li></ul></details></article>
-<article class="work-item"><div class="organization-heading"><div class="organization-monogram" aria-hidden="true">PCV</div><div><h4>Penn Climate Ventures</h4><p class="work-date">Sep 2023 – Present</p></div></div><p class="work-role">Project Consultant</p><p class="work-summary">Technical research and assessment of climate-tech startups.</p><details class="work-details"><summary>Details</summary><ul><li>Research climate-tech startups and assess technical feasibility, business models and environmental impact.</li></ul></details></article>
-<article class="work-item"><div class="organization-heading"><div class="organization-logo penn-logo"><img src="images/organizations/penn.svg" alt="University of Pennsylvania" width="30" height="34"></div><div><h4>Hill College House</h4><p class="work-date">Aug 2024 – Present</p></div></div><p class="work-role">Resident Advisor</p><p class="work-summary">First-year mentorship and residential community programming.</p><details class="work-details"><summary>Details</summary><ul><li>Mentor first-year students, organize residential programming and connect residents with campus resources.</li></ul></details></article>
-<article class="work-item"><div class="organization-heading"><div class="organization-logo penn-logo"><img src="images/organizations/penn.svg" alt="University of Pennsylvania" width="30" height="34"></div><div><h4>Penn Engineering & College</h4><p class="work-date">Mar 2024 – Present</p></div></div><p class="work-role">Peer Advisor</p><p class="work-summary">Academic planning and advising for incoming students.</p><details class="work-details"><summary>Details</summary><ul><li>Advise incoming Engineering and College students on academic planning and their transition to Penn.</li></ul></details></article></div></div>
-    </div></section>
+    <section id="experience"><div class="container"><h2>Experience</h2><div class="experience-index">
+<h3 class="experience-divider">Industry</h3>
+<details class="experience-disclosure"><summary class="experience-line industry-line"><div class="experience-identity"><h4><img class="employer-mark" src="images/organizations/qualcomm-q.svg" alt="" aria-hidden="true">Qualcomm</h4><p>Camera Systems Engineering Intern</p></div><p class="experience-note">Camera synchronization across kernel drivers, CamX and hardware timing.</p><time>May 2026 - Aug 2026</time></summary><div class="experience-expanded"><p>Worked on the Camera IoT team, connecting application-level camera requirements to sensor timing and SoC hardware. The work spanned Linux kernel drivers, CamX C++ middleware, device-tree configuration and hardware validation.</p><ul><li>Designed a hardware-timed, per-frame GPIO trigger feature across six repositories and four abstraction layers. Translated an application-specified sensor scanline into CCI hardware queue operations anchored to the live camera line counter, keeping the CPU out of the per-frame timing loop.</li><li>Root-caused a sub-millisecond start-of-frame race and moved queue arming to end-of-frame for deterministic next-frame behavior. Validated 290 consecutive frame-synchronous waveform triplets on hardware.</li><li>Read board schematics and register maps to select and mux timer-capable GPIO pads. Used Python to analyze timing captures through repeated build, flash and hardware-debug cycles.</li><li>Organized the implementation into a reproducible multi-repository Gerrit topic and wrote an end-to-end handoff covering baseline sync, dependencies, builds, flashing and hardware verification.</li></ul></div></details>
+<details class="experience-disclosure"><summary class="experience-line industry-line"><div class="experience-identity"><h4><img class="stealth-mark" src="images/organizations/stealth-startup.png" alt="" aria-hidden="true">Stealth startup</h4><p>Analog CMOS Design Engineer Intern / Part-Time Associate</p></div><p class="experience-note">Analog and mixed-signal circuits for in-memory compute.</p><time>Jul 2026 - Present</time></summary><div class="experience-expanded"><p>Design analog and mixed-signal CMOS blocks for an in-memory-compute architecture, with work spanning precision biasing, clock generation, analog front ends and memory readout.</p><ul><li>Work on bandgap references, PLLs, voltage-controlled oscillators, low-noise amplifiers and sense amplifiers in the SkyWater SKY130 process.</li><li>Translate circuit requirements into transistor-level designs, selecting topology, device sizing and bias conditions while accounting for process limits and interfaces to neighboring blocks.</li><li>Develop schematic simulations and behavioral models to study operating points, frequency response, startup and process, voltage and temperature sensitivity.</li><li>Prepare custom-layout and tapeout deliverables using xschem, ngspice, Magic and KLayout, including physical verification and parasitic-aware design iteration.</li></ul></div></details>
+<h3 class="experience-divider">Research</h3>
+<details class="experience-disclosure"><summary class="experience-line "><div class="experience-identity"><h4><img class="lab-mark" src="images/organizations/penn.svg" alt="" aria-hidden="true">Jariwala Lab</h4><p>Ferroelectric Compute-in-Memory Researcher</p></div><p class="experience-note">Ferroelectric devices, transport models and compute-in-memory.</p><time>Feb 2025 - Present</time></summary><div class="experience-expanded"><p>Research AlScN ferroelectric diodes for selector-free memory arrays and analog compute-in-memory, connecting experimental device characterization with compact modeling and CMOS readout design.</p><ul><li>Characterize MFM and MIFM device structures across scandium concentrations, interlayer dielectrics, substrates and electrode configurations. Measure retention, endurance and switching under varied pulse conditions, including cryogenic operation.</li><li>Develop history-dependent Preisach and transport models coupled to stack electrostatics. Build Python analysis and constrained fitting workflows to compare material-stack predictions with experimental sweeps.</li><li>Support low-current sensing and peripheral-circuit development for array read/write operations, including transimpedance amplifiers, comparators and PCB probe-card instrumentation.</li><li>Use probe stations and parameter analyzers for electrical measurements; contribute to device-simulation efforts with Sentaurus TCAD and train new researchers in characterization and data-analysis workflows.</li></ul></div></details>
+<details class="experience-disclosure"><summary class="experience-line "><div class="experience-identity"><h4><img class="lab-mark" src="images/organizations/penn.svg" alt="" aria-hidden="true">xLab · Mangharam Lab</h4><p>Co-Lead Autonomous Systems Researcher</p></div><p class="experience-note">Embedded autonomy, computer vision and sensor integration.</p><time>Mar 2024 - Feb 2025</time></summary><div class="experience-expanded"><p>Co-led embedded autonomy research for an accessible 1/18-scale self-driving racing platform, working across perception, control, computing hardware and sensor interfaces.</p><ul><li>Developed ROS2 and OpenCV workflows for vision-based lane detection, trajectory fitting, emergency braking and SLAM. Used thresholding and sliding-window methods to estimate lane boundaries and a drivable path.</li><li>Optimized C++ / CUDA lane detection on Jetson Orin Nano, reducing inference latency by 36%. Evaluated embedded computing options, including Jetson and Raspberry Pi, for platform integration.</li><li>Integrated depth cameras, IMUs and range-sensing interfaces; explored depth-derived LaserScan data for localization without a dedicated LiDAR.</li><li>Designed PCB power distribution and sensor/motor routing, developed sensor interfaces, and debugged hardware/software data flow through waveform analysis, automated log parsing and regression testing.</li></ul></div></details>
+<h3 class="experience-divider">Engineering, teaching & community</h3>
+<details class="experience-disclosure"><summary class="experience-line "><div class="experience-identity"><h4>Penn Aerospace Club</h4><p>Propulsion & Avionics Engineer</p></div><p class="experience-note">Aircraft avionics, control systems and flight telemetry.</p><time>Sep 2023 - Present</time></summary><div class="experience-expanded"><ul><li>Design avionics, control-surface actuation and hardware/software interfaces for competitive aircraft. The team placed third globally in AIAA Design Build Fly.</li><li>Built PX4 flight-telemetry analysis tools for post-flight review and tuning.</li></ul></div></details>
+<details class="experience-disclosure"><summary class="experience-line "><div class="experience-identity"><h4>University of Pennsylvania</h4><p>Teaching Assistant - CIS 1100 & ESE 1120</p></div><p class="experience-note">Teaching programming, circuits and practical debugging.</p><time>Aug 2024 - Present</time></summary><div class="experience-expanded"><ul><li>Lead recitations and lab sections in introductory programming and electrical engineering, covering Python, circuits, measurement and debugging.</li></ul></div></details>
+<details class="experience-disclosure"><summary class="experience-line "><div class="experience-identity"><h4>Penn Climate Ventures</h4><p>Project Consultant</p></div><p class="experience-note">Technical research and assessment of climate-tech startups.</p><time>Sep 2023 - Present</time></summary><div class="experience-expanded"><ul><li>Research climate-tech startups and assess technical feasibility, business models and environmental impact.</li></ul></div></details>
+<details class="experience-disclosure"><summary class="experience-line "><div class="experience-identity"><h4>Hill College House</h4><p>Resident Advisor</p></div><p class="experience-note">First-year mentorship and residential community programming.</p><time>Aug 2024 - Present</time></summary><div class="experience-expanded"><ul><li>Mentor first-year students, organize residential programming and connect residents with campus resources.</li></ul></div></details>
+<details class="experience-disclosure"><summary class="experience-line "><div class="experience-identity"><h4>Penn Engineering & College</h4><p>Peer Advisor</p></div><p class="experience-note">Academic planning and advising for incoming students.</p><time>Mar 2024 - Present</time></summary><div class="experience-expanded"><ul><li>Advise incoming Engineering and College students on academic planning and their transition to Penn.</li></ul></div></details>
+</div></div></section>
 
     <!-- Skills Section -->
-    <section id="skills">
-        <div class="container">
-            <div class="skills-heading"><h2>Technical skills</h2><button type="button" class="skills-expand" id="skillsExpand" aria-expanded="false" aria-controls="technologyMap">Show all technologies <span aria-hidden="true">+</span></button></div>
-            <div class="skills-filters" role="group" aria-label="Filter technical skills">
-                <button type="button" data-skill-filter="all" aria-pressed="true">All</button>
-                <button type="button" data-skill-filter="silicon" aria-pressed="false">Silicon</button>
-                <button type="button" data-skill-filter="digital" aria-pressed="false">Digital</button>
-                <button type="button" data-skill-filter="systems" aria-pressed="false">Systems</button>
-                <button type="button" data-skill-filter="software" aria-pressed="false">Software & ML</button>
-            </div>
-            <div class="technology-map" id="technologyMap">
-                <div class="technology-group" data-skill-category="silicon"><div class="technology-label"><span aria-hidden="true">01</span><h3>Analog &amp; mixed-signal</h3></div><ul class="keyword-list" aria-label="Analog &amp; mixed-signal technologies"><li class="keyword-primary">Cadence Virtuoso</li><li class="keyword-primary">Spectre</li><li class="keyword-primary">SAR ADC</li><li>Sample-and-hold</li><li>TIA</li><li>PLL / VCO</li><li>LNA</li><li>Comparators</li><li>Bandgap references</li><li>Charge pumps</li><li>Sense amplifiers</li><li>LDO / DC–DC</li><li>xschem</li><li>ngspice</li><li>LTspice</li><li>Verilog-A</li><li>PVT</li><li>Monte Carlo</li></ul></div>
-                <div class="technology-group" data-skill-category="digital"><div class="technology-label"><span aria-hidden="true">02</span><h3>RTL &amp; verification</h3></div><ul class="keyword-list" aria-label="RTL &amp; verification technologies"><li class="keyword-primary">SystemVerilog</li><li class="keyword-primary">Verilog</li><li class="keyword-primary">RISC-V</li><li>Verilator</li><li>cocotb</li><li>pyuvm</li><li>AXI-Lite</li><li>AXI-Stream</li><li>Systolic arrays</li><li>Scan / ATPG</li><li>Logic BIST</li><li>Assertions</li><li>Scoreboards</li><li>ModelSim</li><li>Quartus</li><li>Surfer</li></ul></div>
-                <div class="technology-group" data-skill-category="silicon"><div class="technology-label"><span aria-hidden="true">03</span><h3>Physical design</h3></div><ul class="keyword-list" aria-label="Physical design technologies"><li class="keyword-primary">Yosys</li><li class="keyword-primary">OpenROAD</li><li class="keyword-primary">LibreLane</li><li>Magic</li><li>KLayout</li><li>Electric VLSI</li><li>SKY130</li><li>180 nm CMOS</li><li>45 nm CMOS</li><li>22 nm CMOS</li><li>Synthesis</li><li>Static timing</li><li>Custom layout</li><li>DRC / LVS</li><li>PEX</li></ul></div>
-                <div class="technology-group" data-skill-category="systems"><div class="technology-label"><span aria-hidden="true">04</span><h3>Embedded &amp; camera</h3></div><ul class="keyword-list" aria-label="Embedded &amp; camera technologies"><li class="keyword-primary">C / C++</li><li class="keyword-primary">Linux drivers</li><li class="keyword-primary">Camera HAL</li><li>CamX</li><li>CCI</li><li>ROS2</li><li>FreeRTOS</li><li>Jetson Orin Nano</li><li>Raspberry Pi</li><li>ATmega328PB</li><li>SPI</li><li>I2C</li><li>UART</li><li>JTAG</li><li>Hardware timers</li></ul></div>
-                <div class="technology-group" data-skill-category="silicon"><div class="technology-label"><span aria-hidden="true">05</span><h3>Devices &amp; modeling</h3></div><ul class="keyword-list" aria-label="Devices &amp; modeling technologies"><li class="keyword-primary">AlScN</li><li class="keyword-primary">Ferroelectrics</li><li class="keyword-primary">Compute-in-memory</li><li>SRAM</li><li>DRAM</li><li>Preisach models</li><li>Sentaurus TCAD</li><li>SPICE</li><li>MATLAB</li><li>SciPy</li><li>Electrostatics</li><li>Transport models</li><li>Constrained fitting</li></ul></div>
-                <div class="technology-group" data-skill-category="software"><div class="technology-label"><span aria-hidden="true">06</span><h3>Languages &amp; tools</h3></div><ul class="keyword-list" aria-label="Languages &amp; tools technologies"><li class="keyword-primary">Python</li><li class="keyword-primary">C</li><li class="keyword-primary">C++</li><li>Java</li><li>OCaml</li><li>Bash</li><li>JavaScript</li><li>HTML / CSS</li><li>Linux</li><li>Git / Gerrit</li><li>NumPy</li><li>pandas</li><li>Matplotlib</li></ul></div>
-                <div class="technology-group" data-skill-category="software"><div class="technology-label"><span aria-hidden="true">07</span><h3>ML &amp; computer vision</h3></div><ul class="keyword-list" aria-label="ML &amp; computer vision technologies"><li class="keyword-primary">PyTorch</li><li class="keyword-primary">TensorFlow</li><li class="keyword-primary">CUDA</li><li>OpenCV</li><li>scikit-learn</li><li>XGBoost</li><li>INT4 / INT8</li><li>Quantization</li><li>GPU profiling</li><li>Regression</li><li>Monte Carlo</li></ul></div>
-                <div class="technology-group" data-skill-category="systems"><div class="technology-label"><span aria-hidden="true">08</span><h3>Hardware &amp; lab</h3></div><ul class="keyword-list" aria-label="Hardware &amp; lab technologies"><li class="keyword-primary">Altium</li><li class="keyword-primary">Oscilloscopes</li><li class="keyword-primary">Logic analyzers</li><li>Keithley</li><li>SolidWorks</li><li>PX4 / ULog</li><li>PCB design</li><li>Sensor bring-up</li><li>Low-current measurements</li><li>Timing analysis</li><li>Measurement automation</li></ul></div>
-            </div>
-        </div>
-    </section>
+    <section id="skills"><div class="container"><h2>Skills</h2><p class="skills-hint">Select a technology to see where I use it.</p><div id="skillsNetwork" class="skills-network"></div><dialog id="skillCard" class="skill-card" aria-labelledby="skillCardTitle"><button type="button" class="skill-card-close" aria-label="Close skill card">&times;</button><div id="skillConnections"></div></dialog></div></section>
 
     <!-- Projects Section -->
     <section id="projects">
         <div class="container">
-            <div class="section-heading"><div><h2>Selected work</h2></div><p class="section-intro">Circuit design, digital hardware and software projects. Open a project for details, or explore how they connect in graph view.</p></div>
+            <div class="section-heading"><div><h2>Selected work</h2></div></div>
             <div class="projects-controls">
                 <div class="project-filters" id="projectFilters">
                     <button class="filter-btn active" data-filter="all">All</button>
@@ -122,15 +101,15 @@
                     <button class="filter-btn" data-filter="software">Software</button>
                 </div>
                 <div class="project-view-toggle" id="projectViewToggle" aria-label="Project view toggle">
-                    <button class="view-btn active" data-view="grid">Grid View</button>
-                    <button class="view-btn" data-view="graph">Graph View</button>
+                    <button class="view-btn active" data-view="grid">Projects</button>
+                    <button class="view-btn" data-view="graph">Project graph</button>
                 </div>
             </div>
             <div class="projects-grid" id="projectsGrid">
                 <!-- Projects are rendered by JavaScript -->
             </div>
             <div class="projects-graph is-hidden" id="projectsGraphView" aria-hidden="true">
-                <div class="graph-heading"><p>Projects & connections <span>Hover to trace related work · click to read</span></p><label class="graph-picker">Open a project<select id="graphProjectSelect"><option value="">Choose a project</option></select></label></div><canvas id="projectsGraphCanvas" role="img" aria-label="Project relationship map grouped by engineering discipline. Use the project menu to open any project with the keyboard."></canvas>
+                <div class="graph-heading"><p>Projects & connections <span>Drag to rotate · drag nodes · Shift-drag to pan · scroll to zoom</span></p><label class="graph-picker">Open a project<select id="graphProjectSelect"><option value="">Choose a project</option></select></label></div><div class="graph-legend"><span>● Analog</span><span>● Digital</span><span>● Devices</span><span>● Embedded</span><span>● ML</span><span>● Software</span></div><canvas id="projectsGraphCanvas" role="img" aria-label="Static 3D project graph. Drag the background to rotate, Shift-drag to pan, drag nodes to move them, and scroll to zoom. Arrow keys rotate, plus and minus zoom, and Home resets. Use the menu to open a project."></canvas>
                 <div class="graph-tooltip" id="projectsGraphTooltip"></div>
             </div>
         </div>
@@ -214,9 +193,12 @@
 
         // All projects data
         const PROJECTS = [
-{"title": "AGRASIC: Agricultural Impedance-Sensing ASIC", "short": "AGRASIC sensing system", "card": "A mixed-signal sensing ASIC that brings excitation, voltage/current measurement, digital control and SPI readout onto one die.", "date": "Sep 2026 – Present", "category": "circuit digital", "tags": ["Mixed-Signal ASIC", "Impedance Sensing", "System Architecture"], "status": "System design & verification", "featured": true, "description": "AGRASIC is our senior-design mixed-signal ASIC for agricultural impedance sensing. The system drives a four-electrode probe with programmable excitation, senses voltage and current through an analog front end, and samples both channels at the same excitation phase. A shared SAR ADC digitizes the measurements; digital logic performs phase-synchronous accumulation and exposes results over SPI so a host can calculate complex impedance across frequency. An on-chip RISC-V control subsystem manages configuration and measurement sequencing.", "contribution": "Work across the overall system architecture, circuit design and analog/digital integration with the team, including excitation and measurement timing, block interfaces, control sequencing, calibration and end-to-end verification planning. My circuit work includes the simultaneous sample-and-hold channels, read buffers, analog mux and shared 8-bit SAR ADC. I also develop the conversion sequencer and coordinate how these blocks fit into the full sensing chain.", "results": ["The architecture combines excitation, voltage/current sensing, simultaneous capture, conversion, phase-synchronous processing and host readout in one mixed-signal system.", "Sampling/ADC block verification: selected nominal transient-noise simulations achieved 7.42 / 7.52-bit effective resolution for voltage / current; the selected 160 MHz controller profile passed the saved functional, corner and repeated-capture tests."], "next": "The project is in design and verification. Full-chip integration, physical supply/return design, layout and extracted verification remain part of the work toward tapeout. The numerical ADC results describe schematic-level block tests, not full-chip or measured-silicon performance.", "links": [{"type": "github", "url": "https://github.com/krishkc5/agrasic", "label": "Project repository"}], "media": [{"type": "image", "src": "projects/agrasic-signal-path.svg?v=system", "label": "AGRASIC system overview: excitation, analog sensing, simultaneous sampling, shared conversion, digital processing and host readout."}]},
-{"title": "TinySystolic: INT4 Matrix Accelerator", "short": "TinySystolic INT4 accelerator", "card": "A 2 × 2 systolic array taken from signed arithmetic and pin-level tests through routed layout.", "date": "Oct 2026", "category": "digital ml", "tags": ["SystemVerilog", "SKY130", "RTL to GDS"], "status": "Routed · electrical review open", "featured": true, "description": "A small matrix accelerator built for the Tiny Tapeout SKY26d flow. Four processing elements multiply signed INT4 operands with K = 1–16; a byte-wide interface handles operands, results and control. The host handles quantization, bias, activation and larger-matrix tiling.", "contribution": "Built and verified the arithmetic array and streaming protocol, mapped a quantized digit classifier onto the chip, and compared two routed implementations. Tightened accumulator widths using the arithmetic bounds rather than changing the external results.", "results": ["12.5% lower routed standard-cell area: 13,309 → 11,650 µm², under the same flow and 20 ns constraint.", "RTL matched the quantized reference across 6,660 tiles; the host-assisted classifier scored 327/360 held-out images (90.83%)."], "next": "Detailed timing reports still contain transition and fanout violations. No fabrication submission or silicon measurement is claimed; the weight-cache alternative remains experimental.", "links": [{"type": "github", "url": "https://github.com/krishkc5/tiny-systolic", "label": "Code & verification"}, {"type": "website", "url": "https://github.com/krishkc5/tiny-systolic/blob/main/reports/optimization.md", "label": "Routed comparison"}], "media": [{"type": "image", "src": "projects/tinysystolic-layout.png", "label": "Routed TinySystolic layout from the optimized physical-flow run."}]},
-{"title": "Ferroelectric Diode Modeling", "short": "Ferroelectric device model", "card": "Connecting polarization history, stack electrostatics and transport in AlScN ferroelectric devices.", "date": "2026", "category": "vlsi software", "tags": ["Python", "Device Physics", "Preisach"], "status": "Research in progress", "featured": true, "description": "A modeling workflow for metal / interlayer / AlScN / metal devices. A history-dependent multidomain Preisach model is coupled to stack electrostatics through a self-consistent solver, with a separate quasistatic transport path.", "contribution": "Extended a mentor reference implementation into material and thickness sweeps, transport analysis and constrained fitting workflows. Studied how interlayer dielectric properties, electrode screening and work-function asymmetry affect switching behavior.", "results": ["Reproducible polarization and transport sweeps across stack choices.", "Constrained multistart fitting tests a shared transport parameter set against five experimental device sweeps."], "next": "Model fits are evidence for the tested voltage windows, not a unique identification of transport mechanisms or material constants. Original Preisach implementation credited to Zirun Han.", "links": [{"type": "github", "url": "https://github.com/krishkc5/ferroelectric-diode-model", "label": "Model & attribution"}], "media": [{"type": "image", "src": "projects/ferroelectric-model.svg", "label": "Model structure: polarization history and electrostatics are solved together before transport is evaluated."}]},
+{"title": "DFT: Scan, JTAG & Logic BIST", "short": "DFT: scan, JTAG & BIST", "card": "Design-for-test infrastructure around a pipelined vector MAC array, combining scan access, JTAG control and logic self-test.", "date": "Dec 2025", "category": "digital", "tags": ["SystemVerilog", "DFT", "JTAG", "Verilator", "C++", "Perl"], "description": "Built an end-to-end DFT learning project around a pipelined vector MAC array. A scan wrapper provides structural test access, an IEEE 1149.1-style TAP controls test operations, and a logic BIST controller sequences pseudorandom patterns and signature collection.", "results": ["Integrated four balanced scan chains with JTAG-controlled scan operations.", "Implemented a 32-bit LFSR pattern generator and MISR response compactor for logic BIST.", "Built C++ fault-simulation and reporting tools, a Verilator integration testbench, and Perl automation for scan-chain stitching."], "links": [{"type": "github", "url": "https://github.com/krishkc5/dft_project", "label": "Code & architecture"}], "media": [{"type": "image", "src": "projects/covers/dft.svg", "label": "Scan, JTAG and logic BIST architecture for the vector MAC test project."}]},
+{"title": "SRAM Characterization & PVT Tradeoffs", "short": "SRAM characterization", "card": "6T SRAM stability, writability and leakage across process corners, with assist techniques and a bitcell-to-array modeling bridge.", "date": "Spring 2026", "category": "vlsi circuit", "tags": ["Cadence Virtuoso", "45nm CMOS", "SRAM", "NVSim"], "featured": true, "description": "Characterized a 6T SRAM bitcell for ESE 5760, using Cadence simulations to examine hold and read stability, write margins, transient behavior and leakage across process, voltage and temperature corners. Evaluated high-Vt devices, negative-bitline write assist and wordline underdrive, then connected the cell study to a 128 × 128, 8-bit, 16:1 NVSim macro model.", "contribution": "Built the characterization and analysis workflow around butterfly curves, read/write transients and supply-current measurements. Compared the assist techniques against the same corner baselines, and kept directly simulated bitcell measurements separate from NVSim macro estimates and derived proxies.", "results": ["At TT, 1.0 V: baseline hold SNM 422.3 mV and read SNM 212.5 mV.", "Wordline underdrive increased TT read SNM to 297.4 mV; negative-bitline assist reduced TT write delay from 21.2 ps to 9.6 ps in the selected simulations.", "Compared the tradeoffs across FF, TT and SS corners. Macro timing, energy and area are modeling results; assist-to-macro changes are labeled as derived proxies."], "links": [], "media": [{"type": "image", "src": "projects/sram-pvt-poster.png", "label": "ESE 5760 team poster: PVT-aware evaluation of 6T SRAM stability, writability and design tradeoffs."}, {"type": "image", "src": "projects/sram-pvt-summary.png", "label": "Baseline bitcell characterization across corners, generated from the Cadence data."}, {"type": "image", "src": "projects/sram-read-assist.png", "label": "Read-SNM comparison for wordline underdrive across the tested corners."}, {"type": "pdf", "src": "projects/sram-pvt-poster.pdf", "label": "Open the full-resolution poster"}]},
+{"title": "8-bit Pipelined ADC", "short": "8-bit pipeline ADC", "card": "A transistor-level converter with six 1.5-bit stages, digital error correction, and a 2-bit flash back end.", "date": "Spring 2026", "category": "circuit vlsi", "tags": ["Cadence Virtuoso", "Mixed-Signal", "Pipeline ADC", "Python"], "featured": false, "description": "Designed and characterized an 8-bit pipeline ADC as a team project for ESE 6680 at Penn. Built in AMI C5N 0.6 µm CMOS at a 5 V supply, the converter samples at 2.5 MS/s over a 1-4 V input range. A flip-around sample-and-hold feeds six redundant 1.5-bit stages, a 2-bit flash back end, and a digital decoder with timing alignment.", "results": ["Schematic-level simulation at 2.5 MS/s: 42.6 dB SNDR, 52.2 dB SFDR and 6.79-bit ENOB.", "DNL +0.90 / −0.77 LSB; INL +0.95 / −0.88 LSB, with no missing codes.", "17.92 mW average simulated power; 64.8 pJ/conversion-step using measured-from-simulation ENOB."], "links": [], "media": [{"type": "image", "src": "projects/pipeline-adc-spectrum.png", "label": "Output spectrum from the team report: simulated 42.6 dB SNDR and 6.79-bit ENOB."}, {"type": "image", "src": "projects/pipeline-adc-dnl.png", "label": "Static DNL across output codes, from the team’s ramp-test analysis."}, {"type": "image", "src": "projects/pipeline-adc-inl.png", "label": "Static INL from the same characterization."}, {"type": "pdf", "src": "projects/pipeline-adc-report.pdf", "label": "Read the 39-page team report"}]},
+{"title": "AGRASIC: Agricultural Impedance-Sensing ASIC Tapeout", "short": "AGRASIC sensing system", "card": "A mixed-signal sensing ASIC that brings excitation, voltage/current measurement, digital control and SPI readout onto one die.", "date": "Sep 2026 - Present", "category": "circuit digital", "tags": ["Mixed-Signal ASIC", "Impedance Sensing", "System Architecture"], "status": "System design & verification", "featured": true, "description": "AGRASIC is our senior-design mixed-signal ASIC for agricultural impedance sensing. The system drives a four-electrode probe with programmable excitation, senses voltage and current through an analog front end, and samples both channels at the same excitation phase. A shared SAR ADC digitizes the measurements; digital logic performs phase-synchronous accumulation and exposes results over SPI so a host can calculate complex impedance across frequency. An on-chip RISC-V control subsystem manages configuration and measurement sequencing.", "contribution": "Work across the overall system architecture, circuit design and analog/digital integration with the team, including excitation and measurement timing, block interfaces, control sequencing, calibration and end-to-end verification planning. My circuit work includes the simultaneous sample-and-hold channels, read buffers, analog mux and shared 8-bit SAR ADC. I also develop the conversion sequencer and coordinate how these blocks fit into the full sensing chain.", "results": ["The architecture combines excitation, voltage/current sensing, simultaneous capture, conversion, phase-synchronous processing and host readout in one mixed-signal system.", "Sampling/ADC block verification: selected nominal transient-noise simulations achieved 7.42 / 7.52-bit effective resolution for voltage / current; the selected 160 MHz controller profile passed the saved functional, corner and repeated-capture tests."], "next": "The project is in design and verification. Full-chip integration, physical supply/return design, layout and extracted verification remain part of the work toward tapeout. The numerical ADC results describe schematic-level block tests, not full-chip or measured-silicon performance.", "links": [{"type": "github", "url": "https://github.com/krishkc5/agrasic", "label": "Project repository"}], "media": [{"type": "image", "src": "projects/agrasic-signal-path.svg?v=clean-system", "label": "AGRASIC system overview: excitation, analog sensing, simultaneous sampling, shared conversion, digital processing and host readout."}]},
+{"title": "TinySystolic: INT4 Matrix Accelerator Tapeout", "short": "TinySystolic INT4 accelerator", "card": "A 2 × 2 systolic array taken from signed arithmetic and pin-level tests through routed layout.", "date": "Oct 2026", "category": "digital ml", "tags": ["SystemVerilog", "SKY130", "RTL to GDS"], "status": "Routed · electrical review open", "featured": true, "description": "A small matrix accelerator built for the Tiny Tapeout SKY26d flow. Four processing elements multiply signed INT4 operands with K = 1-16; a byte-wide interface handles operands, results and control. The host handles quantization, bias, activation and larger-matrix tiling.", "contribution": "Built and verified the arithmetic array and streaming protocol, mapped a quantized digit classifier onto the chip, and compared two routed implementations. Tightened accumulator widths using the arithmetic bounds rather than changing the external results.", "results": ["12.5% lower routed standard-cell area: 13,309 → 11,650 µm², under the same flow and 20 ns constraint.", "RTL matched the quantized reference across 6,660 tiles; the host-assisted classifier scored 327/360 held-out images (90.83%)."], "next": "Detailed timing reports still contain transition and fanout violations. No fabrication submission or silicon measurement is claimed; the weight-cache alternative remains experimental.", "links": [{"type": "github", "url": "https://github.com/krishkc5/tiny-systolic", "label": "Code & verification"}, {"type": "website", "url": "https://github.com/krishkc5/tiny-systolic/blob/main/reports/optimization.md", "label": "Routed comparison"}], "media": [{"type": "image", "src": "projects/tinysystolic-layout.png", "label": "Routed TinySystolic layout from the optimized physical-flow run."}]},
+{"title": "Ferroelectric Diode Modeling", "short": "Ferroelectric device model", "card": "Connecting polarization history, stack electrostatics and transport in AlScN ferroelectric devices.", "date": "2026", "category": "vlsi software", "tags": ["Python", "Device Physics", "Preisach"], "status": "Research in progress", "featured": true, "description": "A modeling workflow for metal / interlayer / AlScN / metal devices. A history-dependent multidomain Preisach model is coupled to stack electrostatics through a self-consistent solver, with a separate quasistatic transport path.", "contribution": "Extended a mentor reference implementation into material and thickness sweeps, transport analysis and constrained fitting workflows. Studied how interlayer dielectric properties, electrode screening and work-function asymmetry affect switching behavior.", "results": ["Reproducible polarization and transport sweeps across stack choices.", "Constrained multistart fitting tests a shared transport parameter set against five experimental device sweeps."], "next": "Model fits are evidence for the tested voltage windows, not a unique identification of transport mechanisms or material constants. Original Preisach implementation credited to Zirun Han.", "links": [{"type": "github", "url": "https://github.com/krishkc5/ferroelectric-diode-model", "label": "Model & attribution"}], "media": [{"type": "image", "src": "projects/ferroelectric-model-plot.png", "label": "Simulated AlScN polarization loops across interlayer thickness."}]},
             {
                 title: "Hardware Limit Order Book on FPGA",
                 card: "Fully pipelined FPGA order-matching engine with fixed 10 ns latency and 100M events/s throughput.",
@@ -479,6 +461,14 @@
             }
         ];
 
+
+        const REPORT_FIGURES = {"Wideband 45nm TIA": {"type": "image", "src": "projects/TIA-report-figure.png", "label": "Simulated TIA transimpedance magnitude from the project report (page 37)."}, "64-bit 6T SRAM": {"type": "image", "src": "projects/sram-report-figure.png", "label": "Figure from the 64-bit 6T SRAM project report (page 31)."}, "64-bit 3T1C DRAM": {"type": "image", "src": "projects/dram-report-figure.png", "label": "Figure from the 64-bit 3T1C DRAM project report (page 38)."}, "16:1 LUT for FPGA CLB": {"type": "image", "src": "projects/lut-report-figure.png", "label": "Figure from the 16:1 LUT for FPGA CLB project report (page 34)."}};
+        PROJECTS.forEach(p => { if (REPORT_FIGURES[p.title]) p.media = [REPORT_FIGURES[p.title], ...(p.media || [])]; });
+
+        PROJECTS.find(p=>p.title==='Programmable GHz-Class PLL Tapeout').media.unshift({type:'image',src:'projects/pll-coldstart.png',label:'Simulated PLL control-voltage cold-start behavior across three process/temperature cases.'});
+        const COVER_IMAGES = {"4x4 Dadda Array Multiplier": {"type": "image", "src": "projects/covers/multiplier.png", "label": "Project report figure, page 7."}, "8-bit Ripple Carry Adder": {"type": "image", "src": "projects/covers/adder.png", "label": "Project report figure, page 13."}, "GPU Energy Profiler": {"type": "image", "src": "projects/covers/gpu.png", "label": "Project report figure, page 11."}, "Ultrasonic Theremin": {"type": "image", "src": "projects/covers/theremin.png", "label": "Project report figure, page 10."}, "Embedded Pong Game": {"type": "image", "src": "projects/covers/pong.png", "label": "Project report figure, page 3."}, "Analog Metal Detector": {"type": "image", "src": "projects/covers/metal-detector.png", "label": "Project report figure, page 25."}, "2-Axis Analog Plotter": {"type": "image", "src": "projects/covers/plotter.png", "label": "Project report figure, page 1."}, "Coral Monitoring ROV": {"type": "image", "src": "projects/covers/coral.png", "label": "ROV prototype photograph from the project presentation."}, "RTL Verification Agent": {"type": "image", "src": "projects/covers/rtl-agent.png", "label": "Multiplier waveform example from the RTL verification agent."}, "Ring Oscillator TRNG": {"type": "image", "src": "projects/covers/trng.png", "label": "Saved TRNG analysis plots."}, "CircuitSmith": {"type": "image", "src": "projects/covers/circuitsmith.png", "label": "CircuitSmith cascaded amplifier frequency response."}, "Citadel Datathon Winner": {"type": "image", "src": "projects/covers/citadel.png", "label": "Analysis figure from the datathon submission."}, "F1/18th Autonomous Racer": {"type": "image", "src": "projects/covers/racer.png", "label": "Lane-boundary detection output from the autonomous racing research poster."}, "Hardware Limit Order Book on FPGA": {"type": "image", "src": "projects/covers/orderbook.svg", "label": "FPGA MARKET ENGINE."}, "Pipelined RISC-V Core": {"type": "image", "src": "projects/covers/riscv.svg", "label": "RV32IM \u00b7 FIVE-STAGE PIPELINE."}, "MOS Capacitor Simulator": {"type": "image", "src": "projects/covers/moscap.svg", "label": "MOS CAPACITOR \u00b7 DEPTH PROFILE EXPLORER."}, "Network Router Simulator": {"type": "image", "src": "projects/covers/router.svg", "label": "DIJKSTRA \u00b7 SHORTEST-PATH ENGINE."}, "Portfolio Website": {"type": "image", "src": "projects/covers/portfolio.png", "label": "Portfolio landing page with its particle background."}, "PX4 Telemetry Analyzer": {"type": "image", "src": "projects/covers/px4.png", "label": "Measured roll, pitch and yaw angular velocity from a PX4 project flight log."}};
+        PROJECTS.forEach(p => { if (COVER_IMAGES[p.title]) p.media = [COVER_IMAGES[p.title], ...(p.media || [])]; });
+
         const CATEGORY_COLORS = {
             digital: '#38bdf8',
             vlsi: '#22d3ee',
@@ -529,11 +519,18 @@
             'network router': 'Network Router Simulator'
         };
         const CURATED_GRAPH_CONNECTIONS = [
-            ["AGRASIC: Agricultural Impedance-Sensing ASIC", "tia"],
-            ["AGRASIC: Agricultural Impedance-Sensing ASIC", "rv32im"],
-            ["TinySystolic: INT4 Matrix Accelerator", "multiplier"],
-            ["TinySystolic: INT4 Matrix Accelerator", "rv32im"],
-            ["TinySystolic: INT4 Matrix Accelerator", "eaq"],
+            ["DFT: Scan, JTAG & Logic BIST", "TinySystolic: INT4 Matrix Accelerator Tapeout"],
+            ["DFT: Scan, JTAG & Logic BIST", "RTL Verification Agent"],
+            ['SRAM Characterization & PVT Tradeoffs','64-bit 6T SRAM'],
+            ['SRAM Characterization & PVT Tradeoffs','Ferroelectric Diode Modeling'],
+            ['8-bit Pipelined ADC','AGRASIC: Agricultural Impedance-Sensing ASIC Tapeout'],
+            ['8-bit Pipelined ADC','Wideband 45nm TIA'],
+            ['8-bit Pipelined ADC','Programmable GHz-Class PLL Tapeout'],
+            ["AGRASIC: Agricultural Impedance-Sensing ASIC Tapeout", "tia"],
+            ["AGRASIC: Agricultural Impedance-Sensing ASIC Tapeout", "rv32im"],
+            ["TinySystolic: INT4 Matrix Accelerator Tapeout", "multiplier"],
+            ["TinySystolic: INT4 Matrix Accelerator Tapeout", "rv32im"],
+            ["TinySystolic: INT4 Matrix Accelerator Tapeout", "eaq"],
             ["Ferroelectric Diode Modeling", "sram"],
             ["Ferroelectric Diode Modeling", "mos cap"],
 
@@ -579,36 +576,38 @@
             ['1/18 scale car', 'eaq']
         ];
         const PROJECT_DISPLAY_ORDER = [
-            "AGRASIC: Agricultural Impedance-Sensing ASIC",
-            "TinySystolic: INT4 Matrix Accelerator",
+            "AGRASIC: Agricultural Impedance-Sensing ASIC Tapeout",
+            "TinySystolic: INT4 Matrix Accelerator Tapeout",
+            "Programmable GHz-Class PLL Tapeout",
+            "SRAM Characterization & PVT Tradeoffs",
             "Ferroelectric Diode Modeling",
-
-            'Programmable GHz-Class PLL Tapeout',
-            'Wideband 45nm TIA',
-            '64-bit 3T1C DRAM',
-            '64-bit 6T SRAM',
-            '4x4 Dadda Array Multiplier',
-            '8-bit Ripple Carry Adder',
-            '16:1 LUT for FPGA CLB',
-            'MOS Capacitor Simulator',
-            'CircuitSmith',
-            'Analog Metal Detector',
-            'Ring Oscillator TRNG',
-            'Pipelined RISC-V Core',
-            'RTL Verification Agent',
-            'Hardware Limit Order Book on FPGA',
-            'Smart Brake Light',
-            'Ultrasonic Theremin',
-            'Embedded Pong Game',
-            '2-Axis Analog Plotter',
-            'F1/18th Autonomous Racer',
-            'PX4 Telemetry Analyzer',
-            'GPU Energy Profiler',
-            'F1 Tire Strategy Optimizer',
-            'Citadel Datathon Winner',
-            'Network Router Simulator',
-            'Portfolio Website',
-            'Coral Monitoring ROV'
+            "8-bit Pipelined ADC",
+            "Wideband 45nm TIA",
+            "64-bit 3T1C DRAM",
+            "64-bit 6T SRAM",
+            "4x4 Dadda Array Multiplier",
+            "8-bit Ripple Carry Adder",
+            "16:1 LUT for FPGA CLB",
+            "MOS Capacitor Simulator",
+            "CircuitSmith",
+            "Analog Metal Detector",
+            "Ring Oscillator TRNG",
+            "Pipelined RISC-V Core",
+            "DFT: Scan, JTAG & Logic BIST",
+            "RTL Verification Agent",
+            "Hardware Limit Order Book on FPGA",
+            "Smart Brake Light",
+            "Ultrasonic Theremin",
+            "Embedded Pong Game",
+            "2-Axis Analog Plotter",
+            "F1/18th Autonomous Racer",
+            "PX4 Telemetry Analyzer",
+            "GPU Energy Profiler",
+            "F1 Tire Strategy Optimizer",
+            "Citadel Datathon Winner",
+            "Network Router Simulator",
+            "Portfolio Website",
+            "Coral Monitoring ROV",
         ];
         let currentProjectFilter = 'all';
         let currentProjectView = 'grid';
@@ -635,14 +634,19 @@
                     return rankA - rankB;
                 });
 
-            grid.innerHTML = displayProjects.map(({ project: p, index: i }, rank) => `
-                <button type="button" class="glass-tile project-card ${p.featured ? 'project-featured' : ''}" data-category="${p.category}" data-index="${i}" aria-label="Read about ${escapeHtml(p.title)}">
-                    <div class="project-topline"><span class="project-number">${String(rank + 1).padStart(2, '0')}</span><span>${escapeHtml(p.status || p.date)}</span></div>
-                    <h3>${escapeHtml(p.title)}</h3>
-                    <p class="project-summary">${escapeHtml(p.card)}</p>
-                    <div class="project-card-footer"><span>${p.tags.slice(0, 3).map(escapeHtml).join(' / ')}</span><span class="project-arrow" aria-hidden="true">↗</span></div>
-                </button>
-            `).join('');
+            const lead = displayProjects.slice(0, 5);
+            const archive = displayProjects.slice(5);
+            grid.innerHTML = lead.map(({project:p,index:i},rank) => `
+                <button type="button" class="glass-tile project-story" data-category="${p.category}" data-index="${i}" aria-label="Read about ${escapeHtml(p.title)}">
+                    <div class="story-image"><img src="${p.media[0].src}" alt="${escapeHtml(p.media[0].label)}" loading="lazy"></div>
+                    <div class="story-copy"><span class="story-discipline">${escapeHtml(p.tags.slice(0,2).join(' / '))}</span><h3>${escapeHtml(p.title)}</h3><p>${escapeHtml(p.card)}</p><span class="story-link">Explore project <span aria-hidden="true">↗</span></span></div>
+                </button>`).join('') + `<section class="project-archive" aria-labelledby="allProjectsHeading"><h3 class="archive-heading" id="allProjectsHeading">More projects <span>${archive.length}</span></h3><div class="archive-grid">${archive.map(({project:p,index:i},rank)=>{
+                    const picture=(p.media||[]).find(m=>m.type==='image');
+                    const cat=getPrimaryCategory(p.category);
+                    const labels={digital:'RTL',vlsi:'VLSI',circuit:'ANALOG',embedded:'EMBEDDED',ml:'ML / DATA',software:'SOFTWARE'};
+                    const motif=`<svg viewBox="0 0 320 130" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1"><path d="M0 40H72V65H117M203 65H248V95H320M0 95H43V80H117M203 50H270V20H320"/><rect x="117" y="35" width="86" height="60"/><path d="M135 35V20M155 35V20M175 35V20M190 35V20M135 95V110M155 95V110M175 95V110M190 95V110"/><circle cx="72" cy="40" r="3"/><circle cx="248" cy="95" r="3"/></g></svg>`;
+                    return `<button type="button" class="glass-tile archive-project" data-category="${p.category}" data-index="${i}" aria-label="Read about ${escapeHtml(p.title)}"><div class="archive-art ${picture?'has-image':'abstract-art'}">${picture?`<img src="${picture.src}" alt="${escapeHtml(picture.label)}" loading="lazy">`:motif+`<span class="art-discipline">${labels[cat]||'PROJECT'}</span>`}</div><div class="archive-card-body"><div class="archive-card-meta"><span>${String(rank+6).padStart(2,'0')}</span><span>${escapeHtml(p.date)}</span></div><h3>${escapeHtml(p.title)}</h3><p>${escapeHtml(p.card)}</p><div class="archive-card-foot"><span>${escapeHtml(p.tags.slice(0,2).join(' / '))}</span><span aria-hidden="true">↗</span></div></div></button>`;
+                }).join('')}</div></section>`;
             document.getElementById('graphProjectSelect').innerHTML += displayProjects.map(({project:p,index:i}) => `<option value="${i}">${escapeHtml(p.title)}</option>`).join('');
         }
 
@@ -690,60 +694,62 @@
         }
 
         class ProjectGraph {
-            constructor(canvas, tooltip, projects, onNodeClick) {
-                this.canvas = canvas; this.ctx = canvas.getContext('2d');
-                this.projects = projects; this.onNodeClick = onNodeClick;
-                this.filter = 'all'; this.hovered = null; this.active = false;
-                this.groups = ['circuit', 'vlsi', 'digital', 'embedded', 'ml', 'software'];
-                this.names = {circuit:'ANALOG & MIXED SIGNAL', vlsi:'MEMORY & DEVICES', digital:'DIGITAL DESIGN', embedded:'EMBEDDED SYSTEMS', ml:'ML & DATA', software:'SOFTWARE'};
-                this.nodes = projects.map((project,index) => ({project,index,category:getPrimaryCategory(project.category)}));
-                const edges = new Set();
-                const connect = (a,b) => { if(a>=0 && b>=0 && a!==b) edges.add([Math.min(a,b),Math.max(a,b)].join(':')); };
-                projects.forEach((p,i) => projects.slice(i+1).forEach((q,k) => {if(p.tags.filter(t=>q.tags.includes(t)).length>=2) connect(i,i+k+1);}));
-                CURATED_GRAPH_CONNECTIONS.forEach(([a,b])=> connect(projects.findIndex(p=>p.title===(GRAPH_TITLE_ALIASES[a.toLowerCase()]||a)),projects.findIndex(p=>p.title===(GRAPH_TITLE_ALIASES[b.toLowerCase()]||b))));
-                this.edges = [...edges].map(e=>e.split(':').map(Number));
-                canvas.addEventListener('mousemove',e=>{const r=canvas.getBoundingClientRect(); const x=e.clientX-r.left,y=e.clientY-r.top;this.hovered=this.nodes.find(n=>n.visible && x>=n.x && x<=n.x+n.w && y>=n.y && y<=n.y+48)||null;canvas.style.cursor=this.hovered?'pointer':'default';this.draw();});
-                canvas.addEventListener('mouseleave',()=>{this.hovered=null;this.draw();});
-                canvas.addEventListener('click',e=>{const r=canvas.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;const node=this.nodes.find(n=>n.visible&&x>=n.x&&x<=n.x+n.w&&y>=n.y&&y<=n.y+48);if(node)this.onNodeClick(node.index);});
-                window.addEventListener('resize',()=>{if(this.active)this.resize();});
-                document.getElementById('graphProjectSelect').addEventListener('change',e=>{if(e.target.value!==''){this.onNodeClick(Number(e.target.value)); e.target.value='';}});
-            }
-            setFilter(filter) {this.filter=filter;this.hovered=null;if(this.active)this.resize();}
-            setActive(active) {this.active=active;if(active)this.resize();}
-            resize() {
-                const width=this.canvas.getBoundingClientRect().width;if(!width)return;
-                const cols=width>800?3:width>560?2:1, gap=36, pad=28, cw=(width-pad*2-gap*(cols-1))/cols;
-                let top=44; this.headings=[];
-                this.nodes.forEach(n=>n.visible=matchesFilter(n.project.category,this.filter));
-                const groups=this.groups.filter(g=>this.nodes.some(n=>n.visible&&n.category===g));
-                for(let row=0;row<groups.length;row+=cols){
-                    let count=0;
-                    groups.slice(row,row+cols).forEach((g,col)=>{
-                        const ns=this.nodes.filter(n=>n.visible&&n.category===g);count=Math.max(count,ns.length);
-                        const x=pad+col*(cw+gap);this.headings.push({text:this.names[g],x,y:top-16});
-                        ns.forEach((n,i)=>Object.assign(n,{x,y:top+i*62,w:cw}));
-                    });top+=count*62+54;
-                }
-                this.height=Math.max(320,top-20);this.width=width;
-                this.canvas.style.height=this.height+'px';const dpr=window.devicePixelRatio||1;
-                this.canvas.width=Math.round(width*dpr);this.canvas.height=Math.round(this.height*dpr);this.ctx.setTransform(dpr,0,0,dpr,0,0);this.draw();
-            }
-            draw() {
-                if(!this.active||!this.width)return;const c=this.ctx;c.clearRect(0,0,this.width,this.height);
-                const selected=this.hovered, related=new Set(selected?[selected.index]:[]);
-                if(selected)this.edges.forEach(([a,b])=>{if(a===selected.index)related.add(b);if(b===selected.index)related.add(a);});
-                this.edges.forEach(([a,b])=>{const n=this.nodes[a],m=this.nodes[b];if(!n.visible||!m.visible)return;const on=selected&&(a===selected.index||b===selected.index);if(selected&&!on)return;
-                    c.strokeStyle=on?'rgba(151,192,213,.7)':'rgba(128,156,183,.10)';c.lineWidth=on?1.2:.7;
-                    const x1=n.x+n.w/2,y1=n.y+24,x2=m.x+m.w/2,y2=m.y+24;
-                    c.beginPath();c.moveTo(x1,y1);c.bezierCurveTo(x1,(y1+y2)/2,x2,(y1+y2)/2,x2,y2);c.stroke();});
-                c.font='10px Inter, sans-serif';c.fillStyle='#a0afc2';this.headings.forEach(h=>c.fillText(h.text,h.x,h.y));
-                this.nodes.forEach(n=>{if(!n.visible)return;const on=selected?.index===n.index,dim=selected&&!related.has(n.index);c.globalAlpha=dim?.35:1;
-                    c.fillStyle=on?'#1b2b40':'#10172b';c.fillRect(n.x,n.y,n.w,48);c.strokeStyle=on?'#95bfd3':'#2b354b';c.lineWidth=on?1.2:.7;c.strokeRect(n.x+.5,n.y+.5,n.w-1,47);
-                    c.fillStyle=n.project.featured?'#b7d8e4':'#70889e';c.fillRect(n.x+12,n.y+21,5,5);
-                    c.fillStyle='#e0e7ee';c.font='11px Inter, sans-serif';const title=n.project.short||n.project.title;
-                    const words=title.split(' ');let line='',lines=[];words.forEach(word=>{const t=line?line+' '+word:word;if(c.measureText(t).width>n.w-40&&line){lines.push(line);line=word;}else line=t;});lines.push(line);
-                    lines.slice(0,2).forEach((l,i)=>c.fillText(l,n.x+26,n.y+(lines.length>1?20:28)+i*15));c.globalAlpha=1;
+            constructor(canvas,tooltip,projects,onNodeClick) {
+                Object.assign(this,{canvas,tooltip,projects,onNodeClick,ctx:canvas.getContext('2d'),active:false,filter:'all',hovered:null,dragged:null,gesture:null,zoom:1,pan:{x:0,y:0},yaw:.22,pitch:-.14});
+                this.palette={circuit:'#f5ad48',digital:'#52b8ff',vlsi:'#b88aff',embedded:'#43d6a0',ml:'#f574a6',software:'#e3df6b'};
+                this.categories=Object.keys(this.palette);
+                this.nodes=projects.map((p,i)=>{const category=getPrimaryCategory(p.category),g=this.categories.indexOf(category),angle=g*Math.PI/3+(i%5-.5)*.23;return {p,i,category,x:Math.cos(angle)*(120+(i%5)*33),y:Math.sin(angle)*(120+(i%5)*33),z:Math.sin(i*2.399)*125,vx:0,vy:0,visible:true,r:5};});
+                const edges=new Set(),add=(a,b)=>{if(a>=0&&b>=0&&a!==b)edges.add([Math.min(a,b),Math.max(a,b)].join(':'));};
+                projects.forEach((p,i)=>projects.slice(i+1).forEach((q,j)=>{if(p.tags.filter(t=>q.tags.includes(t)).length>=2)add(i,i+j+1);}));
+                CURATED_GRAPH_CONNECTIONS.forEach(([a,b])=>add(projects.findIndex(p=>p.title===(GRAPH_TITLE_ALIASES[a.toLowerCase()]||a)),projects.findIndex(p=>p.title===(GRAPH_TITLE_ALIASES[b.toLowerCase()]||b))));
+                this.edges=[...edges].map(e=>e.split(':').map(Number));this.edges.forEach(([a,b])=>{this.nodes[a].r+=.16;this.nodes[b].r+=.16;});
+                // Compute the layout before its first paint. Coordinates never drift afterward.
+                for(let i=0;i<420;i++)this.relax();
+                this.home=this.nodes.map(n=>({x:n.x,y:n.y,z:n.z}));
+                canvas.style.touchAction='none';canvas.tabIndex=0;
+                canvas.addEventListener('pointerdown',e=>{const p=this.point(e);this.dragged=this.hit(p);this.gesture={lastX:e.clientX,lastY:e.clientY,moved:0,pan:e.shiftKey};canvas.setPointerCapture(e.pointerId);canvas.style.cursor='grabbing';});
+                canvas.addEventListener('pointermove',e=>{
+                    const p=this.point(e);
+                    if(this.gesture){
+                        const dx=e.clientX-this.gesture.lastX,dy=e.clientY-this.gesture.lastY;this.gesture.moved+=Math.abs(dx)+Math.abs(dy);
+                        if(this.dragged){const n=this.dragged,sc=this.project(n).scale*this.zoom,a=dx/sc,b=dy/sc,cy=Math.cos(this.yaw),sy=Math.sin(this.yaw),cp=Math.cos(this.pitch),sp=Math.sin(this.pitch);n.x+=cy*a+sy*sp*b;n.y+=cp*b;n.z+=sy*a-cy*sp*b;}
+                        else if(this.gesture.pan){this.pan.x+=dx;this.pan.y+=dy;}
+                        else{this.yaw+=dx*.007;this.pitch=Math.max(-1.35,Math.min(1.35,this.pitch+dy*.007));}
+                        this.gesture.lastX=e.clientX;this.gesture.lastY=e.clientY;
+                    }else{this.hovered=this.hit(p);canvas.style.cursor=this.hovered?'pointer':'grab';}
+                    this.draw();
                 });
+                canvas.addEventListener('pointerup',e=>{const node=this.hit(this.point(e)),click=this.gesture&&this.gesture.moved<6;this.gesture=null;this.dragged=null;if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);this.draw();if(click&&node)this.onNodeClick(node.i);});
+                canvas.addEventListener('pointercancel',()=>{this.gesture=null;this.dragged=null;this.draw();});
+                canvas.addEventListener('pointerleave',()=>{if(!this.gesture){this.hovered=null;this.draw();}});
+                canvas.addEventListener('wheel',e=>{e.preventDefault();const p=this.point(e),old=this.zoom;this.zoom=Math.max(.45,Math.min(2.8,old*Math.exp(-e.deltaY*.001)));this.pan.x=p.x-this.width/2-(p.x-this.width/2-this.pan.x)*this.zoom/old;this.pan.y=p.y-this.height/2-(p.y-this.height/2-this.pan.y)*this.zoom/old;this.draw();},{passive:false});
+                canvas.addEventListener('keydown',e=>{const step=.08;switch(e.key){case 'ArrowLeft':this.yaw-=step;break;case 'ArrowRight':this.yaw+=step;break;case 'ArrowUp':this.pitch=Math.max(-1.35,this.pitch-step);break;case 'ArrowDown':this.pitch=Math.min(1.35,this.pitch+step);break;case '+':case '=':this.zoom=Math.min(2.8,this.zoom*1.1);break;case '-':this.zoom=Math.max(.45,this.zoom/1.1);break;case 'Home':this.reset();break;default:return;}e.preventDefault();this.draw();});
+                document.getElementById('graphProjectSelect').addEventListener('change',e=>{if(e.target.value!==''){this.onNodeClick(Number(e.target.value));e.target.value='';}});
+                window.addEventListener('resize',()=>{if(this.active){this.resize();this.draw();}});
+                document.fonts?.ready.then(()=>this.draw());
+            }
+            point(e){const r=this.canvas.getBoundingClientRect();return {x:e.clientX-r.left,y:e.clientY-r.top};}
+            project(n){const cy=Math.cos(this.yaw),sy=Math.sin(this.yaw),cp=Math.cos(this.pitch),sp=Math.sin(this.pitch);const x=cy*n.x+sy*n.z,depth0=-sy*n.x+cy*n.z,y=cp*n.y-sp*depth0,z=sp*n.y+cp*depth0,scale=900/(900+z);return {x:this.width/2+this.pan.x+x*scale*this.zoom,y:this.height/2+this.pan.y+y*scale*this.zoom,z,scale};}
+            hit(p){return this.nodes.filter(n=>n.visible).map(n=>({n,v:this.project(n)})).sort((a,b)=>a.v.z-b.v.z).find(({n,v})=>Math.hypot(v.x-p.x,v.y-p.y)<Math.max(12,n.r*v.scale*this.zoom+4))?.n||null;}
+            reset(){this.pan={x:0,y:0};this.zoom=1;this.yaw=.22;this.pitch=-.14;this.hovered=null;this.nodes.forEach((n,i)=>Object.assign(n,this.home[i]));const pts=this.nodes.filter(n=>n.visible).map(n=>this.project(n));if(pts.length){const xs=pts.map(p=>p.x-this.width/2),ys=pts.map(p=>p.y-this.height/2),x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);this.zoom=Math.min(.95,(this.width-180)/Math.max(1,x1-x0),(this.height-110)/Math.max(1,y1-y0));this.pan.x=-(x0+x1)/2*this.zoom;this.pan.y=-(y0+y1)/2*this.zoom;}this.draw();}
+            setFilter(filter){this.filter=filter;this.nodes.forEach(n=>n.visible=matchesFilter(n.p.category,filter));this.draw();}
+            setActive(active){if(this.active===active)return;this.active=active;if(active){this.resize();if(!this.initialized){this.reset();this.initialized=true;}this.draw();}}
+            resize(){const r=this.canvas.getBoundingClientRect();if(!r.width)return;this.width=r.width;this.height=Math.min(760,Math.max(540,r.width*.72));this.canvas.style.height=this.height+'px';const dpr=Math.min(2,devicePixelRatio||1);this.canvas.width=Math.round(this.width*dpr);this.canvas.height=Math.round(this.height*dpr);this.ctx.setTransform(dpr,0,0,dpr,0,0);}
+            relax(){
+                const ns=this.nodes;
+                for(let i=0;i<ns.length;i++)for(let j=i+1;j<ns.length;j++){const a=ns[i],b=ns[j],dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||.1,f=1400/Math.max(120,d*d),fx=dx/d*f,fy=dy/d*f;a.vx-=fx;a.vy-=fy;b.vx+=fx;b.vy+=fy;}
+                this.edges.forEach(([i,j])=>{const a=this.nodes[i],b=this.nodes[j],dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)||1,f=(d-105)*.002,fx=dx/d*f,fy=dy/d*f;a.vx+=fx;a.vy+=fy;b.vx-=fx;b.vy-=fy;});
+                ns.forEach(n=>{const a=this.categories.indexOf(n.category)*Math.PI/3;n.vx+=(Math.cos(a)*170-n.x)*.0025;n.vy+=(Math.sin(a)*135-n.y)*.0025;n.vx*=.82;n.vy*=.82;n.x+=n.vx;n.y+=n.vy;});
+            }
+            draw(){
+                if(!this.active||!this.width)return;
+                const c=this.ctx;c.clearRect(0,0,this.width,this.height);const selected=this.dragged||this.hovered,related=new Set(selected?[selected.i]:[]);if(selected)this.edges.forEach(([a,b])=>{if(a===selected.i)related.add(b);if(b===selected.i)related.add(a);});
+                const projected=this.nodes.map(n=>this.project(n));
+                this.edges.forEach(([a,b])=>{const n=this.nodes[a],m=this.nodes[b];if(!n.visible||!m.visible)return;const u=projected[a],v=projected[b],on=selected&&(a===selected.i||b===selected.i);c.strokeStyle=on?'rgba(164,198,222,.8)':selected?'rgba(119,143,172,.04)':'rgba(119,143,172,.22)';c.lineWidth=on?1.2:.7;c.beginPath();c.moveTo(u.x,u.y);c.lineTo(v.x,v.y);c.stroke();});
+                const placed=[];
+                [...this.nodes].sort((a,b)=>projected[b.i].z-projected[a.i].z).forEach(n=>{if(!n.visible)return;const v=projected[n.i],on=selected===n,dim=selected&&!related.has(n.i),r=Math.max(3.5,n.r*v.scale*Math.sqrt(this.zoom)),depthAlpha=Math.max(.5,Math.min(1,v.scale*.85));c.globalAlpha=dim?.16:depthAlpha;c.fillStyle=this.palette[n.category]||'#a8bfd3';if(on){c.globalAlpha=.14;c.beginPath();c.arc(v.x,v.y,r+7,0,Math.PI*2);c.fill();c.globalAlpha=1;}c.beginPath();c.arc(v.x,v.y,on?r+1.5:r,0,Math.PI*2);c.fill();
+                    const full=n.p.short||n.p.title,label=on?full:full.length>30?full.slice(0,28)+'…':full;c.font=`${on?500:400} 11px Inter,sans-serif`;const width=c.measureText(label).width,box={x:v.x>this.width*.62?v.x-r-7-width:v.x+r+7,y:v.y-8,w:width,h:16};box.x=Math.max(8,Math.min(this.width-width-8,box.x));const overlaps=placed.some(p=>box.x<p.x+p.w&&box.x+box.w>p.x&&box.y<p.y+p.h&&box.y+box.h>p.y);if(on||related.has(n.i)||!overlaps){c.fillStyle=on?'#f1f7fc':'#a3b4c8';c.fillText(label,box.x,v.y+4);placed.push(box);}
+                });c.globalAlpha=1;
             }
         }
 
@@ -838,24 +844,31 @@
             }
         }
 
+
+        const SKILL_GROUPS = [["Analog & mixed-signal", [["Virtuoso / Spectre", "ADC|TIA|DRAM|SRAM|Multiplier|Adder|LUT", [1, 2]], ["SAR ADC", "AGRASIC", []], ["Pipeline ADC", "Pipelined ADC", []], ["PLL / VCO", "PLL", [1]], ["TIA / comparators", "TIA|ADC", [1, 2]], ["PVT / Monte Carlo", "PLL|CircuitSmith", []], ["LTspice / ngspice / Xschem", "PLL|Metal Detector|SRAM|DRAM", []], ["Altium / PCB Design", "Metal Detector|Autonomous Racer|Coral", [3, 4]], ["Oscilloscopes / Logic Analyzers", "Pong|Metal Detector|Theremin", [0, 4]]]], ["RTL & verification", [["SystemVerilog", "TinySystolic|RISC-V|Limit Order|TRNG|RTL Verification|Scan, JTAG", []], ["RISC-V", "RISC-V|AGRASIC", []], ["Verilator", "TinySystolic|RISC-V|Limit Order|RTL Verification|Scan, JTAG", []], ["cocotb / pyuvm", "TinySystolic|Limit Order|RISC-V", []], ["AXI", "RISC-V|Limit Order", []], ["JTAG", "AGRASIC|Scan, JTAG", []], ["DFT / Scan / BIST", "Scan, JTAG", []]]], ["Physical design", [["Yosys", "TinySystolic|Limit Order", []], ["OpenROAD", "TinySystolic", []], ["LibreLane", "TinySystolic", []], ["Magic / KLayout", "TinySystolic|PLL", [1]], ["SKY130", "TinySystolic|PLL", [1]], ["DRC / LVS / PEX", "TinySystolic|PLL", [1]], ["Electric VLSI", "6T SRAM|Ripple Carry", []]]], ["Embedded & camera", [["C / C++", "Pong|Brake|RISC-V|Limit Order|Scan, JTAG", [0, 3]], ["Linux drivers", "", [0]], ["CamX / Camera HAL", "", [0]], ["ROS2", "Autonomous Racer", [3]], ["Hardware timing", "AGRASIC", [0]], ["SPI / I2C / UART", "AGRASIC|Pong|Brake|Theremin", [0, 3]], ["Control Systems", "PLL|Analog Plotter|Autonomous Racer", [3, 4]], ["ATmega328PB / ESP32", "Pong|Brake|Theremin", []], ["Raspberry Pi / Jetson", "Autonomous Racer", [3]], ["FreeRTOS", "", [4]], ["SLAM / Sensor Fusion", "Autonomous Racer", [3]]]], ["Devices & research", [["AlScN ferroelectrics", "Ferroelectric", [2]], ["Compute-in-memory", "Ferroelectric", [1, 2]], ["SRAM / DRAM", "SRAM|DRAM", []], ["Preisach models", "Ferroelectric", [2]], ["Sentaurus TCAD", "", [2]], ["MATLAB", "", [2]], ["Keithley / Probe Stations", "", [2]]]], ["Software & ML", [["Python", "ADC|Ferroelectric|GPU Energy|F1 Tire|RTL Verification", [2]], ["NumPy / SciPy", "Ferroelectric|F1 Tire|CircuitSmith", []], ["PyTorch", "GPU Energy|CircuitSmith", []], ["CUDA / OpenCV", "GPU Energy", [3]], ["scikit-learn", "Citadel|F1 Tire", []], ["Git / Linux", "TinySystolic|RISC-V|RTL Verification", [0]], ["Pandas / Matplotlib", "GPU Energy|F1 Tire|Citadel|PX4|MOS Capacitor", [2]], ["XGBoost", "F1 Tire", []]]]];
+        function renderSkills() {
+            const network=document.getElementById('skillsNetwork');
+            network.innerHTML=SKILL_GROUPS.map(([name,skills],g)=>`<div class="skill-cluster"><h3><span aria-hidden="true"></span>${escapeHtml(name)}</h3><div>${skills.map(([label],k)=>`<button type="button" class="skill-node" data-skill="${g}:${k}" aria-haspopup="dialog">${escapeHtml(label)}</button>`).join('')}</div></div>`).join('');
+            network.addEventListener('click',e=>{const button=e.target.closest('[data-skill]');if(!button)return;selectSkill(button.dataset.skill);document.getElementById('skillCard').showModal();document.body.style.overflow='hidden';});
+            document.getElementById('skillConnections').addEventListener('click',e=>{const project=e.target.closest('[data-skill-project]');if(project){closeSkillCard(()=>openModal(Number(project.dataset.skillProject)));return;}const role=e.target.closest('[data-skill-role]');if(role){closeSkillCard(()=>{const entry=document.querySelectorAll('.experience-disclosure')[Number(role.dataset.skillRole)];entry.open=true;entry.scrollIntoView({behavior:'smooth',block:'center'});});}});
+            const card=document.getElementById('skillCard');
+            card.querySelector('.skill-card-close').addEventListener('click',()=>closeSkillCard());
+            card.addEventListener('cancel',e=>{e.preventDefault();closeSkillCard();});
+            card.addEventListener('click',e=>{if(e.target===card){const r=card.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeSkillCard();}});
+            card.addEventListener('close',()=>{document.body.style.overflow='';});
+        }
+        function closeSkillCard(afterClose){const card=document.getElementById('skillCard');if(!card.open||card.classList.contains('closing'))return;const finish=()=>{card.close();card.classList.remove('closing');document.body.style.overflow='';if(typeof afterClose==='function')afterClose();};if(matchMedia('(prefers-reduced-motion: reduce)').matches){finish();return;}card.classList.add('closing');card.addEventListener('animationend',finish,{once:true});}
+        function selectSkill(key) {
+            const [g,k]=key.split(':').map(Number),[label,pattern,roles]=SKILL_GROUPS[g][1][k];
+            const re=pattern?new RegExp(pattern,'i'):null;
+            const projects=PROJECTS.map((p,i)=>({p,i})).filter(({p})=>re&&re.test(p.title));
+            const employers=['Qualcomm','Stealth startup','Jariwala Lab','xLab'];
+            document.getElementById('skillConnections').innerHTML=`<div class="skill-connection-title"><span class="connection-dot"></span><h3 id="skillCardTitle">${escapeHtml(label)}</h3><span>in my work</span></div><div class="connection-links">${projects.map(({p,i})=>`<button type="button" data-skill-project="${i}"><span class="connection-type">Project</span>${escapeHtml(p.short||p.title)}<span aria-hidden="true">↗</span></button>`).join('')}${roles.map(i=>`<button type="button" data-skill-role="${i}"><span class="connection-type">Experience</span>${employers[i]}<span aria-hidden="true">↗</span></button>`).join('')}${!projects.length&&!roles.length?'<p>Included in my embedded systems toolkit. I have not attached a specific project example yet.</p>':''}</div>`;
+        }
+
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('skillsExpand').addEventListener('click', e => {
-                const button = e.currentTarget;
-                const expanded = button.getAttribute('aria-expanded') !== 'true';
-                button.setAttribute('aria-expanded', String(expanded));
-                document.getElementById('technologyMap').classList.toggle('is-expanded', expanded);
-                button.innerHTML = expanded ? 'Show fewer <span aria-hidden="true">−</span>' : 'Show all technologies <span aria-hidden="true">+</span>';
-            });
-            document.querySelectorAll('[data-skill-filter]').forEach(button => {
-                button.addEventListener('click', () => {
-                    const filter = button.dataset.skillFilter;
-                    document.querySelectorAll('[data-skill-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
-                    document.querySelectorAll('[data-skill-category]').forEach(group => {
-                        group.hidden = filter !== 'all' && group.dataset.skillCategory !== filter;
-                    });
-                });
-            });
+            renderSkills();
             // Typewriter
             const typewriterElement = document.querySelector('.typewriter-text');
             const roles = [
