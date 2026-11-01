@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=20261031-experience">
+    <link rel="stylesheet" href="styles.css?v=20261031-keywords">
 </head>
 <body>
     <canvas id="bgCanvas"></canvas>
@@ -97,15 +97,28 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills"><div class="container"><div class="section-heading"><h2>Technical skills</h2></div><dl class="skills-list">
-                <div class="skills-row"><dt>Analog &amp; mixed-signal</dt><dd><p>SAR ADCs, sample-and-hold, TIAs, comparators, PLLs / VCOs, LNAs, charge pumps, bandgap references, sense amplifiers, LDOs and DC–DC converters.</p><p class="skill-tools">Cadence Virtuoso / Spectre · xschem · ngspice · LTspice · Verilog-A · PVT / Monte Carlo</p></dd></div>
-                <div class="skills-row"><dt>Digital design &amp; verification</dt><dd><p>SystemVerilog / Verilog, RISC-V, pipelining, systolic arrays, AXI-Lite / AXI-Stream, SPI control, scan / ATPG-style fault simulation, JTAG and logic BIST.</p><p class="skill-tools">Verilator · cocotb · pyuvm · assertions · scoreboards · ModelSim · Quartus · Surfer</p></dd></div>
-                <div class="skills-row"><dt>Physical implementation</dt><dd><p>Synthesis, static timing analysis, custom layout, DRC / LVS and parasitic extraction; SKY130, 180 nm mixed-signal, 45 nm and 22 nm CMOS project work.</p><p class="skill-tools">Yosys · OpenROAD · LibreLane · Magic · KLayout · Electric VLSI</p></dd></div>
-                <div class="skills-row"><dt>Embedded &amp; camera systems</dt><dd><p>Linux kernel drivers, Camera HAL / CamX, CCI register programming, hardware-timer synchronization, firmware, RTOS and hardware/software integration.</p><p class="skill-tools">C / C++ · ROS2 · FreeRTOS · ATmega328PB · Raspberry Pi · Jetson Orin Nano · SPI / I2C / UART / JTAG</p></dd></div>
-                <div class="skills-row"><dt>Devices &amp; modeling</dt><dd><p>SRAM / DRAM cells and periphery, AlScN ferroelectrics, compute-in-memory, multidomain Preisach modeling, stack electrostatics and transport fitting.</p><p class="skill-tools">Sentaurus TCAD · SPICE · MATLAB · SciPy · constrained optimization</p></dd></div>
-                <div class="skills-row"><dt>Software &amp; automation</dt><dd><p>Python, C, C++, Java, OCaml, Bash and JavaScript; simulation tooling, data pipelines, reference models and reproducible analysis.</p><p class="skill-tools">Linux · Git / Gerrit · NumPy · pandas · Matplotlib · HTML / CSS</p></dd></div>
-                <div class="skills-row"><dt>Machine learning &amp; vision</dt><dd><p>Model quantization, GPU energy profiling, computer vision, regression and Monte Carlo analysis.</p><p class="skill-tools">PyTorch · TensorFlow · scikit-learn · CUDA · OpenCV · XGBoost</p></dd></div>
-                <div class="skills-row"><dt>Hardware &amp; measurement</dt><dd><p>PCB design, sensor bring-up, timing captures, low-current characterization, automated measurement and flight-telemetry analysis.</p><p class="skill-tools">Altium · oscilloscopes · logic analyzers · Keithley analyzers · SolidWorks · PX4 / ULog</p></dd></div></dl></div></section>
+    <section id="skills">
+        <div class="container">
+            <div class="skills-heading"><h2>Technical skills</h2><span class="skills-index-label">Technology index</span></div>
+            <div class="skills-filters" role="group" aria-label="Filter technical skills">
+                <button type="button" data-skill-filter="all" aria-pressed="true">All</button>
+                <button type="button" data-skill-filter="silicon" aria-pressed="false">Silicon</button>
+                <button type="button" data-skill-filter="digital" aria-pressed="false">Digital</button>
+                <button type="button" data-skill-filter="systems" aria-pressed="false">Systems</button>
+                <button type="button" data-skill-filter="software" aria-pressed="false">Software & ML</button>
+            </div>
+            <div class="technology-map">
+                <div class="technology-group" data-skill-category="silicon"><div class="technology-label"><span aria-hidden="true">01</span><h3>Analog &amp; mixed-signal</h3></div><ul class="keyword-list" aria-label="Analog &amp; mixed-signal technologies"><li class="keyword-primary">Cadence Virtuoso</li><li class="keyword-primary">Spectre</li><li class="keyword-primary">SAR ADC</li><li>Sample-and-hold</li><li>TIA</li><li>PLL / VCO</li><li>LNA</li><li>Comparators</li><li>Bandgap references</li><li>Charge pumps</li><li>Sense amplifiers</li><li>LDO / DC–DC</li><li>xschem</li><li>ngspice</li><li>LTspice</li><li>Verilog-A</li><li>PVT</li><li>Monte Carlo</li></ul></div>
+                <div class="technology-group" data-skill-category="digital"><div class="technology-label"><span aria-hidden="true">02</span><h3>RTL &amp; verification</h3></div><ul class="keyword-list" aria-label="RTL &amp; verification technologies"><li class="keyword-primary">SystemVerilog</li><li class="keyword-primary">Verilog</li><li class="keyword-primary">RISC-V</li><li>Verilator</li><li>cocotb</li><li>pyuvm</li><li>AXI-Lite</li><li>AXI-Stream</li><li>Systolic arrays</li><li>Scan / ATPG</li><li>Logic BIST</li><li>Assertions</li><li>Scoreboards</li><li>ModelSim</li><li>Quartus</li><li>Surfer</li></ul></div>
+                <div class="technology-group" data-skill-category="silicon"><div class="technology-label"><span aria-hidden="true">03</span><h3>Physical design</h3></div><ul class="keyword-list" aria-label="Physical design technologies"><li class="keyword-primary">Yosys</li><li class="keyword-primary">OpenROAD</li><li class="keyword-primary">LibreLane</li><li>Magic</li><li>KLayout</li><li>Electric VLSI</li><li>SKY130</li><li>180 nm CMOS</li><li>45 nm CMOS</li><li>22 nm CMOS</li><li>Synthesis</li><li>Static timing</li><li>Custom layout</li><li>DRC / LVS</li><li>PEX</li></ul></div>
+                <div class="technology-group" data-skill-category="systems"><div class="technology-label"><span aria-hidden="true">04</span><h3>Embedded &amp; camera</h3></div><ul class="keyword-list" aria-label="Embedded &amp; camera technologies"><li class="keyword-primary">C / C++</li><li class="keyword-primary">Linux drivers</li><li class="keyword-primary">Camera HAL</li><li>CamX</li><li>CCI</li><li>ROS2</li><li>FreeRTOS</li><li>Jetson Orin Nano</li><li>Raspberry Pi</li><li>ATmega328PB</li><li>SPI</li><li>I2C</li><li>UART</li><li>JTAG</li><li>Hardware timers</li></ul></div>
+                <div class="technology-group" data-skill-category="silicon"><div class="technology-label"><span aria-hidden="true">05</span><h3>Devices &amp; modeling</h3></div><ul class="keyword-list" aria-label="Devices &amp; modeling technologies"><li class="keyword-primary">AlScN</li><li class="keyword-primary">Ferroelectrics</li><li class="keyword-primary">Compute-in-memory</li><li>SRAM</li><li>DRAM</li><li>Preisach models</li><li>Sentaurus TCAD</li><li>SPICE</li><li>MATLAB</li><li>SciPy</li><li>Electrostatics</li><li>Transport models</li><li>Constrained fitting</li></ul></div>
+                <div class="technology-group" data-skill-category="software"><div class="technology-label"><span aria-hidden="true">06</span><h3>Languages &amp; tools</h3></div><ul class="keyword-list" aria-label="Languages &amp; tools technologies"><li class="keyword-primary">Python</li><li class="keyword-primary">C</li><li class="keyword-primary">C++</li><li>Java</li><li>OCaml</li><li>Bash</li><li>JavaScript</li><li>HTML / CSS</li><li>Linux</li><li>Git / Gerrit</li><li>NumPy</li><li>pandas</li><li>Matplotlib</li></ul></div>
+                <div class="technology-group" data-skill-category="software"><div class="technology-label"><span aria-hidden="true">07</span><h3>ML &amp; computer vision</h3></div><ul class="keyword-list" aria-label="ML &amp; computer vision technologies"><li class="keyword-primary">PyTorch</li><li class="keyword-primary">TensorFlow</li><li class="keyword-primary">CUDA</li><li>OpenCV</li><li>scikit-learn</li><li>XGBoost</li><li>INT4 / INT8</li><li>Quantization</li><li>GPU profiling</li><li>Regression</li><li>Monte Carlo</li></ul></div>
+                <div class="technology-group" data-skill-category="systems"><div class="technology-label"><span aria-hidden="true">08</span><h3>Hardware &amp; lab</h3></div><ul class="keyword-list" aria-label="Hardware &amp; lab technologies"><li class="keyword-primary">Altium</li><li class="keyword-primary">Oscilloscopes</li><li class="keyword-primary">Logic analyzers</li><li>Keithley</li><li>SolidWorks</li><li>PX4 / ULog</li><li>PCB design</li><li>Sensor bring-up</li><li>Low-current measurements</li><li>Timing analysis</li><li>Measurement automation</li></ul></div>
+            </div>
+        </div>
+    </section>
 
     <!-- Projects Section -->
     <section id="projects">
@@ -840,6 +853,15 @@
 
         // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('[data-skill-filter]').forEach(button => {
+                button.addEventListener('click', () => {
+                    const filter = button.dataset.skillFilter;
+                    document.querySelectorAll('[data-skill-filter]').forEach(b => b.setAttribute('aria-pressed', String(b === button)));
+                    document.querySelectorAll('[data-skill-category]').forEach(group => {
+                        group.hidden = filter !== 'all' && group.dataset.skillCategory !== filter;
+                    });
+                });
+            });
             // Typewriter
             const typewriterElement = document.querySelector('.typewriter-text');
             const roles = [

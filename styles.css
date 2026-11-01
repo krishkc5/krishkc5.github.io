@@ -1349,3 +1349,30 @@ body > section:not(.hero) h2::after { display: none; }
     .skills-row dd { font-size: .82rem; }
     .contact-grid { gap: 1.25rem; }
 }
+
+/* Technology index: keywords arranged like a component inventory. */
+.skills-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+.skills-index-label { color: #91a7bb; font: .66rem 'Courier New', monospace; letter-spacing: .1em; text-transform: uppercase; }
+.skills-filters { display: flex; flex-wrap: wrap; gap: .3rem; padding-bottom: 1.5rem; }
+.skills-filters button { font-family: inherit; font-size: .78rem; background: transparent; color: #9dacc0; border: 1px solid transparent; border-radius: 2px; padding: .45rem .85rem; cursor: pointer; transition: color .2s, border-color .2s; }
+.skills-filters button:hover { color: #e4edf3; border-color: #3c5168; }
+.skills-filters button[aria-pressed="true"] { color: #d2e5ef; background: #142035; border-color: #4b657d; }
+.technology-map { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); column-gap: 3rem; border-top: 1px solid #3a4c62; }
+.technology-group { position: relative; padding: 1.65rem 0 1.8rem 1rem; border-bottom: 1px solid #2c374c; }
+.technology-group[hidden] { display: none; }
+.technology-group::before { content: ''; position: absolute; top: 1.9rem; left: 0; width: 4px; height: 4px; background: #92b5c9; }
+.technology-group::after { content: ''; position: absolute; top: 2.55rem; bottom: 1.8rem; left: 1px; width: 1px; background: linear-gradient(#4d6a80,transparent); }
+.technology-label { display: flex; align-items: baseline; gap: .8rem; margin-bottom: 1.2rem; }
+.technology-label > span { color: #7591a8; font: .65rem 'Courier New', monospace; }
+.technology-label h3 { font-size: .76rem; font-weight: 500; color: #a7bbcc; letter-spacing: .02em; }
+.keyword-list { list-style: none; display: flex; flex-wrap: wrap; align-items: baseline; gap: .55rem 1.15rem; padding: 0; margin: 0; }
+.keyword-list li { color: #adbdce; font-size: .84rem; line-height: 1.65; cursor: default; transition: color .18s; }
+.keyword-list .keyword-primary { font-size: 1.08rem; color: #e0ebf2; font-weight: 500; }
+.technology-group:hover .technology-label h3 { color: #c5e0ee; }
+.keyword-list li:hover { color: #fff; text-decoration: underline; text-decoration-color: #729db6; text-underline-offset: 5px; }
+@media(max-width:700px) {
+    .technology-map { grid-template-columns: minmax(0,1fr); }
+    .skills-index-label { font-size: .58rem; }
+    .keyword-list { gap: .5rem 1rem; }
+    .keyword-list .keyword-primary { font-size: 1rem; }
+}
