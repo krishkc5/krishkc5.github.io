@@ -1376,3 +1376,45 @@ body > section:not(.hero) h2::after { display: none; }
     .keyword-list { gap: .5rem 1rem; }
     .keyword-list .keyword-primary { font-size: 1rem; }
 }
+
+/* Experience at a glance; depth is available on demand. */
+.work-group { margin-bottom: 2.5rem; }
+.work-group > h3 { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 500; color: #92a9bf; padding: 0 0 .8rem; border-bottom: 1px solid #35425a; }
+.work-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 2.5rem; }
+.work-item { min-width: 0; padding: 1.5rem 0; border-bottom: 1px solid #263148; }
+.organization-heading { display: flex; align-items: center; gap: 1rem; min-height: 42px; }
+.organization-heading h4 { font-weight: 500; font-size: 1rem; line-height: 1.4; color: #e9eff5; }
+.work-date { color: #8fa4ba; font-size: .68rem; margin-top: .25rem; }
+.organization-logo, .organization-monogram { width: 54px; height: 42px; flex: 0 0 54px; display: flex; align-items: center; justify-content: center; }
+.organization-logo img { display: block; object-fit: contain; }
+.qualcomm-logo { width: 70px; flex-basis: 70px; background: #fff; border-radius: 2px; padding: 6px; }
+.qualcomm-logo img { width: 60px; height: auto; }
+.penn-logo img { width: 29px; height: 33px; }
+.organization-monogram { border: 1px solid #3b4a60; color: #bed0df; font: .78rem 'Courier New', monospace; letter-spacing: .04em; border-radius: 2px; }
+.work-role { font-size: .82rem; color: #d0dae5; margin-top: 1rem; line-height: 1.6; }
+.work-summary { font-size: .8rem; color: #99aec1; margin-top: .4rem; line-height: 1.7; }
+.work-details { margin-top: .8rem; }
+.work-details summary { cursor: pointer; color: #96b4ca; font-size: .7rem; width: fit-content; }
+.work-details ul { padding: .8rem 0 0 1rem; color: #b9c7d6; font-size: .8rem; line-height: 1.8; }
+.work-details li + li { margin-top: .5rem; }
+.work-supporting { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0 2rem; }
+.work-supporting .organization-heading { gap: .6rem; }
+.work-supporting .organization-heading h4 { font-size: .85rem; }
+.work-supporting .organization-logo, .work-supporting .organization-monogram { flex-basis: 34px; width: 34px; }
+.work-supporting .work-role { font-size: .76rem; }
+.work-supporting .work-summary { font-size: .75rem; }
+.skills-expand { color: #b2c9da; font-family: inherit; font-size: .72rem; cursor: pointer; border: 0; background: transparent; padding: .5rem 0; border-bottom: 1px solid #516b81; }
+.skills-expand span { display: inline-block; margin-left: .6rem; }
+.technology-group { padding-top: 1.2rem; padding-bottom: 1.2rem; }
+.technology-label { margin-bottom: .7rem; }
+.technology-group::before { top: 1.45rem; }
+.technology-group::after { top: 2rem; bottom: 1.2rem; }
+.technology-map:not(.is-expanded) .keyword-list li:nth-child(n+5) { display: none; }
+.keyword-list .keyword-primary { font-size: .95rem; font-weight: 400; }
+.keyword-list li { font-size: .82rem; }
+@media(max-width:900px) { .work-supporting { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width:600px) {
+    .work-grid { grid-template-columns: minmax(0,1fr); }
+    .skills-heading { align-items: flex-start; flex-direction: column; gap: 0; margin-bottom: 1rem; }
+    .skills-heading h2 { margin-bottom: .5rem !important; }
+}
