@@ -915,7 +915,7 @@
             setProjectView('grid');
 
             // Stable resume links open the corresponding project or experience card.
-            const resumeProjectLinks = {"agrasic": "AGRASIC: Agricultural Impedance-Sensing ASIC Tapeout", "tinysystolic": "TinySystolic: INT4 Matrix Accelerator Tapeout", "pll": "Programmable GHz-Class PLL Tapeout", "sram-pvt": "SRAM Characterization & PVT Tradeoffs", "risc-v": "Pipelined RISC-V Core", "dft": "DFT: Scan, JTAG & Logic BIST", "brake-light": "Smart Brake Light", "rtl-agent": "RTL Verification Agent", "gpu-energy": "GPU Energy Profiler", "trng": "Ring Oscillator TRNG"};
+            const resumeProjectLinks = {"agrasic": "AGRASIC: Agricultural Impedance-Sensing ASIC Tapeout", "tinysystolic": "TinySystolic: INT4 Matrix Accelerator Tapeout", "pll": "Programmable GHz-Class PLL Tapeout", "sram-pvt": "SRAM Characterization & PVT Tradeoffs", "risc-v": "Pipelined RISC-V Core", "dft": "DFT: Scan, JTAG & Logic BIST", "brake-light": "Smart Brake Light", "rtl-agent": "RTL Verification Agent", "gpu-energy": "GPU Energy Profiler", "trng": "Ring Oscillator TRNG", "citadel": "Citadel Datathon Winner", "network-router": "Network Router Simulator"};
             const resumeExperienceLinks = ['qualcomm','stealth','jariwala','xlab'];
             document.querySelectorAll('.experience-disclosure').forEach((entry,i)=>{if(resumeExperienceLinks[i])entry.id='experience-'+resumeExperienceLinks[i];});
             function openResumeCard(){
