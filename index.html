@@ -912,6 +912,24 @@
             });
             setProjectView('grid');
 
+            // Stable resume links open the corresponding project or experience card.
+            const resumeProjectLinks = {"agrasic": "AGRASIC: Agricultural Impedance-Sensing ASIC Tapeout", "tinysystolic": "TinySystolic: INT4 Matrix Accelerator Tapeout", "pll": "Programmable GHz-Class PLL Tapeout", "sram-pvt": "SRAM Characterization & PVT Tradeoffs", "risc-v": "Pipelined RISC-V Core", "dft": "DFT: Scan, JTAG & Logic BIST", "brake-light": "Smart Brake Light", "rtl-agent": "RTL Verification Agent", "gpu-energy": "GPU Energy Profiler", "trng": "Ring Oscillator TRNG"};
+            const resumeExperienceLinks = ['qualcomm','stealth','jariwala','xlab'];
+            document.querySelectorAll('.experience-disclosure').forEach((entry,i)=>{if(resumeExperienceLinks[i])entry.id='experience-'+resumeExperienceLinks[i];});
+            function openResumeCard(){
+                const hash=decodeURIComponent(location.hash.slice(1));
+                if(hash.startsWith('project-')){
+                    const title=resumeProjectLinks[hash.slice(8)],index=PROJECTS.findIndex(p=>p.title===title);
+                    if(index>=0){setProjectView('grid');openModal(index);}
+                }else if(hash.startsWith('experience-')){
+                    const entry=document.getElementById(hash);
+                    if(entry){closeModal();entry.open=true;entry.scrollIntoView({block:'start'});}
+                }
+            }
+            window.addEventListener('hashchange',openResumeCard);
+            openResumeCard();
+
+
             // Project card click -> open modal
             document.getElementById('projectsGrid').addEventListener('click', (e) => {
                 const card = e.target.closest('.glass-tile');
